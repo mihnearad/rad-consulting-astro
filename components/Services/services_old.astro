@@ -1,0 +1,144 @@
+<section id="services" class="services">
+  <div class="quote-container">
+    <div class="quote">"Your Goals, Our Expertise, Achieving Together"
+
+    </div>
+  </div>
+  <h2 class="services-title">Our Services</h2>
+  <div class="services-list">
+    <div class="service-item">
+      <div class="service-icon">💻</div>
+      <h3 class="service-title">IT Consulting</h3>
+      <p class="service-description">
+        Helping you make the most out of your technology, whether it's setting up new systems or fixing the old ones, so you can focus on what you do best.
+      </p>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">📈</div>
+      <h3 class="service-title">Data Analysis</h3>
+      <p class="service-description">
+        Turning your data into easy-to-understand insights, helping you see the bigger picture and make smarter decisions.
+      </p>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🧑🏽‍💻</div>
+      <h3 class="service-title">Webside Development</h3>
+      <p class="service-description">
+        Creating user-friendly websites that not only look great but are also easy to navigate, ensuring your online presence truly reflects your brand.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: var(--sectionPadding);
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+
+  .quote-container {
+    display: inline-block;
+    padding: 20px 50px;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    margin-bottom: 2em;
+    background-color: var(--primary);
+    animation: fadeIn 2s forwards;
+    opacity: 0;
+    transition: background-color 0.3s ease;
+
+    
+  }
+
+  .quote-container:hover
+    {
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+    }
+
+  .quote {
+    font-size: 2em;
+    color: var(--bodyTextColorWhite);
+    font-family: "Inter", sans-serif;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .services-title {
+    font-size: var(--headerFontSize);
+    margin-bottom: 1em;
+    color: var(--headerColor);
+    font-family: "Inter", sans-serif;
+  }
+
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .service-item:hover {
+    transition: 1s;
+    transform: scale(1.1);
+  }
+
+  .service-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 300px;
+    text-align: left;
+  }
+
+  .service-icon {
+    font-size: 3em;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+
+  .service-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--headerColor);
+    font-family: "Inter", sans-serif;
+  }
+
+  .service-description {
+    font-size: 1em;
+    color: var(--bodyTextColor);
+    font-family: "Inter", sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .services-list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .service-item {
+      max-width: none;
+      width: 80%;
+    }
+
+    .quote-container {
+      padding: 10px 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .quote-container {
+      padding: 10px 15px;
+    }
+
+    .quote {
+      font-size: 1.5em;
+    }
+  }
+</style>

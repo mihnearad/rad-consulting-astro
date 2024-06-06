@@ -12,7 +12,7 @@ Welcome to the official repository for Rad Consulting's website, built using Ast
 
 ## Project Overview
 
-Rad Consulting is a leading consulting firm specializing in business strategy, technology solutions, and operational efficiency. This repository contains the source code for our official website, designed to provide information about our services, team, and contact details.
+Rad Consulting is a consulting firm specializing in business strategy, technology solutions, and operational efficiency. This repository contains the source code for our official website, designed to provide information about our services, team, and contact details.
 
 ## Technologies Used
 

@@ -1,16 +1,14 @@
+---
+import { Image } from "astro:assets";
+import Logo from "/public/RAD_Logo_V2.png";
+---
+
 <!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
 <header id="cs-navigation">
   <div class="cs-container">
     <!--Nav Logo-->
     <a href="" class="cs-logo" aria-label="back to home">
-      <img
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Flogo-black.svg"
-        alt="logo"
-        width="210"
-        height="29"
-        aria-hidden="true"
-        decoding="async"
-      />
+      <Image src={Logo} alt="Logo" />
     </a>
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">
@@ -22,17 +20,17 @@
           <span class="cs-line cs-line3" aria-hidden="true"></span>
         </div>
       </button>
-      <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+      <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how many there are-->
       <div class="cs-ul-wrapper">
         <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
           <li class="cs-li">
             <a href="" class="cs-li-link cs-active"> Home </a>
           </li>
-          <li class="cs-li">
+          <!-- <li class="cs-li">
             <a href="" class="cs-li-link"> About </a>
-          </li>
+          </li> -->
           <li class="cs-li">
-            <a href="" class="cs-li-link"> Services </a>
+            <a href="#services-343" class="cs-li-link"> Services </a>
           </li>
           <li class="cs-li">
             <a href="" class="cs-li-link"> About Us </a>
@@ -143,7 +141,7 @@
       align-items: center;
     }
     #cs-navigation .cs-logo {
-      width: 40%;
+      width: 20%;
       max-width: 9.125rem;
       height: 100%;
       margin: 0 auto 0 0;
@@ -583,7 +581,7 @@
     }
     #cs-navigation .cs-li-link {
       /* 14px - 16px */
-      font-size: clamp(0.875rem, 1vw, 1rem);
+      font-size: clamp(0.975rem, 1vw, 1rem);
       line-height: 1.5em;
       text-decoration: none;
       margin: 0;
@@ -690,4 +688,3 @@
     item.addEventListener("click", onClick);
   }
 </script>
-

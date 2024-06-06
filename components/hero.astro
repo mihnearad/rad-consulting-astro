@@ -1,106 +1,150 @@
----
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section with Grid Overlay and Zoom Effect</title>
+    <style>
+        .hero {
+            position: relative;
+            padding: 150px 20px;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Hide the overflow */
+        }
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">We help you drive your business</h1>
-      <p class="hero-subtitle">Empowering Your Business with Expert Solutions</p>
-      <button class="hero-button" onclick="location.href='#services'">Discover Our Services</button>
-    </div>
-  </section>
-  
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
 
-<style>
-  .hero {
-    background-image: url('public/Background.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 150px 20px;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    position: relative;
-  }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomIn 10s ease-in-out forwards;
+        }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Add a dark overlay */
-    z-index: 1;
-  }
+        @keyframes zoomIn {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
 
-  .hero-title {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    line-height: 1.2;
-    font-weight: bold;
-  }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg, rgba(180,180,180,0.2) 1px, transparent 1px), 
+                              linear-gradient(rgba(180,180,180,0.2) 1px, transparent 1px);
+            background-size: 400px 400px;
+            z-index: 2;
+        }
 
-  .hero-subtitle {
-    font-size: 1.5em;
-    margin-bottom: 1.5em;
-    font-weight: 300;
-  }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-  .hero-button {
-    background-color: var(--primary);
-    border: none;
-    padding: 15px 30px;
-    font-size: 1em;
-    color: white;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-  }
+        .hero-title {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+            font-weight: bold;
+        }
 
-  .hero-button:hover {
-    background-color: #0056b3;
-  }
+        .hero-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+            font-weight: 300;
+        }
 
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2.5em;
-    }
+        .hero-button {
+            background-color: var(--primary);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
 
-    .hero-subtitle {
-      font-size: 1.2em;
-    }
+        .hero-button:hover {
+            background-color: var(--secondary);
+        }
 
-    .hero-button {
-      padding: 12px 24px;
-      font-size: 0.9em;
-    }
-  }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
 
-  @media (max-width: 480px) {
-    .hero-title {
-      font-size: 2em;
-    }
+            .hero-subtitle {
+                font-size: 1.2em;
+            }
 
-    .hero-subtitle {
-      font-size: 1em;
-    }
+            .hero-button {
+                padding: 12px 24px;
+                font-size: 0.9em;
+            }
+        }
 
-    .hero-button {
-      padding: 10px 20px;
-      font-size: 0.8em;
-    }
-  }
-</style>
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2em;
+            }
 
+            .hero-subtitle {
+                font-size: 1em;
+            }
+
+            .hero-button {
+                padding: 10px 20px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="public/Background.jpg" alt="Background">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Your Goals, Our Expertise, Achieving Together</h1>
+            <p class="hero-subtitle"></p>
+            <button class="hero-button" onclick="location.href='#services-343'">Discover Our Services</button>
+        </div>
+    </section>
+</body>
+</html>
