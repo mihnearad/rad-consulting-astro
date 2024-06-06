@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 ---
 
 <!-- ============================================ --><!--                   Services                   --><!-- ============================================ -->
-<section id="services-343">
+<section id="services">
   <div class="cs-container">
     <div class="cs-content">
       <span class="cs-topper">Our Services</span>
@@ -93,10 +93,10 @@ import { Image } from 'astro:assets';
 
   /* Mobile - 360px */
   @media only screen and (min-width: 0rem) {
-    #services-343 {
+    #services {
       padding: var(--sectionPadding);
     }
-    #services-343 .cs-container {
+    #services .cs-container {
       width: 100%;
       /* changes to 1440px at tablet */
       max-width: 34.375rem;
@@ -107,7 +107,7 @@ import { Image } from 'astro:assets';
       /* 48px - 64px */
       gap: clamp(3rem, 6vw, 4rem);
     }
-    #services-343 .cs-content {
+    #services .cs-content {
       /* set text align to left if content needs to be left aligned */
       text-align: center;
       width: 100%;
@@ -117,7 +117,7 @@ import { Image } from 'astro:assets';
       align-items: center;
     }
 
-    #services-343 .cs-card-group {
+    #services .cs-card-group {
       width: 100%;
       padding: 0;
       margin: 0;
@@ -128,30 +128,30 @@ import { Image } from 'astro:assets';
       /* 16px - 20px */
       gap: clamp(1rem, 1.6vw, 1.25rem);
     }
-    #services-343 .cs-item {
+    #services .cs-item {
       list-style: none;
       width: 100%;
       max-width: 31.25rem;
       border-radius: 0.5rem;
-      background-color: #fff;
+      background-color: #f5f5f5;
       position: relative;
       z-index: 1;
       transition:
         box-shadow 0.3s,
         transform 0.3s;
     }
-    #services-343 .cs-item:hover {
+    #services .cs-item:hover {
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       transform: translateY(-0.4375rem);
     }
-    #services-343 .cs-item:hover .cs-picture img {
+    #services .cs-item:hover .cs-picture img {
       opacity: 0.3;
       transform: scale(1.1);
     }
-    #services-343 .cs-item:hover .cs-h3 {
+    #services .cs-item:hover .cs-h3 {
       color: var(--primaryLight);
     }
-    #services-343 .cs-item:before {
+    #services .cs-item:before {
       /* border, done in pseudo so it can sit under the picture */
       content: "";
       width: 100%;
@@ -168,13 +168,13 @@ import { Image } from 'astro:assets';
       left: 0;
       z-index: -1;
     }
-    #services-343 .cs-link {
+    #services .cs-link {
       text-decoration: none;
       /* 16px - 24px */
       padding-bottom: clamp(1rem, 2.2vw, 1.5rem);
       display: block;
     }
-    #services-343 .cs-picture {
+    #services .cs-picture {
       width: 100%;
       height: 15rem;
       /* 16px - 24px */
@@ -187,7 +187,7 @@ import { Image } from 'astro:assets';
       position: relative;
       z-index: 10;
     }
-    #services-343 .cs-picture img {
+    #services .cs-picture img {
       position: absolute;
       top: 0;
       left: 0;
@@ -199,7 +199,7 @@ import { Image } from 'astro:assets';
         transform 0.6s,
         opacity 0.3s;
     }
-    #services-343 .cs-h3 {
+    #services .cs-h3 {
       /* 20px - 25px */
       font-size: clamp(1.25rem, 3vw, 1.5625rem);
       line-height: 1.2em;
@@ -210,7 +210,7 @@ import { Image } from 'astro:assets';
       padding: 0 clamp(1rem, 2vw, 1.5rem);
       transition: color 0.3s;
     }
-    #services-343 .cs-item-text {
+    #services .cs-item-text {
       /* 14px - 16px  */
       font-size: clamp(0.875rem, 1.5vw, 1rem);
       line-height: 1.5em;
@@ -222,21 +222,21 @@ import { Image } from 'astro:assets';
   }
   /* Tablet - 768px */
   @media only screen and (min-width: 48rem) {
-    #services-343 .cs-container {
+    #services .cs-container {
       max-width: 90rem;
     }
-    #services-343 .cs-card-group {
+    #services .cs-card-group {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: stretch;
     }
-    #services-343 .cs-item {
+    #services .cs-item {
       width: 48.9%;
     }
   }
   /* Desktop - 1300px */
   @media only screen and (min-width: 81.25rem) {
-    #services-343 .cs-item {
+    #services .cs-item {
       width: clamp(23.8%, 23vw, 23.95%);
     }
   }

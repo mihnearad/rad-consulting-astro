@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="about" id="about">
+  <div class="about-container">
+    <div class="about-content">
+      <span class="cs-topper">About Us</span>
+      <h2 class="cs-title">Small Team, Fast Solutions, Expert Results</h2>
+      <p class="cs-text">
+        We are dedicated to helping your business succeed. Our team is here to provide you with the best consulting
+        services, from IT solutions to data analysis and website design. We
+        believe in a collaborative approach to achieve the best results for our
+        clients. We operate in Netherlands, Belgium and Romania. 
+      </p>
+    </div>
+    <div class="about-image">
+      <Image
+        src="/public/Mihnea.JPG"
+        alt="About Us Section"
+        width={400}
+        height={300}
+        class="about-img"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--sectionPadding);
+    color: white;
+  }
+
+  .about-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust gap between columns */
+    text-align: right;
+  }
+
+  .about-content {
+    flex: 2;
+    padding: 20px;
+    text-align: left;
+  }
+
+  .about-image {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .about-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-content {
+      text-align: center;
+    }
+
+    .about-content p {
+      margin-top: 20px;
+      text-align: justify;
+    }
+
+    .about-image {
+      justify-self: center;
+    }
+  }
+</style>
