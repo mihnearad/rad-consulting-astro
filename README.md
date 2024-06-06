@@ -1,47 +1,69 @@
-# Astro Starter Kit: Minimal
+# Rad Consulting Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to the official repository for Rad Consulting's website, built using Astro.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Table of Contents
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Contributing](#contributing)
+- [License](#license)
 
-## 🚀 Project Structure
+## Project Overview
 
-Inside of your Astro project, you'll see the following folders and files:
+Rad Consulting is a leading consulting firm specializing in business strategy, technology solutions, and operational efficiency. This repository contains the source code for our official website, designed to provide information about our services, team, and contact details.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Technologies Used
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **Astro**: A modern static site generator that allows for a fast and optimized web experience.
+- **HTML/CSS**: Standard web technologies for structure and styling.
+- **JavaScript**: For interactive elements and functionality.
+- **Markdown**: For content management.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Setup and Installation
 
-Any static assets, like images, can be placed in the `public/` directory.
+To get a local copy up and running, follow these steps:
 
-## 🧞 Commands
+1. **Clone the repository**:
 
-All commands are run from the root of the project, from a terminal:
+    ```bash
+    git clone https://github.com/mihnearad/rad-consulting-astro.git
+    cd rad-consulting-astro
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. **Install dependencies**:
 
-## 👀 Want to learn more?
+    Make sure you have Node.js installed. Then run:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+    ```bash
+    npm install
+    ```
+
+3. **Start the development server**:
+
+    ```bash
+    npm start
+    ```
+
+    The website will be available at `http://localhost:3000`.
+
+## Contributing
+
+We welcome contributions from the community. To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
+
+Please ensure your code adheres to our coding standards and is well-documented.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for visiting our repository! For more information about Rad Consulting, visit our [website](https://www.radconsulting.com).
