@@ -3,8 +3,8 @@ import Navbar from "../../components/navbar.astro";
 import Hero from "../../components/hero.astro";
 import Services from "../../components/Services/services.astro";
 import About from "../../components/about.astro";
-import "/root/rad-consulting-astro/components/global.css"; // Import the global CSS file
-import WhyChooseUs from "/root/rad-consulting-astro/components/WhyChooseUs.astro";
+import "/root/rad-consulting-astro/src/pages/global.css"; // Import the global CSS file
+import WhyChooseUs from "../../components/our-process.astro";
 import Contact from "/root/rad-consulting-astro/components/contact-us.astro";
 import Footer from "/root/rad-consulting-astro/components/footer.astro";
 ---
@@ -15,8 +15,8 @@ import Footer from "/root/rad-consulting-astro/components/footer.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RAD Consulting</title>
-    <link rel="icon" href="public/V2.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/global.css" />
+    <link rel="icon" href="/RAD_Logo_V2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/root/rad-consulting-astro/src/pages/global.css" /> <!-- Correct path for CSS in the public directory -->
   </head>
   <body>
     <Navbar />

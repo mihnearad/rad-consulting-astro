@@ -3,7 +3,10 @@
     <div class="cs-content">
       <div class="cs-flex">
         <span class="cs-topper">Our Process</span>
-        <h2 class="cs-title">First consultation, free of charge.</h2>
+        <h2 class="cs-title" id="process-title">
+          <span class="cs-hover">Talk to us</span>, it's free.
+          <span class="cs-phone">+40742016463</span>
+        </h2>
       </div>
       <p class="cs-text">
         We are a dedicated team of experts committed to your success. With a
@@ -95,6 +98,18 @@
       /* 48px - 64px */
       gap: clamp(3rem, 6vw, 4rem);
     }
+
+    .cs-phone {
+      opacity: 0;
+      margin-left: 10px;
+      font-size: calc(var(--headerFontSize) * 0.7);
+      color: var(--primary);
+      transition: opacity 1s;
+    }
+    .cs-phone.visible {
+      opacity: 1;
+    }
+
     #our-process .cs-content {
       /* set text align to left if content needs to be left aligned */
       text-align: left;
@@ -133,7 +148,6 @@
       max-width: 40.625rem;
       margin: 0;
       color: var(--bodyTextColor);
-
     }
     #our-process .cs-text {
       max-width: 32.625rem;
@@ -204,7 +218,7 @@
     #our-process .cs-content {
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       gap: 4rem;
     }
     #our-process .cs-flex {
@@ -228,3 +242,23 @@
     }
   }
 </style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hoverElement = document.querySelector('.cs-hover');
+  const phoneElement = document.querySelector('.cs-phone');
+  
+  if (hoverElement && phoneElement) {
+    hoverElement.addEventListener('mouseover', () => {
+      phoneElement.classList.add('visible');
+      
+      setTimeout(() => {
+        phoneElement.classList.remove('visible');
+      }, 21000); // 1 second fade-in + 30 seconds visible
+    });
+  }
+});
+
+</script>
