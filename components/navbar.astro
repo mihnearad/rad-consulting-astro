@@ -647,12 +647,12 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
     }
   }
 </style>
-
 <script>
   // add classes for mobile navigation toggling
   var CSbody = document.querySelector("body");
   const CSnavbarMenu = document.querySelector("#cs-navigation");
   const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+
   if (CShamburgerMenu && CSnavbarMenu && CSbody) {
     CShamburgerMenu.addEventListener("click", function () {
       CShamburgerMenu.classList.toggle("cs-active");
@@ -662,6 +662,22 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
       }
       // run the function to check the aria-expanded value
       ariaExpanded();
+
+      // Add this block to close the menu after selecting an item
+      CSnavbarMenu.querySelectorAll(".cs-li-link").forEach(link => {
+        link.addEventListener("click", () => {
+          if (CShamburgerMenu) {
+            CShamburgerMenu.classList.remove("cs-active");
+          }
+          if (CSnavbarMenu) {
+            CSnavbarMenu.classList.remove("cs-active");
+          }
+          if (CSbody) {
+            CSbody.classList.remove("cs-open");
+          }
+          ariaExpanded();
+        });
+      });
     });
   }
 

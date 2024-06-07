@@ -46,7 +46,7 @@
     background-attachment: fixed; /* Parallax effect */
     animation: zoomIn 0.5s;
     z-index: 0;
-  }
+}
 
   @keyframes zoomIn {
     0% {
@@ -135,7 +135,18 @@
       padding: 12px 24px;
       font-size: 0.9em;
     }
-  }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("/Background.webp") center/cover no-repeat;
+      background-attachment: relative; /* Parallax effect */
+      animation: zoomIn 2.5s;
+      z-index: 0;
+    }
 
   @media (max-width: 480px) {
     .hero-title {
