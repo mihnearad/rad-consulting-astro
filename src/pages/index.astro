@@ -3,11 +3,12 @@ import Navbar from "../../components/navbar.astro";
 import Hero from "../../components/hero.astro";
 import Services from "../../components/Services/services.astro";
 import About from "../../components/about.astro";
-import "../styles/global.css";
 import WhyChooseUs from "../../components/our-process.astro";
 import Contact from "../../components/contact-us.astro";
 import Footer from "../../components/footer.astro";
-<!doctype html>
+import "../../styles/main.scss";
+---
+
 <html lang="en">
   <head>
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -15,7 +16,6 @@ import Footer from "../../components/footer.astro";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RAD Consulting</title>
     <link rel="icon" href="/RAD_Logo_V2_1.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="/root/rad-consulting-astro/src/global.css" /> <!-- Correct path for CSS in the public directory -->
   </head>
   <body>
     <Navbar />
@@ -32,10 +32,11 @@ import Footer from "../../components/footer.astro";
       <About />
     </section>
     <section id="faq">
+      <!-- FAQ goes here -->
     </section>
     <section id="contact">
-      <Contact/>
+      <Contact />
     </section>
-      <Footer/>
+    <Footer />
   </body>
 </html>
