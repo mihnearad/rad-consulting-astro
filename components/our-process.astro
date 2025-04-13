@@ -1,264 +1,58 @@
-<section id="our-process">
-  <div class="cs-container">
-    <div class="cs-content">
-      <div class="cs-flex">
-        <span class="cs-topper">Our Process</span>
-        <h2 class="cs-title" id="process-title">
-          <span class="cs-hover">Talk to us</span>, it's free.
-          <span class="cs-phone">+40742016463</span>
+<section id="our-process" class="py-5 bg-light">
+  <div class="container">
+    <div class="row mb-5 align-items-center">
+      <div class="col-lg-6">
+        <span class="text-uppercase text-primary fw-bold">Our Process</span>
+        <h2 class="display-6 fw-bold mt-2">
+          <div class="text-primary">Talk to us, it's free.</div>
+          <div class="d-block mt-2 text-muted">+40742016463</div>
         </h2>
       </div>
-      <p class="cs-text">
-        We are a dedicated team of experts committed to your success. With a
-        'security first' approach, we protect and grow your business. Our
-        customer-oriented philosophy ensures tailored, cost-efficient solutions.
-        Your satisfaction is our priority; if you're not happy, we'll go the
-        extra mile. Partner with us for fast, effective solutions and experience
-        the difference.
-      </p>
+      <div class="col-lg-6">
+        <p class="lead text-justify">
+          We are a dedicated team of experts committed to your success. With a
+          'security first' approach, we protect and grow your business. Our
+          customer-oriented philosophy ensures tailored, cost-efficient solutions.
+          Your satisfaction is our priority; if you're not happy, we'll go the
+          extra mile. Partner with us for fast, effective solutions and experience
+          the difference.
+        </p>
+      </div>
     </div>
-    <ul class="cs-card-group">
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/award.svg"
-          alt="icon"
-          width="48"
-          height="48"
-        />
-        <h3 class="cs-h3">100% Customer Satisfaction</h3>
-        <p class="cs-item-text">
-          Your satisfaction is our top priority. If you're not completely happy,
-          we'll go above and beyond to ensure we deliver the results you expect.
-        </p>
-      </li>
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/sheild-black.svg"
-          alt="icon"
-          width="40"
-          height="48"
-        />
-        <h3 class="cs-h3">Security first</h3>
-        <p class="cs-item-text">
-          Our 'security first' approach ensures your business is protected from
-          threats, providing a solid foundation for growth. By prioritizing
-          robust security measures, we keep your data and operations safe,
-          allowing you to focus on what matters most.
-        </p>
-      </li>
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/call.svg"
-          alt="icon"
-          width="48"
-          height="48"
-        />
-        <h3 class="cs-h3">Customer Oriented</h3>
-        <p class="cs-item-text">
-          We always advise on tailored, cost-efficient solutions that meet your
-          unique needs. Our focus is on providing value and ensuring your
-          business thrives with our personalized approach.
-        </p>
-      </li>
-    </ul>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 text-start shadow-sm border-0 p-4 bg-white">
+          <img src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/award.svg" alt="icon" width="48" height="48" class="mb-3" />
+          <h3 class="h5 fw-bold">100% Customer Satisfaction</h3>
+          <p>
+            Your satisfaction is our top priority. If you're not completely happy,
+            we'll go above and beyond to ensure we deliver the results you expect.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 text-start shadow-sm border-0 p-4 bg-white">
+          <img src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/sheild-black.svg" alt="icon" width="40" height="48" class="mb-3" />
+          <h3 class="h5 fw-bold">Security First</h3>
+          <p>
+            Our 'security first' approach ensures your business is protected from
+            threats, providing a solid foundation for growth. By prioritizing
+            robust security measures, we keep your data and operations safe,
+            allowing you to focus on what matters most.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 text-start shadow-sm border-0 p-4 bg-white">
+          <img src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/call.svg" alt="icon" width="48" height="48" class="mb-3" />
+          <h3 class="h5 fw-bold">Customer Oriented</h3>
+          <p>
+            We always advise on tailored, cost-efficient solutions that meet your
+            unique needs. Our focus is on providing value and ensuring your
+            business thrives with our personalized approach.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
-<style>
-  /*-- -------------------------- -->
-<---        Why Choose          -->
-<--- -------------------------- -*/
-
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #our-process {
-      text-align: center;
-      padding: var(--sectionPadding);
-    }
-    #our-process .cs-container {
-      width: 100%;
-      /* changes to 1280px on tablet */
-      max-width: 34.375rem;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* 48px - 64px */
-      gap: clamp(3rem, 6vw, 4rem);
-    }
-
-    .cs-phone {
-      opacity: 0;
-      margin-left: 10px;
-      font-size: calc(var(--headerFontSize) * 0.7);
-      color: var(--primary);
-      transition: opacity 1s;
-    }
-    .cs-phone.visible {
-      opacity: 1;
-    }
-
-    #our-process .cs-content {
-      /* set text align to left if content needs to be left aligned */
-      text-align: left;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      /* centers content horizontally, set to flex-start to left align */
-      align-items: flex-start;
-    }
-    #our-process .cs-topper {
-      font-size: var(--topperFontSize);
-      line-height: 1.2em;
-      text-transform: uppercase;
-      text-align: inherit;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
-      display: block;
-    }
-    #our-process .cs-title {
-      font-size: var(--headerFontSize);
-      font-weight: 900;
-      line-height: 1.2em;
-      text-align: inherit;
-      max-width: 43.75rem;
-      margin: 0 0 1rem 0;
-      color: var(--headerColor);
-      position: relative;
-    }
-    #our-process .cs-text {
-      font-size: var(--bodyFontSize);
-      line-height: 1.5em;
-      text-align: justify;
-      width: 100%;
-      max-width: 40.625rem;
-      margin: 0;
-      color: var(--bodyTextColor);
-    }
-    #our-process .cs-text {
-      max-width: 32.625rem;
-    }
-    #our-process .cs-card-group {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    #our-process .cs-item {
-      list-style: none;
-      text-align: left;
-      width: 100%;
-      padding: 2rem;
-      background-color: #f7f7f7;
-      border-radius: 1rem;
-      /* prevents padding from adding to height and width */
-      box-sizing: border-box;
-      transition: background-color 0.3s;
-    }
-    #our-process .cs-item:hover {
-      background-color: var(--primaryLight);
-      cursor: pointer;
-    }
-    #our-process .cs-item:hover .cs-icon {
-      filter: grayscale(1) brightness(200%);
-    }
-    #our-process .cs-item:hover .cs-h3 {
-      color: var(--bodyTextColorWhite);
-    }
-    #our-process .cs-item:hover .cs-item-text {
-      color: var(--bodyTextColorWhite);
-    }
-    #our-process .cs-icon {
-      width: auto;
-      height: 3rem;
-      margin-bottom: 1.5rem;
-      display: block;
-      transition: filter 0.3s;
-    }
-    #our-process .cs-h3 {
-      /* 20px - 25px */
-      font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
-      line-height: 1.2em;
-      margin: 0;
-      margin-bottom: 1rem;
-      color: var(--headerColor);
-      transition: color 0.3s;
-    }
-    #our-process .cs-item-text {
-      font-size: 1rem;
-      line-height: 1.5em;
-      margin: 0;
-      color: var(--bodyTextColor);
-      transition: color 0.3s;
-    }
-  }
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #our-process .cs-container {
-      max-width: 80rem;
-    }
-    #our-process .cs-content {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 4rem;
-    }
-    #our-process .cs-flex {
-      width: 50%;
-    }
-    #our-process .cs-title {
-      margin: 0;
-    }
-    #our-process .cs-card-group {
-      justify-content: space-between;
-      /* makes sure every box "stretches" to be the same height as the tallest box */
-      align-items: stretch;
-      flex-direction: row;
-      /* 16px - 20px */
-      gap: clamp(1rem, 1.5vw, 1.25rem);
-    }
-    #our-process .cs-item {
-      width: auto;
-      /* 16px - 32px */
-      padding: 2rem clamp(1rem, 2.1vw, 2rem);
-    }
-  }
-</style>
-
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function() {
-  const hoverElement = document.querySelector('.cs-hover');
-  const phoneElement = document.querySelector('.cs-phone');
-  
-  if (hoverElement && phoneElement) {
-    hoverElement.addEventListener('mouseover', () => {
-      phoneElement.classList.add('visible');
-      
-      setTimeout(() => {
-        phoneElement.classList.remove('visible');
-      }, 21000); // 1 second fade-in + 30 seconds visible
-    });
-  }
-});
-
-</script>

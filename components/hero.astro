@@ -1,39 +1,41 @@
-<!doctype html>
-<html lang="en" id="home">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hero Section with Parallax and Zoom Effect</title>
-  </head>
-  <body>
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">
+---
+
+---
+
+<section
+  class="hero d-flex justify-content-center align-items-center text-white text-center"
+>
+  <div class="hero-bg"></div>
+  <div class="container position-relative z-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h1 class="display-4 fw-bold mb-3">
           Your Goals, Our Expertise, Achieving Together
         </h1>
-        <p class="hero-subtitle"></p>
-        <button class="hero-button" onclick="location.href='#services-343'"
-          >Discover Our Services</button
-        >
+        <p class="lead mb-4"></p>
+        <a href="#services-343" class="btn fw-bold btn-primary btn-lg">
+          Discover Our Services
+        </a>
       </div>
-    </section>
-  </body>
-</html>
+    </div>
+  </div>
+</section>
 
 <style>
   .hero {
     position: relative;
-    padding: 150px 20px;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    padding: 150px 20px;
     overflow: hidden;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
+  }
+
+  .btn-primary:hover {
+    transition:
+      transform 0.3s ease-in,
+      box-shadow 0.3s ease-in;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
   }
 
   .hero-bg {
@@ -43,18 +45,9 @@
     right: 0;
     bottom: 0;
     background: url("/Background.webp") center/cover no-repeat;
-    background-attachment: fixed; /* Parallax effect */
-    animation: zoomIn 0.5s;
+    background-attachment: fixed;
+    animation: zoomIn 0.5s ease-out;
     z-index: 0;
-}
-
-  @keyframes zoomIn {
-    0% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
   }
 
   .hero::before {
@@ -68,98 +61,12 @@
     z-index: 1;
   }
 
-  .hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background-image: linear-gradient(
-        90deg,
-        rgba(180, 180, 180, 0.2) 1px,
-        transparent 1px
-      ),
-      linear-gradient(rgba(180, 180, 180, 0.2) 1px, transparent 1px);
-    background-size: 400px 400px; */
-    z-index: 2;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .hero-title {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    line-height: 1.2;
-    font-weight: bold;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5em;
-    margin-bottom: 1.5em;
-    font-weight: 300;
-  }
-
-  .hero-button {
-    background-color: var(--primary);
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    font-weight:bold;
-    color: white;
-    cursor: pointer;
-    text-transform: capitalize;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-  }
-
-  .hero-button:hover {
-    background-color: var(--secondary);
-  }
-
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: 2.5em;
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1.05);
     }
-
-    .hero-subtitle {
-      font-size: 1.2em;
-    }
-
-    .hero-button {
-      padding: 12px 24px;
-      font-size: 0.9em;
-    }
-
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("/Background.webp") center/cover no-repeat;
-      background-attachment: relative; /* Parallax effect */
-      animation: zoomIn 2.5s;
-      z-index: 0;
-    }
-
-  @media (max-width: 480px) {
-    .hero-title {
-      font-size: 2em;
-    }
-
-    .hero-subtitle {
-      font-size: 1em;
-    }
-
-    .hero-button {
-      padding: 10px 20px;
-      font-size: 0.8em;
+    100% {
+      transform: scale(1);
     }
   }
 </style>

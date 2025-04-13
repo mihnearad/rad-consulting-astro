@@ -1,0 +1,32 @@
+@use "sass:color";
+
+// Define your own variables
+$primary: #32477c;
+$secondary: #839176;
+
+// Configure Bootstrap with your variables
+@use "bootstrap/scss/bootstrap" with (
+  $primary: $primary,
+  $secondary: $secondary
+);
+
+// Override Bootstrap CSS variables
+:root {
+  --bs-btn-hover-bg: #839176; /* Custom hover background color */
+  --bs-btn-hover-border-color: #839176; /* Custom hover border color */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: $secondary;
+  border-color: $secondary;
+}
+
+.p {
+  color: $primary;
+}

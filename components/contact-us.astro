@@ -13,9 +13,18 @@
         novalidate
       >
         <!-- Add your Web3Forms Access Key -->
-        <input type="hidden" name="access_key" value="e5a38996-8ac1-4f53-9a15-dc1dacd2c7ba" />
-        <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
-        
+        <input
+          type="hidden"
+          name="access_key"
+          value="e5a38996-8ac1-4f53-9a15-dc1dacd2c7ba"
+        />
+        <input
+          type="checkbox"
+          class="hidden"
+          style="display:none"
+          name="botcheck"
+        />
+
         <label class="cs-label">
           Name
           <input
@@ -26,7 +35,9 @@
             name="name"
             placeholder="Name"
           />
-          <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+          <div
+            class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+          >
             Please provide your full name.
           </div>
         </label>
@@ -67,12 +78,16 @@
             name="message"
             id="message-1105"
             placeholder="Write message..."></textarea>
-          <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+          <div
+            class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
+          >
             Please enter your message.
           </div>
         </label>
 
-        <button class="cs-button-solid cs-submit" type="submit">Send Message</button>
+        <button class="btn fw-bold btn-primary btn-lg " type="submit"
+          >Send Message</button
+        >
         <div id="result" class="mt-3 text-center"></div>
       </form>
     </div>
@@ -108,7 +123,9 @@
         </picture>
         <div class="cs-flex-group">
           <span class="cs-header">Email</span>
-          <a href="mailto:info@stitchcarmechanics.com" class="cs-link">office@rad-limited.com</a>
+          <a href="mailto:info@stitchcarmechanics.com" class="cs-link"
+            >office@rad-limited.com</a
+          >
         </div>
       </li>
     </ul>
@@ -328,6 +345,7 @@
       object-fit: cover;
     }
   }
+
   /* Desktop - 1024px */
   @media only screen and (min-width: 64rem) {
     #contact .cs-container {

@@ -3,10 +3,11 @@ import Navbar from "../../components/navbar.astro";
 import Hero from "../../components/hero.astro";
 import Services from "../../components/Services/services.astro";
 import About from "../../components/about.astro";
-import "/root/rad-consulting-astro/src/global.css"; // Import the global CSS file
 import WhyChooseUs from "../../components/our-process.astro";
 import Contact from "/root/rad-consulting-astro/components/contact-us.astro";
 import Footer from "/root/rad-consulting-astro/components/footer.astro";
+import "../styles/main.scss";
+// import "../../src/global.css"
 ---
 
 <!doctype html>
@@ -17,7 +18,11 @@ import Footer from "/root/rad-consulting-astro/components/footer.astro";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RAD Consulting</title>
     <link rel="icon" href="/RAD_Logo_V2_1.webp" type="image/x-icon" />
-    <link rel="stylesheet" href="/root/rad-consulting-astro/src/global.css" /> <!-- Correct path for CSS in the public directory -->
+    <!-- Bootstrap CSS via CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <Navbar />
@@ -33,11 +38,11 @@ import Footer from "/root/rad-consulting-astro/components/footer.astro";
     <section id="about">
       <About />
     </section>
-    <section id="faq">
-    </section>
+    <section id="faq"></section>
     <section id="contact">
-      <Contact/>
+      <Contact />
     </section>
-      <Footer/>
+    <Footer />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
   </body>
 </html>
