@@ -108,16 +108,15 @@
   .hero-button {
     background-color: var(--primary);
     border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    font-weight:bold;
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px); /* Responsive padding */
+    font-size: clamp(1em, 2vw, 1.2em); /* Responsive font size */
+    font-weight: bold;
     color: white;
     cursor: pointer;
     text-transform: capitalize;
     transition: background-color 0.3s ease;
     border-radius: 5px;
   }
-
   .hero-button:hover {
     background-color: var(--secondary);
   }
@@ -131,10 +130,6 @@
       font-size: 1.2em;
     }
 
-    .hero-button {
-      padding: 12px 24px;
-      font-size: 0.9em;
-    }
 
     .hero-bg {
       position: absolute;
@@ -157,9 +152,5 @@
       font-size: 1em;
     }
 
-    .hero-button {
-      padding: 10px 20px;
-      font-size: 0.8em;
-    }
   }
 </style>
