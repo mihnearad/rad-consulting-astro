@@ -7,8 +7,8 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
 <header id="cs-navigation">
   <div class="cs-container">
     <!--Nav Logo-->
-    <a href="" class="cs-logo" aria-label="back to home">
-      <Image src={Logo} alt="Logo" />
+    <a href="/#home" class="cs-logo" aria-label="back to home">
+      <Image src={Logo} alt="RAD Consulting Logo" />
     </a>
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">
@@ -27,53 +27,16 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
             <a href="/#home" class="cs-li-link"> Home </a>
           </li>
           <li class="cs-li">
-            <a href="/#our-process" class="cs-li-link "> Our Process </a>
+            <a href="/#why-choose-us" class="cs-li-link">Our Process</a>
           </li>
           <li class="cs-li">
-            <a href="/#services" class="cs-li-link">
-                Services
-            </a>
-        </li>
+            <a href="/#services-343" class="cs-li-link">Services</a>
+          </li>
           <li class="cs-li">
             <a href="/#about" class="cs-li-link"> About </a>
           </li>
-          <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
-          <!-- <li class="cs-li cs-dropdown" tabindex="0">
-            <span class="cs-li-link">
-              Examples
-              <img
-                class="cs-drop-icon"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg"
-                alt="dropdown icon"
-                width="15"
-                height="15"
-                decoding="async"
-                aria-hidden="true"
-              /> -->
-            </span>
-            <ul class="cs-drop-ul">
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Semaglutide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Tirezapetide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Semaglutide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Tirezapetide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Semaglutide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Tirezapetide</a>
-              </li>
-            </ul>
-          </li>
           <li class="cs-li">
-            <a href="/faq" class="cs-li-link"> FAQ </a>
+            <a href="/faq" class="cs-li-link">FAQ</a>
           </li>
         </ul>
       </div>
@@ -615,17 +578,17 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
       transition: width 0.3s;
     }
     #cs-navigation .cs-button-solid {
-      font-size: 1rem;
+      font-size: 0.875rem;
       font-weight: 700;
-      /* 46px - 56px */
-      line-height: clamp(2.875em, 5.5vw, 3.5em);
+      /* 36px - 42px - reduced from 46px-56px */
+      line-height: clamp(2.25em, 4.5vw, 2.625em);
       text-align: center;
       text-decoration: none;
-      min-width: 9.375rem;
+      min-width: 7.5rem;
       margin: 0;
       /* prevents padding from adding to the width */
       box-sizing: border-box;
-      padding: 0 1.5rem;
+      padding: 0 1rem;
       color: #fff;
       background-color: var(--primary);
       border-radius: 0.25rem;
@@ -652,15 +615,15 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
   }
 
   .cs-whatsapp-button {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 700;
-  line-height: clamp(2.875em, 5.5vw, 3.5em);
+  line-height: clamp(2.25em, 4.5vw, 2.625em);
   text-align: center;
   text-decoration: none;
-  min-width: 9.375rem;
+  min-width: 7.5rem;
   margin: 0;
   box-sizing: border-box;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   color: #fff;
   background-color: var(--primary);
   border-radius: 0.25rem;
@@ -689,9 +652,9 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
 }
 
 .cs-whatsapp-button img {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
+  width: 16px;
+  height: 16px;
+  margin-right: 0.4rem;
   vertical-align: middle;
   filter: invert(1); /* Fully inverts the colors */
 }
@@ -757,4 +720,37 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
     };
     item.addEventListener("click", onClick);
   }
+
+  // Smooth scrolling for internal links and close mobile menu
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.cs-li-link[href^="/#"]');
+    const mobileNavToggle = document.querySelector('.cs-toggle');
+    const body = document.body;
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = e.target as HTMLAnchorElement;
+        const targetId = target.getAttribute('href')?.substring(2); // Remove '/#'
+        
+        if (targetId) {
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            // Close mobile menu if open
+            if (body.classList.contains('cs-open')) {
+              body.classList.remove('cs-open');
+              ariaExpanded();
+            }
+            
+            // Smooth scroll to target
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  });
 </script>

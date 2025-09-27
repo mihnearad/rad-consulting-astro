@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 ---
 
 <section class="about" id="about">
-  <div class="about-container">
+  <div class="cs-container">
     <div class="about-content">
       <span class="cs-topper">About Us</span>
       <h2 class="cs-title">Small Team, Fast Solutions, Expert Results</h2>
@@ -32,33 +32,61 @@ import { Image } from "astro:assets";
     color: white;
   }
 
-  .about-container {
+  .about .cs-container {
+    width: 100%;
+    /* Same max-width as Services section on mobile */
+    max-width: 34.375rem;
+    margin: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 20px; /* Adjust gap between columns */
-    text-align: right;
+    gap: clamp(3rem, 6vw, 4rem);
   }
 
   .about-content {
-    flex: 2;
-    padding: 20px;
+    width: 100%;
     text-align: left;
+    order: 1;
   }
 
   .about-image {
-    flex: 1;
-    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    order: 2;
   }
 
   .about-img {
     width: 100%;
+    max-width: 400px;
     height: auto;
     border-radius: 10px;
   }
 
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    .about .cs-container {
+      max-width: 90rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-content {
+      flex: 2;
+      padding: 20px;
+      order: 1;
+    }
+
+    .about-image {
+      flex: 1;
+      padding: 20px;
+      order: 2;
+    }
+  }
+
   @media (max-width: 768px) {
-    .about-container {
-      flex-direction: column;
+    .about .cs-container {
       text-align: center;
     }
 
@@ -69,10 +97,6 @@ import { Image } from "astro:assets";
     .about-content p {
       margin-top: 20px;
       text-align: justify;
-    }
-
-    .about-image {
-      justify-self: center;
     }
   }
 </style>
