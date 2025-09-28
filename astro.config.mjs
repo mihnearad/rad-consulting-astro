@@ -37,6 +37,36 @@ export default defineConfig({
   ],
   compressHTML: true,
   build: {
-    inlineStylesheets: 'auto'
+    inlineStylesheets: 'auto',
+    assets: '_astro'
+  },
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor': ['react', 'react-dom'],
+            'swiper': ['swiper']
+          },
+          assetFileNames: (assetInfo) => {
+            let extType = assetInfo.name.split('.')[1];
+            if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+              extType = 'images';
+            } else if (/woff|woff2|eot|ttf|otf/i.test(extType)) {
+              extType = 'fonts';
+            }
+            return `assets/${extType}/[name]-[hash][extname]`;
+          },
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js'
+        }
+      },
+      minify: 'esbuild',
+      target: 'esnext'
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'swiper']
+    }
   }
 });

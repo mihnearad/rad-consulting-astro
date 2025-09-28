@@ -55,6 +55,10 @@ import "../global.css";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
+    <!-- Preload critical scripts -->
+    <link rel="preload" as="script" href="/klaro-config.js" />
+    <link rel="preload" as="script" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" />
+
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
@@ -96,10 +100,6 @@ import "../global.css";
         ]
       }
     </script>
-
-    <!-- Klaro Cookie Consent -->
-    <script is:inline src="/klaro-config.js"></script>
-    <script is:inline src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js"></script>
   </head>
   <body>
     <!-- Klaro Cookie Consent -->
@@ -125,5 +125,10 @@ import "../global.css";
       <Contact />
     </section>
     <Footer />
+
+    <!-- Load Klaro Cookie Consent scripts after page content -->
+    <script src="/klaro-config.js" defer></script>
+    <script src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" defer></script>
+  </body>
   </body>
 </html>
