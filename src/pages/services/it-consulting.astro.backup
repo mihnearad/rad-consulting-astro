@@ -1,0 +1,774 @@
+---
+import Navbar from "../../../components/navbar.astro";
+import Footer from "../../../components/footer                        <div class="service-icon">🎓</div>astro";
+import { Image } from "astro:assets";
+import "../../global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Consulting - RAD Digital Solutions</title>
+    <link rel="icon" href="/logo_raddigitalsolutions.png" type="image/x-icon" />
+    <meta name="description" content="Professional IT consulting services to help you make the most out of your technology. From system setup to optimization, we focus on your business success." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <Navbar />
+    
+    <!-- Hero Section -->
+    <section class="hero-service">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">IT Consulting</h1>
+            <p class="hero-subtitle">
+                Helping you make the most out of your technology, whether it's setting up new systems or fixing the old ones, so you can focus on what you do best.
+            </p>
+            <a href="#contact" class="hero-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Why Choose Our IT Consulting?</span>
+                <h2 class="cs-title">Key Benefits</h2>
+            </div>
+            <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <p class="benefit-text">Reduced IT costs and improved efficiency</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <p class="benefit-text">Enhanced system security and reliability</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <p class="benefit-text">24/7 technical support and maintenance</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <p class="benefit-text">Scalable solutions that grow with your business</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <p class="benefit-text">Expert guidance on technology strategy</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✓</div>
+                        <p class="benefit-text">Minimized downtime and faster problem resolution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Our Services</span>
+                <h2 class="cs-title">What We Offer</h2>
+            </div>
+            <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3 class="service-title">System Assessment</h3>
+                        <p class="service-description">Comprehensive evaluation of your current IT infrastructure to identify opportunities for improvement and optimization.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3 class="service-title">Network Setup & Management</h3>
+                        <p class="service-description">Professional network design, implementation, and ongoing management to ensure reliable connectivity.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <h3 class="service-title">Security Solutions</h3>
+                        <p class="service-description">Advanced cybersecurity measures including firewalls, antivirus, and data protection strategies.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">Cloud Migration</h3>
+                        <p class="service-description">Seamless transition to cloud platforms with ongoing support and optimization for maximum efficiency.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3 class="service-title">Hardware & Software Support</h3>
+                        <p class="service-description">Complete support for all your hardware and software needs, from procurement to maintenance.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">�</div>
+                        <h3 class="service-title">IT Training</h3>
+                        <p class="service-description">Comprehensive training programs to help your team maximize the potential of your technology investments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Our Process</span>
+                <h2 class="cs-title">How We Work</h2>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+                <div class="process-step">
+                    <div class="step-marker">
+                        <div class="step-number">1</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Discovery & Assessment</h3>
+                        <p class="step-description">We start by understanding your business needs and conducting a thorough assessment of your current IT infrastructure to identify areas for improvement.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">
+                        <div class="step-number">2</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Strategy Development</h3>
+                        <p class="step-description">Based on our assessment, we develop a customized IT strategy that aligns with your business goals and budget requirements.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">
+                        <div class="step-number">3</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Implementation</h3>
+                        <p class="step-description">Our expert team implements the agreed solutions with minimal disruption to your daily operations, ensuring smooth transitions.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Testing & Optimization</h3>
+                        <p class="step-description">We thoroughly test all systems and optimize performance to ensure everything works perfectly and meets your expectations.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">
+                        <div class="step-number">5</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Training & Support</h3>
+                        <p class="step-description">We provide comprehensive training to your team and establish ongoing support processes to maintain optimal performance.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-marker">
+                        <div class="step-number">6</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Continuous Monitoring</h3>
+                        <p class="step-description">Our relationship doesn't end at implementation. We provide ongoing monitoring and support to ensure your systems continue to perform at their best.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cta-title">Ready to Transform Your IT Infrastructure?</h2>
+                <p class="cta-description">Let us help you leverage technology to drive your business forward. Contact us today for a free consultation and discover how we can optimize your IT systems.</p>
+                <a href="/#contact" class="cta-button">Get Your Free IT Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+
+    <!-- Navigation Script -->
+    <script is:inline>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+/* Hero Section */
+.hero-service {
+  position: relative;
+  padding: 150px 20px 100px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://images.unsplash.com/photo-1536148935331-408321065b18?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center/cover no-repeat;
+  filter: brightness(0.4);
+  z-index: 0;
+}
+
+.hero-service::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 20, 38, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 900;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-button {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  min-width: 9.375rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.hero-button:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: 0;
+  background: var(--primaryLight);
+  border-radius: 0.25rem;
+  z-index: -1;
+  transition: width 0.3s;
+}
+
+.hero-button:hover:before {
+  width: 100%;
+}
+
+/* Benefits Section */
+.benefits {
+  padding: var(--sectionPadding);
+  background-color: var(--bodyTextColorWhite);
+}
+
+.benefits .cs-container {
+  width: 100%;
+  max-width: 34.375rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+.benefits .cs-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--primary);
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.benefit-text {
+  font-size: var(--bodyFontSize);
+  line-height: 1.5;
+  color: var(--bodyTextColor);
+  margin: 0;
+}
+
+/* Services Section */
+.services {
+  padding: var(--sectionPadding);
+  background-color: var(--neutral);
+}
+
+.services .cs-container {
+  width: 100%;
+  max-width: 34.375rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+.services .cs-content {
+  width: 100%;
+  text-align: center;
+}
+
+.services .cs-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--headerColor);
+}
+
+.service-description {
+  font-size: var(--bodyFontSize);
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+  margin: 0;
+}
+
+/* Process Section */
+.process {
+  padding: var(--sectionPadding);
+  background-color: var(--bodyTextColorWhite);
+}
+
+.process .cs-container {
+  width: 100%;
+  max-width: 34.375rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+.process .cs-content {
+  width: 100%;
+  text-align: center;
+}
+
+.process .cs-content {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.process .cs-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.process-timeline {
+  position: relative;
+  margin-top: 3rem;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--primary), var(--primaryLight));
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.process-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.process-step:nth-child(2) { animation-delay: 0.1s; }
+.process-step:nth-child(3) { animation-delay: 0.2s; }
+.process-step:nth-child(4) { animation-delay: 0.3s; }
+.process-step:nth-child(5) { animation-delay: 0.4s; }
+.process-step:nth-child(6) { animation-delay: 0.5s; }
+.process-step:nth-child(7) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.process-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-marker {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.step-number {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 20px rgba(1, 20, 38, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 12;
+  border: 3px solid white;
+}
+
+.step-number::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.process-step:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(1, 20, 38, 0.3);
+}
+
+.process-step:hover .step-number::before {
+  opacity: 1;
+}
+
+.step-content {
+  flex: 1;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(1, 20, 38, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.step-content::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 2rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  border-color: transparent white transparent transparent;
+  z-index: 2;
+}
+
+.step-content::after {
+  content: '';
+  position: absolute;
+  left: -13px;
+  top: 2rem;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  border-color: transparent rgba(1, 20, 38, 0.1) transparent transparent;
+  z-index: 1;
+}
+
+.process-step:hover .step-content {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--headerColor);
+  position: relative;
+}
+
+.step-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--primaryLight));
+  border-radius: 2px;
+}
+
+.step-description {
+  font-size: var(--bodyFontSize);
+  line-height: 1.7;
+  color: var(--bodyTextColor);
+  margin: 0;
+}
+
+/* CTA Section */
+.cta {
+  padding: var(--sectionPadding);
+  background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+  color: white;
+  text-align: center;
+}
+
+.cta .cs-container {
+  width: 100%;
+  max-width: 34.375rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+.cta .cs-content {
+  width: 100%;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-button {
+  display: inline-block;
+  font-size: 1.125rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: var(--primary);
+  min-width: 12rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--neutral);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  .benefits .cs-container,
+  .services .cs-container,
+  .process .cs-container,
+  .cta .cs-container {
+    max-width: 90rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: none;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-timeline {
+    max-width: 60rem;
+  }
+
+  .step-content {
+    padding: 2.5rem;
+  }
+}
+
+/* Mobile - 480px */
+@media only screen and (max-width: 30rem) {
+  .timeline-line {
+    left: 1.5rem;
+  }
+
+  .process-step {
+    gap: 1.5rem;
+  }
+
+  .step-number {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    border: 2px solid white;
+  }
+
+  .step-content {
+    padding: 1.5rem;
+  }
+
+  .step-content::before,
+  .step-content::after {
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

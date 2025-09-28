@@ -1,12 +1,16 @@
 :root {
-  /* Global Variables */
-  --primary: #32477c;
-  --primaryLight: #98a3bd;
-  --secondary: #839176;
-  --secondaryLight: #c1c8ba;
-  --headerColor: #1a1a1a;
-  --bodyTextColor: #4e4b66;
+  /* Global Variables - Updated to match logo */
+  --primary: #011426;        /* Dark blue from logo - main brand color */
+  --primaryLight: #3483C5;   /* Light blue from logo - accent color */
+  --secondary: #2A5B8C;      /* Medium blue for balance */
+  --secondaryLight: #A8C8E6; /* Very light blue for subtle backgrounds */
+  --accent: #3483C5;         /* Light blue for highlights and CTAs */
+  --accentLight: #E8F3FE;    /* Very light blue for subtle accents */
+  --headerColor: #011426;    /* Dark blue for headers to match brand */
+  --bodyTextColor: #4a5568;  /* Neutral dark gray for readability */
   --bodyTextColorWhite: #fafbfc;
+  --neutral: #f8fafc;        /* Light neutral for backgrounds */
+  --neutralDark: #64748b;    /* Medium gray for secondary text */
   /* 13px - 16px */
   --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
   /* 31px - 49px */

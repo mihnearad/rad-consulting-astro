@@ -1,204 +1,286 @@
+---
+import { Image } from "astro:assets";
+import Logo from "/public/logo_raddigitalsolutions.png";
+---
+
 <footer id="cs-footer">
   <div class="cs-container">
+    <div class="cs-top">
+      <div class="cs-logo-group">
+        <a href="/#home" class="cs-logo" aria-label="go to home">
+          <Image src={Logo} alt="RAD Digital Solutions Logo" width="200" height="60" />
+        </a>
+        <p class="cs-text">
+          Empowering your business with innovative digital solutions. From IT consulting to data analysis and website development, we deliver results that drive growth.
+        </p>
+      </div>
+      
+      <div class="cs-ul-wrapper">
+        <span class="cs-header">Services</span>
+        <ul class="cs-ul">
+          <li class="cs-li">
+            <a href="/services/it-consulting" class="cs-link">IT Consulting</a>
+          </li>
+          <li class="cs-li">
+            <a href="/#services-343" class="cs-link">Data Analysis</a>
+          </li>
+          <li class="cs-li">
+            <a href="/#services-343" class="cs-link">Website Development</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="cs-ul-wrapper">
+        <span class="cs-header">Company</span>
+        <ul class="cs-ul">
+          <li class="cs-li">
+            <a href="/#about" class="cs-link">About Us</a>
+          </li>
+          <li class="cs-li">
+            <a href="/#why-choose-us" class="cs-link">Our Process</a>
+          </li>
+          <li class="cs-li">
+            <a href="/faq" class="cs-link">FAQ</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="cs-ul-wrapper">
+        <span class="cs-header">Contact</span>
+        <ul class="cs-ul cs-ul-contact">
+          <li class="cs-li">
+            <a href="mailto:office@rad-digitalsolutions.com" class="cs-link cs-contact">
+              <span class="cs-contact-icon">✉</span>
+              office@rad-digitalsolutions.com
+            </a>
+          </li>
+          <li class="cs-li">
+            <a href="https://wa.me/31615078622" class="cs-link cs-contact" target="_blank" rel="noopener noreferrer">
+              <span class="cs-contact-icon">📱</span>
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
     <div class="cs-bottom">
       <span class="cs-credit">
-        Copyright 2025 <a href="" class="cs-credit-link" target="_blank"
-          >RAD Consulting SRL</a
-        >
+        © 2025 <a href="/#home" class="cs-credit-link">RAD Digital Solutions</a>. All rights reserved.
       </span>
       <div class="cs-bottom-links">
-        <!-- <a href="" class="cs-bottom-link">Terms & Conditions</a> -->
         <a href="/privacy-policy" class="cs-bottom-link">Privacy Policy</a>
-        <!-- <span class="cs-divider"></span>
-        <a href="/terms-conditions" class="cs-bottom-link">Terms & Conditions</a> -->
+        <button onclick="klaro.show()" class="cs-bottom-link cs-cookie-settings">Cookie Settings</button>
+        <!-- <a href="/terms-conditions" class="cs-bottom-link">Terms & Conditions</a> -->
       </div>
-        </div>
-      </div>
+    </div>
+  </div>
+</footer>
 
   <style>
-
-
     /* Mobile - 360px */
     @media only screen and (min-width: 0rem) {
       #cs-footer {
-        padding: 20px 20px;
-        /* 30px - 50px */
-        padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
+        padding: var(--sectionPadding);
+        background-color: var(--primary);
+        color: var(--bodyTextColorWhite);
         position: relative;
       }
+      
       #cs-footer .cs-container {
         width: 100%;
         max-width: 80rem;
         margin: auto;
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        column-gap: 4.25rem;
+        flex-direction: column;
+        gap: 3rem;
       }
+      
+      #cs-footer .cs-top {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+      
       #cs-footer .cs-logo-group {
-        /* takes up all the space, lets the other ul's wrap below it */
         width: 100%;
-        /* 40px - 60px */
-        margin: 0 0 clamp(2.5rem, 7vw, 3.75rem);
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start; /* Align logo and text to start */
       }
-
-      #cs-footer .cs-title {
-        /* 31px - 39px */
-        font-size: clamp(1.9375rem, 7vw, 3.0625rem);
-        max-width: 23ch;
-        margin: 3rem 0 0.5rem;
-      }
-      #cs-footer .cs-outline {
-        /* 31px - 39px */
-        font-size: clamp(1.9375rem, 1vw, 2.4375rem);
-        text-transform: uppercase;
-        font-weight: 900;
-        line-height: 1.2em;
-        color: #fff;
-        /* text outline styles */
-        -webkit-text-stroke: 1px var(--primary);
-      }
-      #cs-footer .cs-header {
-        font-size: 1.5625rem;
-        font-weight: 700;
-        line-height: 1.5em;
-        margin: 0 0 1rem 0;
-        color: var(--headerColor);
-        display: block;
-        position: relative;
-      }
+      
       #cs-footer .cs-logo {
-        width: 13.5625rem;
-        height: auto;
+        display: flex;
+        align-items: center;
       }
+      
+      #cs-footer .cs-logo img {
+        width: auto;
+        height: 3rem;
+        max-width: 12rem;
+        object-fit: contain;
+      }
+      
       #cs-footer .cs-text {
-        max-width: 25.75rem;
-        margin: 1rem 0 0;
+        max-width: 25rem;
+        font-size: var(--bodyFontSize);
+        line-height: 1.5em;
+        color: var(--bodyTextColorWhite);
+        opacity: 0.8;
+        margin: 0;
       }
+      
       #cs-footer .cs-ul-wrapper {
-        margin: 0 0 3.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
+      
+      #cs-footer .cs-header {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--bodyTextColorWhite);
+        margin: 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primaryLight);
+        display: inline-block;
+        width: fit-content;
+      }
+      
       #cs-footer .cs-ul {
+        list-style: none;
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
       }
-      #cs-footer .cs-ul-contact {
-        /* 32px - 40px */
-        margin: clamp(2rem, 5vw, 2.5rem) 0 0;
-        gap: 2rem;
-      }
+      
       #cs-footer .cs-li {
         list-style: none;
       }
-      #cs-footer .cs-contact {
-        font-size: 1.25rem;
-        font-weight: 700;
-        line-height: 1.2em;
-        text-decoration: none;
-        color: var(--headerColor);
-      }
+      
       #cs-footer .cs-link {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        text-align: left;
-        text-decoration: none;
-        color: var(--bodyTextColor);
-        display: inline-flex;
-        align-items: flex-start;
-        gap: 0.5rem;
-        transition: color 0.3s;
-      }
-      #cs-footer .cs-link:hover {
-        color: var(--primaryLight);
-      }
-      #cs-footer .cs-bottom {
-        width: 100%;
-        max-width: 80rem;
-        /* 28px - 40px */
-        margin: 0 auto;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: center;
-      }
-      #cs-footer .cs-credit,
-      #cs-footer .cs-bottom-link,
-      #cs-footer .cs-credit-link {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        font-size: 1rem;
         line-height: 1.5em;
         text-decoration: none;
-        width: auto;
-        margin: 0;
-        color: var(--bodyTextColor);
-        display: inline-block;
-        position: relative;
-        transition: color 0.3s;
-      }
-      #cs-footer .cs-credit-link {
-        /* 14px - 16px */
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
-        line-height: 1.5em;
-        text-decoration: none;
-        width: auto;
-        margin: 0;
-        color: inherit;
-        display: inline-block;
-        position: relative;
-      }
-      #cs-footer .cs-credit-link:hover {
-        color: var(--primary);
-      }
-      #cs-footer .cs-bottom-links {
-        display: flex;
-      }
-      #cs-footer .cs-bottom-link {
+        color: var(--bodyTextColorWhite);
+        opacity: 0.8;
+        transition: all 0.3s ease;
         display: flex;
         align-items: center;
+        gap: 0.5rem;
       }
-      #cs-footer .cs-bottom-link:hover {
-        color: var(--primary);
-      }
-      #cs-footer .cs-bottom-link:last-of-type:before {
-        /* separator */
-        /* content: ""; */
-        width: 1px;
-        height: 0.875rem;
-        margin: 0 0.75rem;
-        background: currentColor;
+      
+      #cs-footer .cs-link:hover {
         opacity: 1;
-        display: block;
+        color: var(--primaryLight);
+        transform: translateX(0.25rem);
+      }
+      
+      #cs-footer .cs-contact {
+        font-weight: 600;
+      }
+      
+      #cs-footer .cs-contact-icon {
+        font-size: 1.1rem;
+        width: 1.5rem;
+        display: inline-flex;
+        justify-content: center;
+      }
+      
+      #cs-footer .cs-bottom {
+        width: 100%;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      
+      #cs-footer .cs-credit {
+        font-size: 0.875rem;
+        color: var(--bodyTextColorWhite);
+        opacity: 0.7;
+      }
+      
+      #cs-footer .cs-credit-link {
+        color: var(--primaryLight);
+        text-decoration: none;
+        font-weight: 600;
+        transition: opacity 0.3s ease;
+      }
+      
+      #cs-footer .cs-credit-link:hover {
+        opacity: 0.8;
+      }
+      
+      #cs-footer .cs-bottom-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      
+      #cs-footer .cs-bottom-link {
+        font-size: 0.875rem;
+        color: var(--bodyTextColorWhite);
+        text-decoration: none;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        font-family: inherit;
+      }
+      
+      #cs-footer .cs-bottom-link:hover {
+        opacity: 1;
+        color: var(--primaryLight);
       }
     }
 
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+      #cs-footer .cs-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+      
+      #cs-footer .cs-logo-group {
+        grid-column: 1 / -1;
+      }
+      
+      #cs-footer .cs-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+    }
 
     /* Desktop - 1024px */
-
     @media only screen and (min-width: 64rem) {
-      #cs-footer .cs-container {
-        justify-content: flex-end;
+      #cs-footer .cs-top {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 4rem;
       }
+      
       #cs-footer .cs-logo-group {
-        width: fit-content;
-        margin: 0;
-        margin-right: auto;
+        grid-column: 1;
       }
-      #cs-footer .cs-ul-wrapper {
-        margin: 0;
+      
+      #cs-footer .cs-logo img {
+        height: 3.5rem;
+        max-width: 14rem;
       }
-      #cs-footer .cs-bottom {
-        /* 60px - 80px */
-        margin-top: clamp(3.75rem, 6vw, 5rem);
-        justify-content: space-between;
-
+      
+      #cs-footer .cs-text {
+        max-width: 30rem;
       }
     }
   </style>

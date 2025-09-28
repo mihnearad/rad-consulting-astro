@@ -13,7 +13,7 @@ This is a business consulting website built with Astro 4.9+ that uses a hybrid a
 ### Key Files & Patterns
 - **Main page**: `src/pages/index.astro` - imports all components and defines section structure
 - **Global styles**: `src/global.css` - contains CSS custom properties for theming
-- **Site config**: `astro.config.mjs` - configures React integration and sitemap for `https://rad-limited.com`
+- **Site config**: `astro.config.mjs` - configures React integration and sitemap for `https://rad-digitalsolutions.com`
 
 ## Development Conventions
 
@@ -68,4 +68,4 @@ Single-page app using anchor links to section IDs:
 - Components are reusable but tightly coupled to the single-page layout
 - Mixed static/dynamic content requires understanding when to use `.astro` vs `.jsx`
 - Google Analytics integration in main layout (`G-HW0BVWR14C`)
-- Site configured for production deployment at `rad-limited.com`
+- Site configured for production deployment at `rad-digitalsolutions.com`

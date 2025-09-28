@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Logo from "/public/RAD_Logo_V2_1.webp";
+import Logo from "/public/logo_raddigitalsolutions.png";
 ---
 
 <!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
@@ -8,7 +8,7 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
   <div class="cs-container">
     <!--Nav Logo-->
     <a href="/#home" class="cs-logo" aria-label="back to home">
-      <Image src={Logo} alt="RAD Consulting Logo" />
+      <Image src={Logo} alt="RAD Digital Solutions Logo" />
     </a>
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">
@@ -29,8 +29,30 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
           <li class="cs-li">
             <a href="/#why-choose-us" class="cs-li-link">Our Process</a>
           </li>
-          <li class="cs-li">
-            <a href="/#services-343" class="cs-li-link">Services</a>
+          <li class="cs-li cs-dropdown" tabindex="0">
+            <span class="cs-li-link">
+              Services
+              <img
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down.svg"
+                alt="dropdown icon"
+                class="cs-drop-icon"
+                aria-hidden="true"
+                decoding="async"
+                width="15"
+                height="15"
+              />
+            </span>
+            <ul class="cs-drop-ul">
+              <li class="cs-drop-li">
+                <a href="/services/it-consulting" class="cs-li-link cs-drop-link">IT Consulting</a>
+              </li>
+              <li class="cs-drop-li">
+                <a href="/services/project-management" class="cs-li-link cs-drop-link">Project Management</a>
+              </li>
+              <li class="cs-drop-li">
+                <a href="/services/data-analysis" class="cs-li-link cs-drop-link">Data Analysis</a>
+              </li>
+            </ul>
           </li>
           <li class="cs-li">
             <a href="/#about" class="cs-li-link"> About </a>
@@ -110,8 +132,8 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
       align-items: center;
     }
     #cs-navigation .cs-logo {
-      width: 20%;
-      max-width: 9.125rem;
+      width: 25%;
+      max-width: 12rem;
       height: 100%;
       margin: 0 auto 0 0;
       /* prevents padding and border from affecting height and width */
@@ -515,9 +537,9 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
       display: none;
     }
     #cs-navigation .cs-logo {
-      width: 18.4%;
-      max-width: 21.875rem;
-      height: 4.0625rem;
+      width: 22%;
+      max-width: 26rem;
+      height: 5rem;
       /* margin-right auto pushes everything away from it to the right */
       margin: 0 auto 0 0;
       padding: 0;
@@ -600,7 +622,7 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
       content: "";
       width: 0%;
       height: 100%;
-      background: #000;
+      background: var(--primaryLight);
       opacity: 1;
       border-radius: 0.25rem;
       position: absolute;
@@ -637,7 +659,7 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
   content: "";
   width: 0%;
   height: 100%;
-  background: #000;
+  background: var(--primaryLight);
   opacity: 1;
   border-radius: 0.25rem;
   position: absolute;
@@ -729,7 +751,6 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
     
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        e.preventDefault();
         const target = e.target as HTMLAnchorElement;
         const targetId = target.getAttribute('href')?.substring(2); // Remove '/#'
         
@@ -737,6 +758,9 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
           const targetElement = document.getElementById(targetId);
           
           if (targetElement) {
+            // Element exists on current page - use smooth scrolling
+            e.preventDefault();
+            
             // Close mobile menu if open
             if (body.classList.contains('cs-open')) {
               body.classList.remove('cs-open');
@@ -748,6 +772,13 @@ import Logo from "/public/RAD_Logo_V2_1.webp";
               behavior: 'smooth',
               block: 'start'
             });
+          } else {
+            // Element doesn't exist - allow normal navigation to home page
+            // Don't prevent default, let the browser navigate normally
+            if (body.classList.contains('cs-open')) {
+              body.classList.remove('cs-open');
+              ariaExpanded();
+            }
           }
         }
       });

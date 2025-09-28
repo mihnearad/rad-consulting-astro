@@ -1,5 +1,6 @@
 ---
 import Navbar from "../../components/navbar.astro";
+import Footer from "../../components/footer.astro";
 import "../global.css";
 ---
 
@@ -8,81 +9,224 @@ import "../global.css";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
-    <link rel="stylesheet" href="/global.css">
+    <title>Privacy Policy - RAD Digital Solutions</title>
+    <link rel="icon" href="/logo_raddigitalsolutions.png" type="image/x-icon" />
 </head>
 <body>
-    <header>
-        <Navbar />
-    </header>
-    <main>
-            <h1>Privacy Policy</h1>
-            <p>Effective Date: [01/06/2024]</p>
+    <Navbar />
     
-            <h2>1. Information We Collect</h2>
-            <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
-            <ul>
-                <li><strong>Personal Data:</strong> We collect personally identifiable information, such as your name, email address, and phone number, that you voluntarily give to us when you fill out a contact form on the Site.</li>
-                <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.</li>
-                <li><strong>Cookies:</strong> We may use cookies, including analytical cookies, to track analytics on the Site. These cookies do not track individual users and are used solely to improve the performance and functionality of the Site.</li>
-            </ul>
-        <section>
-            <h2>2. Use of Your Information</h2>
-            <p>We use the information we collect in the following ways:</p>
-            <ul>
-                <li>To respond to your comments, questions, and requests, and provide customer service.</li>
-                <li>To send information including confirmations, technical notices, updates, and support and administrative messages.</li>
-                <li>To protect, investigate, and deter against fraudulent, unauthorized, or illegal activity.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>3. Sharing of Your Information</h2>
-            <p>We may share your information in the following situations:</p>
-            <ul>
-                <li>With your consent, we may share information to third parties when you give us consent to do so.</li>
-                <li>With vendors, consultants, and other third-party service providers who need access to such information to carry out work on our behalf.</li>
-                <li>If we believe disclosure is appropriate or necessary to comply with laws, regulations, legal process, or governmental request.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>4. Security of Your Information</h2>
-            <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
-        </section>
-        <section>
-            <h2>5. Policy for Children</h2>
-            <p>We do not knowingly solicit information from or market to children under the age of 13. If we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.</p>
-        </section>
-        <section>
-            <h2>6. Changes to This Privacy Policy</h2>
-            <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on our Site. You are advised to review this Privacy Policy periodically for any changes.</p>
-        </section>
-        <section>
-            <h2>7. Contact Us</h2>
-            <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
-            <address>
-                RAD Consulting<br>
-                Email: <a href="mailto:office@rad-limited.com">office@rad-limited.com</a>
-            </address>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Copyright 2024 RAD Consulting SRL</p>
-    </footer>
+    <section class="privacy-policy" id="privacy-policy">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h1 class="cs-title">Privacy Policy</h1>
+                <p class="cs-text effective-date">Effective Date: June 1, 2024</p>
+                
+                <div class="policy-section">
+                    <h2 class="cs-h2">1. Information We Collect</h2>
+                    <p class="cs-text">We (RAD LIMITED CONSULTING SRL) may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+                    <ul class="cs-ul">
+                        <li class="cs-li"><strong>Personal Data:</strong> We collect personally identifiable information, such as your name, email address, and phone number, that you voluntarily give to us when you fill out a contact form on the Site.</li>
+                        <li class="cs-li"><strong>Derivative Data:</strong> Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.</li>
+                        <li class="cs-li"><strong>Cookies:</strong> We may use cookies, including analytical cookies, to track analytics on the Site. These cookies do not track individual users and are used solely to improve the performance and functionality of the Site.</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="cs-h2">2. Use of Your Information</h2>
+                    <p class="cs-text">We use the information we collect in the following ways:</p>
+                    <ul class="cs-ul">
+                        <li class="cs-li">To respond to your comments, questions, and requests, and provide customer service.</li>
+                        <li class="cs-li">To send information including confirmations, technical notices, updates, and support and administrative messages.</li>
+                        <li class="cs-li">To protect, investigate, and deter against fraudulent, unauthorized, or illegal activity.</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="cs-h2">3. Sharing of Your Information</h2>
+                    <p class="cs-text">We may share your information in the following situations:</p>
+                    <ul class="cs-ul">
+                        <li class="cs-li">With your consent, we may share information to third parties when you give us consent to do so.</li>
+                        <li class="cs-li">With vendors, consultants, and other third-party service providers who need access to such information to carry out work on our behalf.</li>
+                        <li class="cs-li">If we believe disclosure is appropriate or necessary to comply with laws, regulations, legal process, or governmental request.</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="cs-h2">4. Security of Your Information</h2>
+                    <p class="cs-text">We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="cs-h2">5. Policy for Children</h2>
+                    <p class="cs-text">We do not knowingly solicit information from or market to children under the age of 13. If we learn that we have collected personal information from a child under age 13 without verification of parental consent, we will delete that information as quickly as possible.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="cs-h2">6. Changes to This Privacy Policy</h2>
+                    <p class="cs-text">We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on our Site. You are advised to review this Privacy Policy periodically for any changes.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2 class="cs-h2">7. Contact Us</h2>
+                    <p class="cs-text">If you have questions or comments about this Privacy Policy, please contact us at:</p>
+                    <div class="contact-info">
+                        <p class="cs-text"><strong>RAD Digital Solutions</strong></p>
+                        <p class="cs-text">Email: <a href="mailto:office@rad-digitalconsulting.com" class="cs-link">office@rad-digitalconsulting.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
 </body>
 </html>
 
 <style>
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: white; /* Ensure the navbar has a background */
+  .privacy-policy {
+    padding: var(--sectionPadding);
+    padding-top: 150px; /* Match hero component approach */
+    background-color: var(--bodyTextColorWhite);
+    position: relative;
+  }
+
+  .privacy-policy .cs-container {
+    width: 100%;
+    max-width: 34.375rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 4rem);
+  }
+
+  .privacy-policy .cs-content {
+    text-align: left;
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content alignment */
+  }
+
+  .privacy-policy .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: center;
+    width: 100%;
+    max-width: 60rem; /* Constrain title width */
+    margin: 0 auto 2rem auto; /* Center and add bottom margin */
+    color: var(--headerColor);
+    position: relative;
+  }
+
+  .privacy-policy .cs-h2 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.2em;
+    margin: 0 0 1.5rem;
+    color: var(--headerColor);
+    text-align: left; /* Keep section headers left-aligned */
+  }
+
+  .privacy-policy .cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: left;
+    width: 100%;
+    margin: 0 0 1rem;
+    color: var(--bodyTextColor);
+  }
+
+  .effective-date {
+    text-align: center;
+    font-style: italic;
+    color: var(--neutralDark);
+    margin-bottom: 3rem !important;
+    max-width: 60rem;
+    width: 100%;
+  }
+
+  .policy-section {
+    width: 100%;
+    max-width: 60rem; /* Constrain section width */
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--secondaryLight);
+  }
+
+  .policy-section:last-of-type {
+    border-bottom: none;
+  }
+
+  .privacy-policy .cs-ul {
+    padding: 0;
+    margin: 1rem 0 1rem 1.5rem;
+    list-style-type: none;
+  }
+
+  .privacy-policy .cs-li {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    color: var(--bodyTextColor);
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .privacy-policy .cs-li:before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .privacy-policy .cs-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .privacy-policy .cs-link:hover {
+    color: var(--primaryLight);
+  }
+
+  .contact-info {
+    background-color: var(--accentLight);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary);
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 100%; /* Full width within section */
+  }
+
+  .contact-info .cs-text {
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info .cs-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    .privacy-policy .cs-container {
+      max-width: 90rem;
     }
 
-    main {
-        margin-top: 60px; /* Adjust this value according to the height of your navbar */
-        padding: 30px
+    .privacy-policy .cs-content {
+      max-width: 70rem;
     }
+  }
 
+  /* Desktop - 1300px */
+  @media only screen and (min-width: 81.25rem) {
+    .privacy-policy .cs-content {
+      max-width: 60rem;
+    }
+  }
 </style>
