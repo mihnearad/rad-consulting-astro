@@ -1,4 +1,4 @@
-# Copilot Instructions for RAD Consulting Astro Website
+# Copilot Instructions for RAD Digital Solutions Astro Website
 
 ## Project Overview
 This is a business consulting website built with Astro 4.9+ that uses a hybrid architecture combining Astro components (`.astro` files) for static content and React components (`.jsx`) for interactive features. The site focuses on IT consulting, data analysis, and website development services.

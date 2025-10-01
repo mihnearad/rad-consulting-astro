@@ -1,6 +1,6 @@
-# Rad Consulting Website
+# RAD Digital Solutions Website
 
-Welcome to the official repository for Rad Consulting's website, built using Astro.
+Welcome to the official repository for RAD Digital Solutions' website.
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ Welcome to the official repository for Rad Consulting's website, built using Ast
 
 ## Project Overview
 
-Rad Consulting is a consulting firm specializing in business strategy, technology solutions, and operational efficiency. This repository contains the source code for our official website, designed to provide information about our services, team, and contact details.
+RAD Digital Solutions is a technology consulting firm specializing in digital services including IT consulting, networking solutions, project management solutions, and data analysis. This repository contains the source code for our official website, designed to provide information about our comprehensive digital solutions, expert team, and client services.
 
 ## Technologies Used
 
@@ -66,4 +66,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Thank you for visiting our repository! For more information about Rad Consulting, visit our [website](https://www.radconsulting.com).
+Thank you for visiting our repository! For more information about RAD Digital Solutions, visit our [website](https://rad-digitalsolutions.com).
