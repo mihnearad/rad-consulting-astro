@@ -55,6 +55,14 @@ import "../global.css";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
+    <!-- Optimize third-party connections -->
+    <link rel="preconnect" href="https://cdn.kiprotect.com" />
+    <link rel="dns-prefetch" href="https://cdn.kiprotect.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    
     <!-- Critical CSS for above-the-fold content -->
     <style>
       /* Critical CSS for immediate rendering */
@@ -67,10 +75,6 @@ import "../global.css";
       .hero-button { background: #3483C5; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 0.25rem; font-weight: 700; cursor: pointer; }
     </style>
     
-    <!-- Preload critical scripts -->
-    <link rel="preload" as="script" href="/klaro-config.js" />
-    <link rel="preload" as="script" href="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" />
-
     <!-- Structured Data -->
     <script type="application/ld+json">
       {

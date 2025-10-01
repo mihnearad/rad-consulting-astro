@@ -38,11 +38,15 @@ export default defineConfig({
   compressHTML: true,
   build: {
     inlineStylesheets: 'always',
-    assets: '_astro'
+    assets: '_astro',
+    format: 'file'
   },
   vite: {
     build: {
       cssCodeSplit: true,
+      modulePreload: {
+        polyfill: false
+      },
       rollupOptions: {
         output: {
           manualChunks: {
