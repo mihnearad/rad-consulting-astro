@@ -36,7 +36,7 @@ import { Image } from "astro:assets";
 
 ### Image Handling
 - Uses Astro's built-in `Image` component for optimization
-- Static assets in `/public/` directory (logo: `RAD_Logo_V2_1.webp`)
+- Static assets in `/public/` directory (logo: `logo_raddigitalsolutions.png`)
 - External images via Unsplash URLs in services components
 
 ### Mixed Architecture
