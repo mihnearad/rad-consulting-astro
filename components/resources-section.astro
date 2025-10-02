@@ -1,0 +1,180 @@
+---
+---
+
+<section id="resources-section">
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Free Resources</span>
+      <h2 class="cs-title">Tools to Help Your Team Succeed</h2>
+      <p class="cs-text">
+        Download our free templates and resources designed to streamline your workflow and improve project management efficiency.
+      </p>
+    </div>
+    <div class="cs-resources-grid">
+      <div class="cs-resource-card">
+        <div class="cs-resource-icon">📋</div>
+        <h3 class="cs-resource-title">User Story Template</h3>
+        <p class="cs-resource-description">
+          Organize your agile backlog with our ready-to-use Google Sheets template. Includes pre-formatted columns, acceptance criteria, and easy PM tool integration.
+        </p>
+        <a href="/user-story-template" class="cs-resource-button">Download Template</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #resources-section {
+      padding: var(--sectionPadding);
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    #resources-section .cs-container {
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+    
+    #resources-section .cs-content {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #resources-section .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    
+    #resources-section .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    
+    #resources-section .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    
+    #resources-section .cs-resources-grid {
+      width: 100%;
+      max-width: 40rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    #resources-section .cs-resource-card {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #e9ecef;
+    }
+    
+    #resources-section .cs-resource-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+    
+    #resources-section .cs-resource-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    
+    #resources-section .cs-resource-title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--headerColor);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    #resources-section .cs-resource-description {
+      font-size: 1rem;
+      color: var(--bodyTextColor);
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    
+    #resources-section .cs-resource-button {
+      display: inline-block;
+      font-size: 1rem;
+      line-height: 1.2em;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s;
+    }
+    
+    #resources-section .cs-resource-button:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      top: 0;
+      left: 0;
+      background: var(--primaryLight);
+      border-radius: 0.25rem;
+      z-index: -1;
+      transition: width 0.3s;
+    }
+    
+    #resources-section .cs-resource-button:hover:before {
+      width: 100%;
+    }
+  }
+  
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #resources-section .cs-resources-grid {
+      max-width: none;
+      flex-direction: row;
+      justify-content: center;
+    }
+    
+    #resources-section .cs-resource-card {
+      flex: 1;
+      max-width: 30rem;
+    }
+  }
+</style>
