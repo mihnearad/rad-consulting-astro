@@ -16,6 +16,7 @@ export default defineConfig({
         'https://rad-digitalsolutions.com/services/it-consulting',
         'https://rad-digitalsolutions.com/services/project-management',
         'https://rad-digitalsolutions.com/services/data-analysis',
+        'https://rad-digitalsolutions.com/user-story-template',
         'https://rad-digitalsolutions.com/faq',
         'https://rad-digitalsolutions.com/privacy-policy'
       ],
@@ -27,6 +28,9 @@ export default defineConfig({
         } else if (item.url.includes('/services/')) {
           item.changefreq = 'weekly';
           item.priority = 0.9;
+        } else if (item.url.includes('/user-story-template')) {
+          item.changefreq = 'monthly';
+          item.priority = 0.8;
         } else if (item.url.includes('/faq') || item.url.includes('/privacy-policy')) {
           item.changefreq = 'monthly';
           item.priority = 0.5;

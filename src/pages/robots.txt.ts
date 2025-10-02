@@ -7,6 +7,7 @@ Allow: /services/
 Allow: /services/it-consulting
 Allow: /services/project-management
 Allow: /services/data-analysis
+Allow: /user-story-template
 Allow: /faq
 Allow: /privacy-policy
 
