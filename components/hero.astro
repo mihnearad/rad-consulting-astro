@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hero Section with Parallax and Zoom Effect</title>
-    <link rel="preload" as="video" href="/DigitalVideo.mp4" fetchpriority="high" />
   </head>
   <body>
     <section class="hero">
@@ -13,6 +12,7 @@
           class="hero-video"
           autoplay
           muted
+          loop
           playsinline
           preload="auto"
           id="heroVideo"
@@ -33,15 +33,19 @@
     </section>
     
     <script>
-      // Stop video at last frame after first play
+      // Ensure video plays properly
       document.addEventListener('DOMContentLoaded', function() {
         const video = document.getElementById('heroVideo');
         if (video && video instanceof HTMLVideoElement) {
-          video.addEventListener('ended', function() {
-            // Keep the video at the last frame
-            video.currentTime = video.duration;
-            video.pause();
-          });
+          // Attempt to play the video
+          const playPromise = video.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              // Auto-play was prevented
+              console.log('Video autoplay prevented:', error);
+            });
+          }
         }
       });
     </script>
