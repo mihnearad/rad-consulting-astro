@@ -91,36 +91,51 @@ window.klaroConfig = {
   // Services configuration
   services: [
     {
-      name: 'google-analytics',
-      title: 'Google Analytics',
-      description: 'We use Google Analytics to analyze website usage and improve our services.',
+      name: 'google-tag-manager',
+      title: 'Google Tag Manager & Analytics',
+      description: 'We use Google Tag Manager to manage website analytics and improve our services. This includes Google Analytics for understanding visitor behavior.',
       purposes: ['analytics', 'statistics'],
       required: false,
       optOut: false,
       onlyOnce: false,
       default: false,
       callback: function(consent, service) {
+        // Initialize dataLayer if not exists
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
         if (consent) {
-          // Enable Google Analytics
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-HW0BVWR14C', {
-            anonymize_ip: true,
-            cookie_flags: 'SameSite=None;Secure'
+          // User accepted - grant consent
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'denied', // Keep ads denied unless you need them
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
           });
           
-          // Load the script
-          const script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HW0BVWR14C';
-          document.head.appendChild(script);
+          // Push consent event to dataLayer
+          window.dataLayer.push({
+            'event': 'consent_granted',
+            'consent_analytics': true
+          });
           
-          console.log('Google Analytics enabled');
+          console.log('Google Tag Manager: Consent granted');
         } else {
-          // Disable Google Analytics
-          window['ga-disable-G-HW0BVWR14C'] = true;
-          console.log('Google Analytics disabled');
+          // User declined - keep consent denied
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+          });
+          
+          // Push consent event to dataLayer
+          window.dataLayer.push({
+            'event': 'consent_denied',
+            'consent_analytics': false
+          });
+          
+          console.log('Google Tag Manager: Consent denied');
         }
       }
     }
@@ -144,8 +159,8 @@ window.klaroConfig = {
         }
       },
       googleAnalytics: {
-        title: 'Google Analytics',
-        description: 'Google Analytics helps us understand how visitors interact with our website.'
+        title: 'Google Tag Manager & Analytics',
+        description: 'Helps us understand how visitors interact with our website and improve user experience.'
       },
       purposes: {
         analytics: 'Analytics',
