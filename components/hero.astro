@@ -147,18 +147,20 @@
 
   .hero-button {
     background-color: var(--primary);
-    border: none;
+    border: 2px solid white;
     padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px); /* Responsive padding */
     font-size: clamp(1em, 2vw, 1.2em); /* Responsive font size */
     font-weight: bold;
     color: white;
     cursor: pointer;
     text-transform: capitalize;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 5px;
   }
   .hero-button:hover {
     background-color: var(--primaryLight);
+    border-color: var(--primaryLight);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {

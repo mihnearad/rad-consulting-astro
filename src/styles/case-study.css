@@ -20,8 +20,14 @@
   display: none; /* Hide breadcrumbs on case study pages */
 }
 
-.case-category {
-  display: none; /* Hide category badge on case study pages */
+.case-hero .cs-topper {
+  color: var(--accentLight);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: var(--topperFontSize);
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .case-title {
@@ -76,7 +82,9 @@
 
 .case-results-highlight h2 {
   text-align: center;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--headerFontSize);
+  font-weight: 900;
+  line-height: 1.2em;
   margin-bottom: 3rem;
   color: var(--headerColor);
 }
@@ -134,17 +142,17 @@
 }
 
 .detail-block h2 {
-  font-size: 2rem;
-  color: var(--headerColor);
+  font-size: var(--headerFontSize);
+  font-weight: 900;
+  line-height: 1.2em;
   margin-bottom: 1.5rem;
-  font-weight: 700;
+  color: var(--headerColor);
 }
 
 .detail-block p {
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: var(--bodyFontSize);
+  line-height: 1.75;
   color: var(--bodyTextColor);
-  margin-bottom: 1rem;
 }
 
 /* Technology Stack */
@@ -172,7 +180,7 @@
 }
 
 .outcomes-list li {
-  font-size: 1.125rem;
+  font-size: var(--bodyFontSize);
   line-height: 1.8;
   color: var(--bodyTextColor);
   margin-bottom: 1.25rem;
@@ -249,7 +257,10 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .case-hero {
-    padding: calc(var(--sectionPadding) + 6rem) 1rem 2rem;
+    padding-top: 3rem; /* Increased from calc() for better mobile spacing below navbar */
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .case-meta {
@@ -276,5 +287,18 @@
 @media (min-width: 1024px) {
   .results-grid {
     gap: 2.5rem;
+  }
+
+  /* Make hero image full-width on desktop */
+  .case-image-section .cs-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 400px; /* Reduced height for desktop to fill width while minimizing vertical space */
+    object-fit: cover;
+    object-position: center;
   }
 }

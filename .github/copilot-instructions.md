@@ -92,6 +92,48 @@ npm run preview     # Preview production build
 - Index page (`/src/pages/use-cases/index.astro`) maintains `caseStudies` array for listing
 - Must include: `slug`, `title`, `category`, `excerpt`, `image`, `results[]`, `technologies[]`
 
+## Design Consistency Requirements
+
+### Every Page Must Follow
+All pages must adhere to the design system documented in `DESIGN_SYSTEM.md`:
+
+1. **CSS Custom Properties**: Always use variables from `src/global.css`
+   - Colors: `var(--primary)`, `var(--primaryLight)`, `var(--bodyTextColor)`, etc.
+   - Typography: `var(--topperFontSize)`, `var(--headerFontSize)`, `var(--bodyFontSize)`
+   - Spacing: `var(--sectionPadding)`
+
+2. **Class Naming**: Use `cs-` prefix pattern
+   - Structure: `.cs-container`, `.cs-content`
+   - Typography: `.cs-topper`, `.cs-title`, `.cs-text`, `.cs-h3`
+   - Components: `.cs-item`, `.cs-button-solid`, `.cs-link`
+
+3. **Section Structure Pattern** (consistent across all pages):
+   ```astro
+   <section id="unique-id">
+     <div class="cs-container">
+       <div class="cs-content">
+         <span class="cs-topper">Section Label</span>
+         <h2 class="cs-title">Main Heading</h2>
+         <p class="cs-text">Description</p>
+       </div>
+       <!-- Section content -->
+     </div>
+   </section>
+   ```
+
+4. **Button Styling**: Always use `.cs-button-solid` for primary CTAs
+   - Background: `var(--primaryLight)`
+   - Hover includes `transform: translateY(-2px)` and darker shade
+
+5. **Card Hover Effects**: 
+   - `transform: translateY(-7px)`
+   - `box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px`
+   - Transition: `0.3s`
+
+6. **Responsive Typography**: Use `clamp()` for fluid sizing
+   - Already defined in CSS variables
+   - Never hardcode `font-size` values - reference variables
+
 ## Critical Implementation Details
 
 ### Google Consent Must Load BEFORE GTM
@@ -119,6 +161,7 @@ In `astro.config.mjs` sitemap config:
 - Legal pages: `priority: 0.5, changefreq: 'monthly'`
 
 ## Key Reference Docs
+- **`DESIGN_SYSTEM.md`**: Complete visual language guide - colors, typography, components, and patterns
 - **`SERVICE_TEMPLATE_GUIDE.md`**: How to create new service pages
 - **`SEO_OPTIMIZATION_SUMMARY.md`**: Target keywords and optimization changes
 - **`PERFORMANCE_OPTIMIZATIONS.md`**: Image/JS optimization techniques
