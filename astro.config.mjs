@@ -16,6 +16,10 @@ export default defineConfig({
         'https://rad-digitalsolutions.com/services/it-consulting',
         'https://rad-digitalsolutions.com/services/project-management',
         'https://rad-digitalsolutions.com/services/data-analysis',
+        'https://rad-digitalsolutions.com/use-cases/enterprise-network-modernization',
+        'https://rad-digitalsolutions.com/use-cases/wordpress-migration-project',
+        'https://rad-digitalsolutions.com/use-cases/sales-analytics-logistics',
+        'https://rad-digitalsolutions.com/use-cases/erp-chatbot-integration',
         'https://rad-digitalsolutions.com/user-story-template',
         'https://rad-digitalsolutions.com/faq',
         'https://rad-digitalsolutions.com/privacy-policy'
@@ -28,6 +32,9 @@ export default defineConfig({
         } else if (item.url.includes('/services/')) {
           item.changefreq = 'weekly';
           item.priority = 0.9;
+        } else if (item.url.includes('/use-cases/')) {
+          item.changefreq = 'monthly';
+          item.priority = 0.8;
         } else if (item.url.includes('/user-story-template')) {
           item.changefreq = 'monthly';
           item.priority = 0.8;

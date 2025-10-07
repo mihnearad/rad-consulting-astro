@@ -33,19 +33,50 @@
     </section>
     
     <script>
-      // Ensure video plays properly
+      // Smooth slow-down and pause effect - stays paused until page reload
       document.addEventListener('DOMContentLoaded', function() {
         const video = document.getElementById('heroVideo');
         if (video && video instanceof HTMLVideoElement) {
+          let isSlowingDown = false;
+          let normalPlaybackRate = 1.0;
+          const slowDownDuration = 2.5; // Start slowing down 2.5 seconds before end
+          
+          // Remove the loop attribute - we'll handle it manually
+          video.removeAttribute('loop');
+          
           // Attempt to play the video
           const playPromise = video.play();
           
           if (playPromise !== undefined) {
             playPromise.catch(error => {
-              // Auto-play was prevented
               console.log('Video autoplay prevented:', error);
             });
           }
+
+          // Smooth slow-down effect
+          video.addEventListener('timeupdate', function() {
+            const videoDuration = video.duration;
+            const currentTime = video.currentTime;
+            const timeRemaining = videoDuration - currentTime;
+            
+            // Start slowing down in the last few seconds
+            if (timeRemaining <= slowDownDuration && timeRemaining > 0.1 && !isSlowingDown) {
+              isSlowingDown = true;
+              // Calculate playback rate based on time remaining
+              // Gradually slow from 1.0 to 0.0
+              const slowdownProgress = 1 - (timeRemaining / slowDownDuration);
+              const newRate = normalPlaybackRate * (1 - slowdownProgress);
+              video.playbackRate = Math.max(0.1, newRate); // Don't go below 0.1
+            } else if (timeRemaining <= 0.1 && isSlowingDown) {
+              // Video has reached the end, pause it permanently
+              video.pause();
+              isSlowingDown = false;
+              // Stay paused until page reload - no automatic restart
+            } else if (!isSlowingDown && video.playbackRate !== normalPlaybackRate) {
+              // Reset playback rate if we're not in slow-down phase
+              video.playbackRate = normalPlaybackRate;
+            }
+          });
         }
       });
     </script>
@@ -172,7 +203,6 @@
       font-size: 1.2em;
     }
 
-
     .hero-bg {
       position: absolute;
       top: 0;
@@ -193,6 +223,7 @@
       object-fit: cover;
       z-index: 1;
     }
+  }
 
   @media (max-width: 480px) {
     .hero-title {
@@ -202,6 +233,5 @@
     .hero-subtitle {
       font-size: 1em;
     }
-
   }
 </style>

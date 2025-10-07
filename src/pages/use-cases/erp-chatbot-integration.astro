@@ -9,7 +9,7 @@ const caseStudy = {
   category: "Digital Solutions",
   client: "Enterprise Manufacturing Company",
   duration: "5 months",
-  image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&q=80",
+  image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200&q=80&fm=webp",
   excerpt: "Developed an intelligent Slack bot integrated with customer's SAP ERP system, enabling employees to query complex business data using natural language.",
   challenge: "Employees across departments struggled to access critical business data from the SAP ERP system. The complex SAP interface required specialized training, and simple data queries often needed IT support or lengthy navigation through multiple screens. This created bottlenecks in decision-making and reduced operational efficiency.",
   solution: "We developed a custom Slack bot that integrates directly with the client's SAP ERP system, leveraging OpenAI's API to interpret natural language queries. Employees can now ask questions in plain language through Slack, and the bot translates these queries into SAP transactions, retrieves the data, and presents it in an easy-to-understand format.",
@@ -50,9 +50,64 @@ const caseStudy = {
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{caseStudy.title} | RAD Digital Solutions</title>
+        <title>{caseStudy.title} - RAD Digital Solutions</title>
     <meta name="description" content={caseStudy.excerpt}>
-    <link rel="canonical" href="https://rad-digitalsolutions.com/use-cases/erp-chatbot-integration">
+    <link rel="canonical" href={`https://rad-digitalsolutions.com/use-cases/${caseStudy.title.toLowerCase().replace(/\s+/g, '-')}`}>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rad-digitalsolutions.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use Cases",
+          "item": "https://rad-digitalsolutions.com/use-cases"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ERP System Chatbot Integration",
+          "item": "https://rad-digitalsolutions.com/use-cases/erp-chatbot-integration"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Article Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI-Powered Chatbot Integration with ERP System",
+      "image": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80&fm=webp",
+      "author": {
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "url": "https://rad-digitalsolutions.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp"
+        }
+      },
+      "datePublished": "2024-07-15",
+      "dateModified": "2025-10-07",
+      "description": "Developed an intelligent chatbot integrated with ERP system to provide instant access to business data and automate routine queries."
+    }
+    </script>
+  </head>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"

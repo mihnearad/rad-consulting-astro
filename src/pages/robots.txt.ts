@@ -7,6 +7,11 @@ Allow: /services/
 Allow: /services/it-consulting
 Allow: /services/project-management
 Allow: /services/data-analysis
+Allow: /use-cases/
+Allow: /use-cases/enterprise-network-modernization
+Allow: /use-cases/wordpress-migration-project
+Allow: /use-cases/sales-analytics-logistics
+Allow: /use-cases/erp-chatbot-integration
 Allow: /user-story-template
 Allow: /faq
 Allow: /privacy-policy

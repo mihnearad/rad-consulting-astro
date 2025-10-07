@@ -9,7 +9,7 @@ const caseStudy = {
   category: "Project Management",
   client: "Professional Services Company",
   duration: "4 months",
-  image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+  image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80&fm=webp",
   excerpt: "Orchestrated a complex website migration from an unmaintained custom platform to WordPress 7, managing years of data migration and coordinating seamless go-live execution.",
   challenge: "The client's website was built on a custom CMS that had become unmaintained and outdated. Seven years of accumulated content, user data, and media files needed to be migrated without data loss. The client required a European cloud provider for GDPR compliance and zero downtime during the transition.",
   solution: "We executed a comprehensive migration strategy, starting with a detailed content audit and database mapping. A custom migration script was developed to transfer all data accurately. We deployed the new WordPress 7 environment on a dedicated VM with OVH Cloud (EU-based), configured the backend infrastructure, and coordinated the go-live during a carefully planned maintenance window.",
@@ -50,9 +50,63 @@ const caseStudy = {
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{caseStudy.title} | RAD Digital Solutions</title>
+        <title>{caseStudy.title} - RAD Digital Solutions</title>
     <meta name="description" content={caseStudy.excerpt}>
-    <link rel="canonical" href="https://rad-digitalsolutions.com/use-cases/wordpress-migration-project">
+    <link rel="canonical" href={`https://rad-digitalsolutions.com/use-cases/${caseStudy.title.toLowerCase().replace(/\s+/g, '-')}`}>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rad-digitalsolutions.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use Cases",
+          "item": "https://rad-digitalsolutions.com/use-cases"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "WordPress Migration Project",
+          "item": "https://rad-digitalsolutions.com/use-cases/wordpress-migration-project"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Article Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Enterprise WordPress Website Migration & Cloud Deployment",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fm=webp",
+      "author": {
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "url": "https://rad-digitalsolutions.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp"
+        }
+      },
+      "datePublished": "2024-03-20",
+      "dateModified": "2025-10-07",
+      "description": "Successfully migrated a complex WordPress website with 20+ years of content to a modern cloud infrastructure with zero data loss."
+    }
+    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"

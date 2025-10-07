@@ -9,7 +9,7 @@ const caseStudy = {
   category: "Data Analysis",
   client: "International Transport & Logistics Provider",
   duration: "3 months",
-  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&fm=webp",
   excerpt: "Transformed a logistics company's sales operations by aggregating data from multiple sources into real-time KPI dashboards.",
   challenge: "The logistics company was struggling with fragmented sales data across multiple systems, making it impossible to identify profitable opportunities in real-time. Decision-makers lacked visibility into key performance indicators, leading to missed opportunities and inefficient resource allocation.",
   solution: "We designed and implemented a comprehensive data analytics solution using PowerBI for visualization and AWS for robust data pipeline infrastructure. The system aggregates data from CRM, ERP, and operational systems, providing real-time dashboards that highlight KPIs and profitable opportunities as they emerge.",
@@ -52,6 +52,60 @@ const caseStudy = {
     <title>{caseStudy.title} | RAD Digital Solutions</title>
     <meta name="description" content={caseStudy.excerpt}>
     <link rel="canonical" href="https://rad-digitalsolutions.com/use-cases/sales-analytics-logistics">
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rad-digitalsolutions.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use Cases",
+          "item": "https://rad-digitalsolutions.com/use-cases"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sales Analytics Dashboard",
+          "item": "https://rad-digitalsolutions.com/use-cases/sales-analytics-logistics"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Article Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Real-Time Sales Analytics Dashboard for Logistics Company",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fm=webp",
+      "author": {
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "url": "https://rad-digitalsolutions.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp"
+        }
+      },
+      "datePublished": "2024-05-10",
+      "dateModified": "2025-10-07",
+      "description": "Built a comprehensive PowerBI dashboard integrating multiple data sources to provide real-time sales insights and revenue tracking."
+    }
+    </script>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
