@@ -1,71 +1,125 @@
 # Copilot Instructions for RAD Digital Solutions Astro Website
 
 ## Project Overview
-This is a business consulting website built with Astro 4.9+ that uses a hybrid architecture combining Astro components (`.astro` files) for static content and React components (`.jsx`) for interactive features. The site focuses on IT consulting, data analysis, and website development services.
+Business consulting website built with Astro 4.9+ using a **hybrid architecture**: Astro components (`.astro`) for static content + React components (`.jsx`) for interactive features. Heavily optimized for SEO and performance.
 
-## Architecture & Structure
+## Architecture Patterns
 
 ### Component Organization
-- **Top-level components**: Located in `/components/` directory, used for main site sections
-- **Nested components**: Services components live in `/components/Services/` with both Astro and React variants
-- **Page structure**: Single-page application with sections defined by IDs (`#home`, `#services-343`, `#about`, etc.)
+- **Top-level sections**: `/components/` - navbar, hero, about, footer (all `.astro`)
+- **Services**: `/components/Services/` - contains both Astro static cards and React carousel (unused)
+- **Page types**: Homepage (`src/pages/index.astro`) + service detail pages (`src/pages/services/*.astro`) + use case studies (`src/pages/use-cases/*.astro`)
+- **Templates**: `ServiceTemplate.astro` - reusable template for service pages (see `SERVICE_TEMPLATE_GUIDE.md`)
 
-### Key Files & Patterns
-- **Main page**: `src/pages/index.astro` - imports all components and defines section structure
-- **Global styles**: `src/global.css` - contains CSS custom properties for theming
-- **Site config**: `astro.config.mjs` - configures React integration and sitemap for `https://rad-digitalsolutions.com`
+### Critical Files
+- **`src/pages/index.astro`**: Main SPA layout - imports all section components, wraps each in `<section id="">` for anchor navigation
+- **`src/global.css`**: CSS custom properties (brand colors: `--primary: #011426`, `--primaryLight: #3483C5`) and utility classes (`cs-*` prefix pattern)
+- **`astro.config.mjs`**: React integration, sitemap config, Vite build optimizations (manual chunks for vendor/swiper, CSS code splitting)
+
+### Routing & Navigation
+**Single-page app** using section IDs - all navigation uses `/#anchor` links:
+- `/#home`, `/#services-343`, `/#use-cases`, `/#about`, `/#contact`
+- Multi-page routes: `/services/[service-name]`, `/use-cases/[case-name]`, `/faq`, `/privacy-policy`
 
 ## Development Conventions
 
-### Component Patterns
+### Astro Component Pattern
 ```astro
 ---
-// Astro frontmatter for imports and logic
 import { Image } from "astro:assets";
+// All logic/imports in frontmatter
 ---
-<!-- HTML with Astro-specific attributes -->
-<section id="unique-section-id">
+<section id="unique-id">
+  <!-- Always use Astro Image for optimized loading -->
+  <Image src="..." alt="..." width={} height={} />
+</section>
+<style>/* Component-specific styles */</style>
 ```
 
-### Styling Approach
-- Uses CSS custom properties defined in `src/global.css`:
-  - `--primary: #32477c`, `--secondary: #839176`
-  - `--headerColor`, `--bodyTextColor`, `--sectionPadding`
-- Component-specific styles embedded in `.astro` files
-- CSS class naming follows `cs-` prefix pattern (e.g., `cs-container`, `cs-title`)
+### Styling System
+- **CSS custom properties** in `src/global.css` define all design tokens
+- **Class naming**: `cs-` prefix (CodeStitch pattern) - e.g., `cs-container`, `cs-topper`, `cs-title`
+- **Responsive**: Uses `clamp()` for fluid typography - `--headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem)`
+- **Styles location**: Embedded in `.astro` components, NOT separate CSS files
 
-### Image Handling
-- Uses Astro's built-in `Image` component for optimization
-- Static assets in `/public/` directory (logo: `logo_raddigitalsolutions.png`)
-- External images via Unsplash URLs in services components
+### Image Optimization (CRITICAL)
+- **Astro Images**: Always use `<Image>` from `astro:assets` with explicit `width` and `height`
+- **Unsplash URLs**: Include params `w=826&h=480&q=80` for 2x retina displays (see `PERFORMANCE_OPTIMIZATIONS.md`)
+- **Static assets**: `/public/` directory (logo, videos, icons)
 
-### Mixed Architecture
-- **Astro components** for static content (navbar, hero, about, footer)
-- **React components** for interactive features (ServiceCarousel using Swiper.js)
-- React integration configured in `astro.config.mjs` with `@astrojs/react`
+### React Integration (Minimal Use)
+- React only for interactive components (e.g., `ServiceCarousel.jsx` with Swiper)
+- **Currently NOT used** - homepage uses static Astro service cards instead
+- If using React: Import with `client:load` directive in Astro component
+
+## SEO & Analytics Architecture
+
+### Consent Management Flow
+1. **Google Consent Mode V2**: Initialized in `<head>` with `gtag('consent', 'default', {...})` set to 'denied'
+2. **GTM**: Loads immediately after consent setup (`GTM-PNSZZ2K5`)
+3. **Klaro Cookie Consent**: Loads deferred, updates consent via `gtag('consent', 'update', {...})` in `/public/klaro-config.js`
+
+### SEO Patterns (See `SEO_OPTIMIZATION_SUMMARY.md`)
+- **Target keywords**: "digital services", "project management solutions", "networking solutions", "digital transformation"
+- **Meta tags**: Every page has title, description, keywords, OG tags, Twitter cards
+- **Structured data**: JSON-LD Organization schema in `<head>` with service listings
+- **Canonical URLs**: Always set via `<link rel="canonical">`
+
+### Performance Optimizations
+- **Resource hints**: `preconnect` + `dns-prefetch` for CDNs (Klaro, GTM, Unsplash) - see `JAVASCRIPT_OPTIMIZATION_GUIDE.md`
+- **Critical CSS**: Inline in `<head>` for above-fold content
+- **Build config**: `inlineStylesheets: 'always'`, `cssCodeSplit: true`, `modulePreload: { polyfill: false }`
+- **Video preload**: `<link rel="preload" as="video" href="/DigitalVideo.mp4">`
 
 ## Development Workflow
 
-### Scripts
-- `npm start` or `npm run dev` - Development server
-- `npm run build` - Type-check with `astro check` then build
-- `npm run preview` - Preview production build
+### Essential Commands
+```bash
+npm run dev         # Dev server (default port 4321)
+npm run build       # Type-check (astro check) → build
+npm run preview     # Preview production build
+```
 
-### Dependencies
-- **Core**: `astro`, `@astrojs/react`, `react`, `react-dom`
-- **Features**: `swiper` for carousels, `@astrojs/sitemap` for SEO
-- **Type checking**: `typescript`, `@astrojs/check`
+### Creating New Service Pages
+1. Create `/src/pages/services/[name].astro`
+2. Import `ServiceTemplate.astro` 
+3. Pass props: `title`, `description`, `heroImage`, `benefits[]`, `features[]`, `process[]`, `cta{}`
+4. Add to sitemap in `astro.config.mjs` customPages array
+5. See `SERVICE_TEMPLATE_GUIDE.md` for full template
 
-## Navigation & Routing
-Single-page app using anchor links to section IDs:
-- `/#home` → Hero section
-- `/#services-343` → Services (note the specific ID suffix)
-- `/#our-process` → Why Choose Us section
-- `/#about` → About section
-- `/#contact` → Contact form
+### Creating Use Case Studies
+- Individual pages in `/src/pages/use-cases/[slug].astro` with detailed case study layout
+- Index page (`/src/pages/use-cases/index.astro`) maintains `caseStudies` array for listing
+- Must include: `slug`, `title`, `category`, `excerpt`, `image`, `results[]`, `technologies[]`
 
-## Key Implementation Notes
-- Components are reusable but tightly coupled to the single-page layout
-- Mixed static/dynamic content requires understanding when to use `.astro` vs `.jsx`
-- Google Analytics integration in main layout (`G-HW0BVWR14C`)
-- Site configured for production deployment at `rad-digitalsolutions.com`
+## Critical Implementation Details
+
+### Google Consent Must Load BEFORE GTM
+Every page must follow this exact order in `<head>`:
+1. Consent Mode default setup (inline script)
+2. GTM script  
+3. All other meta/resources
+
+### All Pages Need Consent + Analytics
+Pattern used on every `.astro` page (index, services, use-cases):
+```astro
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { /* ... */ });
+</script>
+<script is:inline>/* GTM snippet */</script>
+```
+
+### Sitemap Priority System
+In `astro.config.mjs` sitemap config:
+- Homepage: `priority: 1.0, changefreq: 'daily'`
+- Service pages: `priority: 0.9, changefreq: 'weekly'`
+- Tools/templates: `priority: 0.8, changefreq: 'monthly'`
+- Legal pages: `priority: 0.5, changefreq: 'monthly'`
+
+## Key Reference Docs
+- **`SERVICE_TEMPLATE_GUIDE.md`**: How to create new service pages
+- **`SEO_OPTIMIZATION_SUMMARY.md`**: Target keywords and optimization changes
+- **`PERFORMANCE_OPTIMIZATIONS.md`**: Image/JS optimization techniques
+- **`SEO_DEPLOYMENT_CHECKLIST.md`**: Pre-deployment validation steps

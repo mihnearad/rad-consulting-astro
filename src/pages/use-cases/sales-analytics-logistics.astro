@@ -1,0 +1,140 @@
+---
+import Navbar from "../../../components/navbar.astro";
+import Footer from "../../../components/footer.astro";
+import "../../global.css";
+import "../../styles/case-study.css";
+
+const caseStudy = {
+  title: "Real-Time Sales Analytics for Logistics Company",
+  category: "Data Analysis",
+  client: "International Transport & Logistics Provider",
+  duration: "3 months",
+  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+  excerpt: "Transformed a logistics company's sales operations by aggregating data from multiple sources into real-time KPI dashboards.",
+  challenge: "The logistics company was struggling with fragmented sales data across multiple systems, making it impossible to identify profitable opportunities in real-time. Decision-makers lacked visibility into key performance indicators, leading to missed opportunities and inefficient resource allocation.",
+  solution: "We designed and implemented a comprehensive data analytics solution using PowerBI for visualization and AWS for robust data pipeline infrastructure. The system aggregates data from CRM, ERP, and operational systems, providing real-time dashboards that highlight KPIs and profitable opportunities as they emerge.",
+  results: [
+    { metric: "Real-time", description: "KPI visibility across all departments" },
+    { metric: "100%", description: "Data consolidation from all sources" },
+    { metric: "40%", description: "Faster insights delivery to decision makers" }
+  ],
+  technologies: ["PowerBI", "AWS", "Data Pipelines", "SQL", "ETL"],
+  outcomes: [
+    "Executive team can now monitor company performance in real-time through interactive dashboards",
+    "Sales team identifies high-margin opportunities instantly, improving response times",
+    "Data-driven decision making has become embedded in the company culture",
+    "Automated data pipelines eliminated manual reporting overhead, saving 15+ hours per week"
+  ]
+};
+---
+
+<html lang="en">
+  <head>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{caseStudy.title} | RAD Digital Solutions</title>
+    <meta name="description" content={caseStudy.excerpt}>
+    <link rel="canonical" href="https://rad-digitalsolutions.com/use-cases/sales-analytics-logistics">
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <Navbar />
+
+    <section class="case-hero">
+      <div class="cs-container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> / <a href="/use-cases">Use Cases</a> / <span>{caseStudy.title}</span>
+        </nav>
+        <span class="case-category">{caseStudy.category}</span>
+        <h1 class="case-title">{caseStudy.title}</h1>
+        <div class="case-meta">
+          <span><strong>Client:</strong> {caseStudy.client}</span>
+          <span><strong>Duration:</strong> {caseStudy.duration}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-image-section">
+      <div class="cs-container">
+        <img src={caseStudy.image} alt={caseStudy.title} class="hero-image" />
+      </div>
+    </section>
+
+    <section class="case-results-highlight">
+      <div class="cs-container">
+        <h2>Key Results</h2>
+        <div class="results-grid">
+          {caseStudy.results.map(result => (
+            <div class="result-card">
+              <div class="result-metric">{result.metric}</div>
+              <div class="result-description">{result.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-details">
+      <div class="cs-container">
+        <div class="detail-block">
+          <h2>The Challenge</h2>
+          <p>{caseStudy.challenge}</p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Our Solution</h2>
+          <p>{caseStudy.solution}</p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Technologies Used</h2>
+          <div class="tech-stack">
+            {caseStudy.technologies.map(tech => (
+              <span class="tech-badge">{tech}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Outcomes & Impact</h2>
+          <ul class="outcomes-list">
+            {caseStudy.outcomes.map(outcome => (
+              <li>{outcome}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cta">
+      <div class="cs-container">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss how we can help you achieve similar results.</p>
+        <a href="/#contact" class="cta-button">Get in Touch</a>
+      </div>
+    </section>
+
+    <Footer />
+    <script src="/klaro-config.js" defer></script>
+    <script src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" defer></script>
+  </body>
+</html>

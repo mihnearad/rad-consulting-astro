@@ -1,0 +1,141 @@
+---
+import Navbar from "../../../components/navbar.astro";
+import Footer from "../../../components/footer.astro";
+import "../../global.css";
+import "../../styles/case-study.css";
+
+const caseStudy = {
+  title: "Enterprise WordPress Migration & Go-Live Management",
+  category: "Project Management",
+  client: "Professional Services Company",
+  duration: "4 months",
+  image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+  excerpt: "Orchestrated a complex website migration from an unmaintained custom platform to WordPress 7, managing years of data migration and coordinating seamless go-live execution.",
+  challenge: "The client's website was built on a custom CMS that had become unmaintained and outdated. Seven years of accumulated content, user data, and media files needed to be migrated without data loss. The client required a European cloud provider for GDPR compliance and zero downtime during the transition.",
+  solution: "We executed a comprehensive migration strategy, starting with a detailed content audit and database mapping. A custom migration script was developed to transfer all data accurately. We deployed the new WordPress 7 environment on a dedicated VM with OVH Cloud (EU-based), configured the backend infrastructure, and coordinated the go-live during a carefully planned maintenance window.",
+  results: [
+    { metric: "7 years", description: "Data successfully migrated" },
+    { metric: "EU Cloud", description: "OVH VM deployment" },
+    { metric: "Zero", description: "Data loss incidents" }
+  ],
+  technologies: ["WordPress 7", "OVH Cloud", "VM Management", "MySQL", "PHP"],
+  outcomes: [
+    "Successfully migrated 7 years of content, including 500+ pages and 10,000+ media files",
+    "Deployed on OVH Cloud infrastructure ensuring GDPR compliance with EU data residency",
+    "Achieved zero data loss through meticulous migration planning and validation",
+    "Go-live executed smoothly with minimal disruption to business operations",
+    "New WordPress platform provides modern content management capabilities and better performance"
+  ]
+};
+---
+
+<html lang="en">
+  <head>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{caseStudy.title} | RAD Digital Solutions</title>
+    <meta name="description" content={caseStudy.excerpt}>
+    <link rel="canonical" href="https://rad-digitalsolutions.com/use-cases/wordpress-migration-project">
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <Navbar />
+
+    <section class="case-hero">
+      <div class="cs-container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> / <a href="/use-cases">Use Cases</a> / <span>{caseStudy.title}</span>
+        </nav>
+        <span class="case-category">{caseStudy.category}</span>
+        <h1 class="case-title">{caseStudy.title}</h1>
+        <div class="case-meta">
+          <span><strong>Client:</strong> {caseStudy.client}</span>
+          <span><strong>Duration:</strong> {caseStudy.duration}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-image-section">
+      <div class="cs-container">
+        <img src={caseStudy.image} alt={caseStudy.title} class="hero-image" />
+      </div>
+    </section>
+
+    <section class="case-results-highlight">
+      <div class="cs-container">
+        <h2>Key Results</h2>
+        <div class="results-grid">
+          {caseStudy.results.map(result => (
+            <div class="result-card">
+              <div class="result-metric">{result.metric}</div>
+              <div class="result-description">{result.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-details">
+      <div class="cs-container">
+        <div class="detail-block">
+          <h2>The Challenge</h2>
+          <p>{caseStudy.challenge}</p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Our Solution</h2>
+          <p>{caseStudy.solution}</p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Technologies Used</h2>
+          <div class="tech-stack">
+            {caseStudy.technologies.map(tech => (
+              <span class="tech-badge">{tech}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Outcomes & Impact</h2>
+          <ul class="outcomes-list">
+            {caseStudy.outcomes.map(outcome => (
+              <li>{outcome}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cta">
+      <div class="cs-container">
+        <h2>Need Help with Your Migration Project?</h2>
+        <p>Let's discuss how we can manage your complex migration seamlessly.</p>
+        <a href="/#contact" class="cta-button">Get in Touch</a>
+      </div>
+    </section>
+
+    <Footer />
+    <script src="/klaro-config.js" defer></script>
+    <script src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" defer></script>
+  </body>
+</html>

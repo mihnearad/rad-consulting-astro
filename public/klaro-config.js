@@ -98,7 +98,7 @@ window.klaroConfig = {
       required: false,
       optOut: false,
       onlyOnce: false,
-      default: false,
+      default: true,
       callback: function(consent, service) {
         // Initialize dataLayer if not exists
         window.dataLayer = window.dataLayer || [];
