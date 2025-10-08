@@ -1,13 +1,8 @@
 ---
-import Navbar from "../../../components/navbar    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{caseStudy.title} - RAD Digital Solutions</title>
-    <meta name="description" content={caseStudy.excerpt}>
-    <link rel="canonical" href={`https://rad-digitalsolutions.com/use-cases/${caseStudy.title.toLowerCase().replace(/\s+/g, '-')}`}>
-    <link rel="icon" href="/logo_raddigitalsolutions.webp" type="image/webp" />
-    
-    <!-- Breadcrumb Structured Data -->;
+import Navbar from "../../../components/navbar.astro";
 import Footer from "../../../components/footer.astro";
+import "../../global.css";
+import "../../styles/case-study.css";
 import "../../global.css";
 import "../../styles/case-study.css";
 
@@ -57,9 +52,10 @@ const caseStudy = {
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{caseStudy.title} - RAD Digital Solutions</title>
+    <title>{caseStudy.title} - RAD Digital Solutions</title>
     <meta name="description" content={caseStudy.excerpt}>
     <link rel="canonical" href={`https://rad-digitalsolutions.com/use-cases/${caseStudy.title.toLowerCase().replace(/\s+/g, '-')}`}>
+    <link rel="icon" href="/logo_raddigitalsolutions.webp" type="image/webp" />
     
     <!-- Breadcrumb Structured Data -->
     <script type="application/ld+json">
@@ -114,7 +110,6 @@ const caseStudy = {
       "description": "Developed an intelligent chatbot integrated with ERP system to provide instant access to business data and automate routine queries."
     }
     </script>
-  </head>
   </head>
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"

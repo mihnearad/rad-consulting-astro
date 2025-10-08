@@ -14,7 +14,16 @@ window.klaroConfig = {
   },
 
   // Whether to show the banner on page load
-  mustConsent: true,
+  mustConsent: false,
+
+  // Use a simple notice bar instead of modal
+  noticeAsModal: false,
+
+  // Hide the decline button - just show accept
+  hideDeclineAll: true,
+  
+  // Hide the toggle button after consent
+  hideLearnMore: false,
 
   // Language (can be 'en', 'de', 'fr', etc.)
   lang: 'en',
@@ -28,8 +37,76 @@ window.klaroConfig = {
   // Privacy policy URL
   privacyPolicy: '/privacy-policy',
 
-  // Styling with your brand colors
+  // Styling with your brand colors - minimal bottom notice
   css: `
+    /* Minimal bottom notice bar */
+    .klaro .cookie-notice {
+      background: var(--primary, #011426) !important;
+      color: white !important;
+      padding: 1rem 2rem !important;
+      border-radius: 0 !important;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+      max-width: 100% !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      position: fixed !important;
+      z-index: 9999 !important;
+    }
+    
+    .klaro .cookie-notice .cn-body {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-wrap: wrap !important;
+      gap: 1rem !important;
+    }
+    
+    .klaro .cookie-notice p {
+      margin: 0 !important;
+      font-size: 0.95rem !important;
+      flex: 1 !important;
+      min-width: 250px !important;
+    }
+    
+    .klaro .cookie-notice .cn-buttons {
+      display: flex !important;
+      gap: 0.75rem !important;
+      align-items: center !important;
+    }
+    
+    .klaro .cookie-notice .cn-ok {
+      background: var(--primaryLight, #3483C5) !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 6px !important;
+      padding: 0.6rem 1.5rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      font-size: 0.95rem !important;
+    }
+    
+    .klaro .cookie-notice .cn-ok:hover {
+      background: #2a6ba8 !important;
+      transform: translateY(-1px) !important;
+    }
+    
+    .klaro .cookie-notice .cn-learn-more {
+      color: var(--primaryLight, #3483C5) !important;
+      text-decoration: underline !important;
+      font-size: 0.9rem !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer !important;
+      padding: 0.5rem !important;
+    }
+    
+    .klaro .cookie-notice .cn-learn-more:hover {
+      color: #5aa3d9 !important;
+    }
+    
+    /* Modal styling (when Learn More is clicked) */
     .klaro .cm-modal {
       background: var(--bodyTextColorWhite, #fafbfc) !important;
       color: var(--bodyTextColor, #4a5568) !important;
@@ -69,22 +146,25 @@ window.klaroConfig = {
       color: white !important;
     }
     
-    .klaro .cn-notice {
-      background: var(--primary, #011426) !important;
-      color: white !important;
-      border-radius: 8px !important;
-      box-shadow: 0 4px 15px rgba(1, 20, 38, 0.3) !important;
-    }
-    
-    .klaro .cn-notice .cn-ok {
-      background: var(--primaryLight, #3483C5) !important;
-      border-radius: 6px !important;
-      font-weight: 600 !important;
-    }
-    
-    .klaro .cn-notice .cn-learn-more {
-      color: var(--primaryLight, #3483C5) !important;
-      text-decoration: underline !important;
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .klaro .cookie-notice {
+        padding: 1rem !important;
+      }
+      
+      .klaro .cookie-notice .cn-body {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+      
+      .klaro .cookie-notice .cn-buttons {
+        width: 100% !important;
+        justify-content: space-between !important;
+      }
+      
+      .klaro .cookie-notice p {
+        font-size: 0.9rem !important;
+      }
     }
   `,
 
