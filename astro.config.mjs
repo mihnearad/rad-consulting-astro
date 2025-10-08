@@ -16,6 +16,7 @@ export default defineConfig({
         'https://rad-digitalsolutions.com/services/it-consulting',
         'https://rad-digitalsolutions.com/services/project-management',
         'https://rad-digitalsolutions.com/services/data-analysis',
+        'https://rad-digitalsolutions.com/services/process-automation',
         'https://rad-digitalsolutions.com/use-cases/enterprise-network-modernization',
         'https://rad-digitalsolutions.com/use-cases/wordpress-migration-project',
         'https://rad-digitalsolutions.com/use-cases/sales-analytics-logistics',

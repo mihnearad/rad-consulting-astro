@@ -74,6 +74,7 @@ import "../global.css";
     <link rel="sitemap" href="/sitemap-index.xml" />
     
     <!-- Preload Critical Resources -->
+    <link rel="preload" as="image" href="/Background.webp" type="image/webp" fetchpriority="high" />
     <link rel="preload" as="video" href="/DigitalVideo.mp4" type="video/mp4" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -90,15 +91,34 @@ import "../global.css";
     <style>
       /* Critical CSS for immediate rendering */
       body { margin: 0; font-family: 'Inter', sans-serif; }
-      .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-      .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #011426; z-index: 0; }
+      .hero { 
+        position: relative; 
+        min-height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        background-image: url('/Background.webp');
+        background-size: cover;
+        background-position: center;
+        background-color: #011426;
+      }
+      .hero-bg { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-image: url('/Background.webp');
+        background-size: cover;
+        background-position: center;
+        background-color: #011426; 
+        z-index: 0; 
+      }
       .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
       .hero-content { position: relative; z-index: 3; text-align: center; color: white; max-width: 800px; }
       .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; font-weight: 900; }
       .hero-button { background: #3483C5; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 0.25rem; font-weight: 700; cursor: pointer; }
-    </style>
-    
-    <!-- Structured Data -->
+    </style>    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",

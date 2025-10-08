@@ -10,11 +10,11 @@
       <div class="hero-bg">
         <video
           class="hero-video"
-          autoplay
           muted
           loop
           playsinline
           preload="auto"
+          poster="/Background.webp"
           id="heroVideo"
         >
           <source src="/DigitalVideo.mp4" type="video/mp4">
@@ -33,24 +33,65 @@
     </section>
     
     <script>
-      // Smooth slow-down and pause effect - stays paused until page reload
-      document.addEventListener('DOMContentLoaded', function() {
-        const video = document.getElementById('heroVideo');
-        if (video && video instanceof HTMLVideoElement) {
-          let isSlowingDown = false;
-          let normalPlaybackRate = 1.0;
-          const slowDownDuration = 2.5; // Start slowing down 2.5 seconds before end
+      // Wait for all page resources to load, then start video with smooth slow-down effect
+      window.addEventListener('load', function() {
+        const videoElement = document.getElementById('heroVideo');
+        if (!videoElement) return;
+        
+        const video = videoElement as HTMLVideoElement;
+        let isSlowingDown = false;
+        let normalPlaybackRate = 1.0;
+        const slowDownDuration = 2.5; // Start slowing down 2.5 seconds before end
           
           // Remove the loop attribute - we'll handle it manually
           video.removeAttribute('loop');
           
-          // Attempt to play the video
-          const playPromise = video.play();
+          // Enhanced video loading with error handling
+          video.addEventListener('loadeddata', function() {
+            console.log('Video loaded successfully');
+          });
           
-          if (playPromise !== undefined) {
-            playPromise.catch(error => {
-              console.log('Video autoplay prevented:', error);
-            });
+          video.addEventListener('error', function(e) {
+            console.error('Video failed to load:', e);
+            // Fallback: show poster image
+            video.style.display = 'none';
+          });
+          
+          // Attempt to play the video with retry logic
+          let playAttempts = 0;
+          const maxAttempts = 3;
+          
+          function tryPlay() {
+            if (!video) return;
+            
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  console.log('Video playing successfully after page load');
+                })
+                .catch((error: unknown) => {
+                  console.log('Video play prevented, attempt', playAttempts + 1, ':', error);
+                  playAttempts++;
+                  
+                  // Retry after a short delay if we haven't exceeded max attempts
+                  if (playAttempts < maxAttempts) {
+                    setTimeout(tryPlay, 500);
+                  } else {
+                    console.log('Video play failed after', maxAttempts, 'attempts - showing poster image');
+                  }
+                });
+            }
+          }
+          
+          // Start playing immediately since page is already loaded
+          if (video.readyState >= 3) {
+            // Video is already loaded enough to play
+            tryPlay();
+          } else {
+            // Wait for video to be ready
+            video.addEventListener('canplay', tryPlay, { once: true });
           }
 
           // Smooth slow-down effect
@@ -77,7 +118,6 @@
               video.playbackRate = normalPlaybackRate;
             }
           });
-        }
       });
     </script>
   </body>
@@ -95,7 +135,11 @@
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
+    background-image: url('/Background.webp'); /* Immediate background while everything loads */
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed; /* Parallax effect */
+    background-color: #011426; /* Fallback color matching your brand */
   }
 
   .hero-bg {
@@ -105,6 +149,10 @@
     right: 0;
     bottom: 0;
     background-attachment: fixed; /* Parallax effect */
+    background-image: url('/Background.webp'); /* Fallback if video fails */
+    background-size: cover;
+    background-position: center;
+    background-color: #011426; /* Fallback color */
     animation: zoomIn 0.5s;
     z-index: 0;
   }
