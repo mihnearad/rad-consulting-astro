@@ -8,7 +8,7 @@ import Contact from "../../components/contact-us.astro";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Consent Mode - Must load BEFORE GTM -->
+    <!-- Google Consent Mode - Must load BEFORE GTM and GA4 -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -21,6 +21,15 @@ import Contact from "../../components/contact-us.astro";
         'ad_personalization': 'denied',
         'wait_for_update': 500
       });
+    </script>
+    
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW0BVWR14C"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HW0BVWR14C');
     </script>
     
     <!-- Google Tag Manager -->
