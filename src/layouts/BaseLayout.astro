@@ -1,0 +1,205 @@
+---
+import Navbar from "../../components/navbar.astro";
+import Footer from "../../components/footer.astro";
+import ContactModal from "../../components/contact-modal.astro";
+import FloatingCTA from "../../components/floating-cta.astro";
+import "../global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+  canonical: string;
+  ogImage: string;
+  ogUrl: string;
+}
+
+const { title, description, keywords, canonical, ogImage, ogUrl } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <!-- Google Consent Mode - Must load BEFORE GTM and GA4 -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Set default consent to 'denied' as a placeholder
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+    
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW0BVWR14C"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HW0BVWR14C');
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="RAD Digital Solutions" />
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="RAD Digital Solutions" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={ogUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="/logo_raddigitalsolutions.webp" type="image/webp" />
+    <link rel="apple-touch-icon" href="/logo_raddigitalsolutions.webp" />
+    
+    <!-- Sitemap and Search Console -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" as="image" href="/Background.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="video" href="/DigitalVideo.mp4" type="video/mp4" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Optimize third-party connections -->
+    <link rel="preconnect" href="https://cdn.kiprotect.com" />
+    <link rel="dns-prefetch" href="https://cdn.kiprotect.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      /* Critical CSS for immediate rendering */
+      body { margin: 0; font-family: 'Inter', sans-serif; }
+      .hero { 
+        position: relative; 
+        min-height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        background-image: url('/Background.webp');
+        background-size: cover;
+        background-position: center;
+        background-color: #011426;
+      }
+      .hero-bg { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-image: url('/Background.webp');
+        background-size: cover;
+        background-position: center;
+        background-color: #011426; 
+        z-index: 0; 
+      }
+      .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+      .hero-content { position: relative; z-index: 3; text-align: center; color: white; max-width: 800px; }
+      .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; font-weight: 900; }
+      .hero-button { background: #3483C5; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 0.25rem; font-weight: 700; cursor: pointer; }
+    </style>    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RAD Digital Solutions",
+        "description": "Leading provider of digital services, IT consulting, project management solutions, networking solutions, and digital transformation services for businesses worldwide",
+        "url": "https://rad-digitalsolutions.com",
+        "logo": "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "url": "https://rad-digitalsolutions.com/#contact"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/rad-digital-solutions"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        },
+        "service": [
+          {
+            "@type": "Service",
+            "name": "IT Consulting & Networking Solutions",
+            "description": "Professional IT consulting and networking solutions to help optimize your technology infrastructure and deliver comprehensive digital services",
+            "url": "https://rad-digitalsolutions.com/services/it-consulting"
+          },
+          {
+            "@type": "Service",
+            "name": "Business Intelligence",
+            "description": "Comprehensive business intelligence solutions with advanced analytics, data visualization, and actionable insights using PowerBI and Python",
+            "url": "https://rad-digitalsolutions.com/services/business-intelligence"
+          },
+          {
+            "@type": "Service",
+            "name": "Project Management Solutions", 
+            "description": "Comprehensive project management solutions and digital project delivery services ensuring on-time and on-budget completion",
+            "url": "https://rad-digitalsolutions.com/services/project-management"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Klaro Cookie Consent -->
+    <div id="klaro"></div>
+    
+    <!-- Main content slot with Navbar and Footer -->
+    <Navbar />
+    <slot />
+    <Footer />
+    
+    <!-- Contact Modal (available on all pages) -->
+    <ContactModal />
+    
+    <!-- Floating CTA Button -->
+    <FloatingCTA />
+
+    <!-- Load Klaro Cookie Consent scripts after page content -->
+    <script src="/klaro-config.js" defer></script>
+    <script src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" defer></script>
+  </body>
+</html>

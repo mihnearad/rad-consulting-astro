@@ -1,0 +1,139 @@
+---
+// Floating CTA Button that appears on scroll
+---
+
+<button id="floating-cta" class="floating-cta" onclick="openContactModal()" aria-label="Get started with RAD Digital Solutions">
+  <span class="floating-cta-text">Get Started</span>
+  <svg class="floating-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</button>
+
+<style>
+  .floating-cta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--primary) 100%);
+    color: #fff;
+    border: none;
+    padding: 1rem 1.75rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 10px 30px rgba(52, 131, 197, 0.4);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .floating-cta.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  
+  .floating-cta:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(52, 131, 197, 0.5);
+  }
+  
+  .floating-cta:active {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .floating-cta-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .floating-cta:hover .floating-cta-icon {
+    transform: translateX(4px);
+  }
+  
+  /* Pulse animation */
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 10px 30px rgba(52, 131, 197, 0.4);
+    }
+    50% {
+      box-shadow: 0 10px 40px rgba(52, 131, 197, 0.6), 0 0 0 10px rgba(52, 131, 197, 0.1);
+    }
+  }
+  
+  .floating-cta.visible {
+    animation: pulse 2s infinite;
+  }
+  
+  /* Mobile adjustments */
+  @media only screen and (max-width: 768px) {
+    .floating-cta {
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.875rem 1.5rem;
+      font-size: 0.875rem;
+    }
+    
+    .floating-cta-text {
+      display: none;
+    }
+    
+    .floating-cta {
+      width: 56px;
+      height: 56px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    
+    .floating-cta-icon {
+      margin: 0;
+    }
+  }
+  
+  /* Hide when modal is open */
+  .modal-overlay.active ~ .floating-cta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // Show floating CTA after scrolling down
+  const floatingCta = document.getElementById('floating-cta');
+  
+  function checkScroll() {
+    if (!floatingCta) return;
+    
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    // Show button after scrolling past first viewport
+    if (scrollPosition > windowHeight * 0.5) {
+      floatingCta.classList.add('visible');
+    } else {
+      floatingCta.classList.remove('visible');
+    }
+  }
+  
+  // Throttle scroll event for performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        checkScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  
+  // Check on load
+  checkScroll();
+</script>

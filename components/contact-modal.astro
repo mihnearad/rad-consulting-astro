@@ -1,0 +1,563 @@
+---
+// Contact Modal Component for Lead Generation
+---
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <div class="modal-content">
+      <h2 id="modal-title" class="modal-title">Let's Transform Your Business Together</h2>
+      <p class="modal-subtitle">Share your details and we'll show you how our solutions can drive your success.</p>
+      
+      <form
+        class="modal-form"
+        id="lead-form"
+        name="Lead Form"
+        method="post"
+        action="https://api.web3forms.com/submit"
+        novalidate
+      >
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="e5a38996-8ac1-4f53-9a15-dc1dacd2c7ba" />
+        <input type="hidden" name="subject" value="New Lead from RAD Digital Solutions Website" />
+        <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+        
+        <div class="form-group">
+          <label for="lead-name" class="form-label">
+            Full Name <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="lead-name"
+            name="name"
+            class="form-input"
+            placeholder="John Smith"
+            required
+            autocomplete="name"
+          />
+          <span class="form-error">Please enter your name</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="lead-email" class="form-label">
+            Business Email <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="lead-email"
+            name="email"
+            class="form-input"
+            placeholder="john@company.com"
+            required
+            autocomplete="email"
+          />
+          <span class="form-error">Please enter a valid email</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="lead-company" class="form-label">
+            Company Name
+          </label>
+          <input
+            type="text"
+            id="lead-company"
+            name="company"
+            class="form-input"
+            placeholder="Your Company"
+            autocomplete="organization"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="lead-interest" class="form-label">
+            I'm Interested In <span class="required">*</span>
+          </label>
+          <select id="lead-interest" name="interest" class="form-input" required>
+            <option value="">Select a service...</option>
+            <option value="IT Consulting & Networking">IT Consulting & Networking</option>
+            <option value="Project Management">Project Management Solutions</option>
+            <option value="Business Intelligence">Business Intelligence</option>
+            <option value="Process Automation">Process Automation</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+          <span class="form-error">Please select your area of interest</span>
+        </div>
+        
+        <button type="submit" class="form-submit">
+          Get Started Now
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        
+        <div id="modal-result" class="form-result"></div>
+        
+        <p class="form-privacy">
+          By submitting, you agree to our <a href="/privacy-policy">Privacy Policy</a>. We'll contact you within 24 hours.
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 20, 38, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+  }
+  
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Modal Container */
+  .modal-container {
+    background: #fff;
+    border-radius: 1rem;
+    max-width: 540px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-overlay.active .modal-container {
+    transform: translateY(0) scale(1);
+  }
+  
+  /* Close Button */
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--bodyTextColor);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .modal-close:hover {
+    background: #f3f4f6;
+    color: var(--primary);
+    transform: rotate(90deg);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    padding: 2.5rem 2rem 2rem;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+      padding: 2rem 1.5rem 1.5rem;
+    }
+  }
+  
+  .modal-title {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+  }
+  
+  .modal-subtitle {
+    font-size: 1rem;
+    color: var(--bodyTextColor);
+    margin: 0 0 2rem 0;
+    line-height: 1.5;
+  }
+  
+  /* Form Styles */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .required {
+    color: #ef4444;
+  }
+  
+  .form-input,
+  .form-input select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--primary);
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: var(--primaryLight);
+    box-shadow: 0 0 0 3px rgba(52, 131, 197, 0.1);
+  }
+  
+  .form-input::placeholder {
+    color: #9ca3af;
+  }
+  
+  select.form-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23374151' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+  }
+  
+  .form-error {
+    font-size: 0.875rem;
+    color: #ef4444;
+    display: none;
+  }
+  
+  .form-group.error .form-input {
+    border-color: #ef4444;
+  }
+  
+  .form-group.error .form-error {
+    display: block;
+  }
+  
+  /* Submit Button */
+  .form-submit {
+    background: var(--primaryLight);
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .form-submit:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(52, 131, 197, 0.3);
+  }
+  
+  .form-submit:active {
+    transform: translateY(0);
+  }
+  
+  .form-submit svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .form-submit:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* Form Result Messages */
+  .form-result {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+    display: none;
+    margin-top: 0.5rem;
+  }
+  
+  .form-result.success {
+    display: block;
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #34d399;
+  }
+  
+  .form-result.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+  }
+  
+  /* Privacy Text */
+  .form-privacy {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .form-privacy a {
+    color: var(--primaryLight);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .form-privacy a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Loading State */
+  .form-submit.loading {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  
+  .form-submit.loading::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 0.5rem;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Scrollbar Styling for Modal */
+  .modal-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .modal-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 1rem 1rem 0;
+  }
+  
+  .modal-container::-webkit-scrollbar-thumb {
+    background: var(--primaryLight);
+    border-radius: 4px;
+  }
+  
+  .modal-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Modal functionality
+    var modal = document.getElementById('contact-modal');
+    var modalClose = modal ? modal.querySelector('.modal-close') : null;
+    var leadForm = document.getElementById('lead-form');
+    var resultDiv = document.getElementById('modal-result');
+
+    // Open modal function (accessible globally)
+    function openContactModal() {
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Track modal open event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'lead_modal_open', {
+            'event_category': 'engagement',
+            'event_label': 'Contact Modal Opened'
+          });
+        }
+      }
+    }
+
+    // Close modal function
+    function closeContactModal() {
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Make openContactModal globally available
+    window.openContactModal = openContactModal;
+    window.closeContactModal = closeContactModal;
+
+    // Close on button click
+    if (modalClose) {
+      modalClose.addEventListener('click', closeContactModal);
+    }
+
+    // Close on overlay click
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeContactModal();
+        }
+      });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+        closeContactModal();
+      }
+    });
+
+    // Form validation and submission (using exact Web3Forms pattern from contact-us.astro)
+    if (leadForm) {
+      leadForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Clear previous errors
+        var formGroups = leadForm.querySelectorAll('.form-group');
+        for (var i = 0; i < formGroups.length; i++) {
+          formGroups[i].classList.remove('error');
+        }
+
+        // Validate required fields
+        var nameInput = document.getElementById('lead-name');
+        var emailInput = document.getElementById('lead-email');
+        var interestSelect = document.getElementById('lead-interest');
+        var isValid = true;
+
+        if (!nameInput.value.trim()) {
+          var nameGroup = nameInput.closest('.form-group');
+          if (nameGroup) nameGroup.classList.add('error');
+          isValid = false;
+        }
+
+        if (!emailInput.value.trim() || !emailInput.validity.valid) {
+          var emailGroup = emailInput.closest('.form-group');
+          if (emailGroup) emailGroup.classList.add('error');
+          isValid = false;
+        }
+
+        if (!interestSelect.value) {
+          var interestGroup = interestSelect.closest('.form-group');
+          if (interestGroup) interestGroup.classList.add('error');
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // Prepare form submission
+        var submitButton = leadForm.querySelector('.form-submit');
+        submitButton.classList.add('loading');
+        submitButton.disabled = true;
+
+        if (resultDiv) {
+          resultDiv.innerHTML = 'Sending...';
+          resultDiv.className = 'form-result';
+          resultDiv.style.display = 'block';
+        }
+
+        var formData = new FormData(leadForm);
+        var object = Object.fromEntries(formData);
+        var json = JSON.stringify(object);
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async function(response) {
+            var jsonResponse = await response.json();
+            if (response.status == 200) {
+              // Success
+              if (resultDiv) {
+                resultDiv.innerHTML = jsonResponse.message || 'Thank you! We will be in touch soon.';
+                resultDiv.className = 'form-result success';
+              }
+
+              // Track conversion
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                  'event_category': 'engagement',
+                  'event_label': 'Lead Form Submitted'
+                });
+              }
+
+              // Reset form
+              leadForm.reset();
+
+              // Close modal after 3 seconds
+              setTimeout(function() {
+                closeContactModal();
+                if (resultDiv) {
+                  resultDiv.style.display = 'none';
+                }
+              }, 3000);
+            } else {
+              console.log(response);
+              if (resultDiv) {
+                resultDiv.innerHTML = jsonResponse.message || 'Something went wrong. Please try again.';
+                resultDiv.className = 'form-result error';
+              }
+            }
+          })
+          .catch(function(error) {
+            console.log(error);
+            if (resultDiv) {
+              resultDiv.innerHTML = 'Something went wrong! Please try again or email us directly at office@rad-digitalsolutions.com';
+              resultDiv.className = 'form-result error';
+            }
+          })
+          .then(function () {
+            submitButton.classList.remove('loading');
+            submitButton.disabled = false;
+          });
+      });
+    }
+  });
+</script>

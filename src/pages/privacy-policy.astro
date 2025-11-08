@@ -1,57 +1,15 @@
 ---
-import Navbar from "../../components/navbar.astro";
-import Footer from "../../components/footer.astro";
-import "../global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Privacy Policy - RAD Digital Solutions";
+const description = "Review the privacy policy of RAD Digital Solutions. Learn about the information we collect, how we use it, and how we protect your data.";
+const keywords = "privacy policy, data protection, RAD Digital Solutions, information collection, data usage, data security";
+const canonical = "https://rad-digitalsolutions.com/privacy-policy";
+const ogImage = "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp";
+const ogUrl = "https://rad-digitalsolutions.com/privacy-policy";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Google Consent Mode - Must load BEFORE GTM and GA4 -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Set default consent to 'denied' as a placeholder
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500
-      });
-    </script>
-    
-    <!-- Google tag (gtag.js) - GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW0BVWR14C"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HW0BVWR14C');
-    </script>
-    
-    <!-- Google Tag Manager -->
-    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
-    <!-- End Google Tag Manager -->
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - RAD Digital Solutions</title>
-    <link rel="icon" href="/logo_raddigitalsolutions.webp" type="image/webp" />
-</head>
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <Navbar />
-    
+<BaseLayout {title} {description} {keywords} {canonical} {ogImage} {ogUrl}>
     <section class="privacy-policy" id="privacy-policy">
         <div class="cs-container">
             <div class="cs-content">
@@ -114,10 +72,7 @@ import "../global.css";
             </div>
         </div>
     </section>
-
-    <Footer />
-</body>
-</html>
+</BaseLayout>
 
 <style>
   .privacy-policy {

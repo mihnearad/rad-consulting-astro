@@ -6,7 +6,7 @@ Allow: /
 Allow: /services/
 Allow: /services/it-consulting
 Allow: /services/project-management
-Allow: /services/data-analysis
+Allow: /services/business-intelligence
 Allow: /services/process-automation
 Allow: /use-cases/
 Allow: /use-cases/enterprise-network-modernization

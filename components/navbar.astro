@@ -50,7 +50,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
                 <a href="/services/project-management" class="cs-li-link cs-drop-link">Project Management Solutions</a>
               </li>
               <li class="cs-drop-li">
-                <a href="/services/data-analysis" class="cs-li-link cs-drop-link">Data Analysis</a>
+                <a href="/services/business-intelligence" class="cs-li-link cs-drop-link">Business Intelligence</a>
               </li>
             </ul>
           </li>
@@ -66,7 +66,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
         </ul>
       </div>
     </nav>
-    <a href="/#contact" class="cs-button-solid cs-nav-button">Contact Us</a>
+    <a href="javascript:void(0)" onclick="openContactModal()" class="cs-button-solid cs-nav-button">Contact Us</a>
     <a
     href="https://wa.me/31615078622"
     target="_blank"
@@ -604,26 +604,35 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       left: 0;
       transition: width 0.3s;
     }
-    #cs-navigation .cs-button-solid {
+    /* Shared styles for all navigation buttons */
+    #cs-navigation .cs-button-solid,
+    #cs-navigation .cs-whatsapp-button {
       font-size: 0.875rem;
       font-weight: 700;
-      /* 36px - 42px - reduced from 46px-56px */
-      line-height: clamp(2.25em, 4.5vw, 2.625em);
+      line-height: 2.5rem;
       text-align: center;
       text-decoration: none;
-      min-width: 7.5rem;
+      min-width: 8rem;
+      height: 2.5rem;
       margin: 0;
-      /* prevents padding from adding to the width */
       box-sizing: border-box;
-      padding: 0 1rem;
+      padding: 0 1.25rem;
       color: #fff;
       background-color: var(--primary);
       border-radius: 0.25rem;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       position: relative;
       z-index: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    #cs-navigation .cs-button-solid:before {
+
+    #cs-navigation .cs-button-solid:before,
+    #cs-navigation .cs-whatsapp-button:before {
       content: "";
       width: 0%;
       height: 100%;
@@ -634,57 +643,35 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       top: 0;
       left: 0;
       z-index: -1;
-      transition: width 0.3s;
+      transition: width 0.3s ease;
     }
-    #cs-navigation .cs-button-solid:hover:before {
+
+    #cs-navigation .cs-button-solid:hover:before,
+    #cs-navigation .cs-whatsapp-button:hover:before {
       width: 100%;
+    }
+
+    #cs-navigation .cs-button-solid:hover,
+    #cs-navigation .cs-whatsapp-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(52, 131, 197, 0.3);
     }
   }
 
-  .cs-whatsapp-button {
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: clamp(2.25em, 4.5vw, 2.625em);
-  text-align: center;
-  text-decoration: none;
-  min-width: 7.5rem;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 0 1rem;
-  color: #fff;
-  background-color: var(--primary);
-  border-radius: 0.25rem;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
+  /* WhatsApp button icon styling */
+  .cs-whatsapp-button img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+  }
 
-.cs-whatsapp-button:before {
-  content: "";
-  width: 0%;
-  height: 100%;
-  background: var(--primaryLight);
-  opacity: 1;
-  border-radius: 0.25rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: width 0.3s;
-}
-
-.cs-whatsapp-button:hover:before {
-  width: 100%;
-}
-
-.cs-whatsapp-button img {
-  width: 16px;
-  height: 16px;
-  margin-right: 0.4rem;
-  vertical-align: middle;
-  filter: invert(1); /* Fully inverts the colors */
-}
+  /* Hide both buttons on mobile */
+  @media only screen and (max-width: 63.9375rem) {
+    #cs-navigation .cs-whatsapp-button {
+      display: none;
+    }
+  }
 
 
 

@@ -194,8 +194,8 @@ import "../../global.css";
                 <div class="service-grid">
                     <div class="service-card">
                         <div class="service-icon">🔄</div>
-                        <h3 class="service-title">Workflow Automation</h3>
-                        <p class="service-description">Automate repetitive workflows across departments - from email responses to data entry, invoicing to customer onboarding.</p>
+                        <h3 class="service-title">Workflow Automation with N8N</h3>
+                        <p class="service-description">Automate repetitive workflows across departments using powerful tools like N8N - from email responses to data entry, invoicing to customer onboarding. N8N provides a flexible, code-optional platform for building complex automation workflows.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🧠</div>
@@ -255,6 +255,67 @@ import "../../global.css";
                         <h3 class="help-title">Free Demos & Discovery</h3>
                         <p class="help-description">Not sure what automation is right for you? We offer free demos of various solutions so you can see exactly how they work with your business processes. We'll help you discover what works best - no commitment required until you're confident in the solution.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- N8N Use Case Section -->
+    <section class="use-case">
+        <div class="cs-container">
+            <div class="section-header">
+                <h2 class="cs-title">Real-World N8N Automation Example</h2>
+                <p class="cs-text">See how N8N automation transforms business operations with practical, cost-effective solutions.</p>
+            </div>
+            <div class="use-case-content">
+                <div class="use-case-header">
+                    <div class="use-case-icon">📋</div>
+                    <h3 class="use-case-title">Automated Customer Onboarding & Invoice Processing</h3>
+                </div>
+                <div class="use-case-body">
+                    <div class="use-case-scenario">
+                        <h4 class="scenario-label">The Challenge</h4>
+                        <p class="scenario-text">A growing consulting firm was spending 10+ hours per week manually processing new client paperwork, creating invoices, and updating multiple systems. Each new client required data entry into their CRM, project management tool, accounting software, and email marketing platform.</p>
+                    </div>
+                    <div class="use-case-solution">
+                        <h4 class="scenario-label">The N8N Solution</h4>
+                        <p class="scenario-text">We built a fully automated N8N workflow that:</p>
+                        <ul class="solution-list">
+                            <li>Captures new client information from web forms or email</li>
+                            <li>Automatically creates client records in their CRM (HubSpot)</li>
+                            <li>Generates project folders and tasks in their PM tool (Asana)</li>
+                            <li>Creates recurring invoices in their accounting software (QuickBooks)</li>
+                            <li>Enrolls clients in appropriate email sequences (Mailchimp)</li>
+                            <li>Sends welcome packets and onboarding materials via email</li>
+                            <li>Notifies the team in Slack with all relevant details</li>
+                        </ul>
+                    </div>
+                    <div class="use-case-results">
+                        <h4 class="scenario-label">The Impact</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-value">92%</div>
+                                <div class="result-label">Time Savings</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">$18K</div>
+                                <div class="result-label">Annual Cost Reduction</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">Zero</div>
+                                <div class="result-label">Data Entry Errors</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">24/7</div>
+                                <div class="result-label">Automated Processing</div>
+                            </div>
+                        </div>
+                        <p class="scenario-text">The workflow now processes new clients in under 2 minutes with zero manual intervention, freeing the team to focus on client service and business development. The entire N8N solution paid for itself in the first month.</p>
+                    </div>
+                </div>
+                <div class="use-case-cta">
+                    <p class="use-case-cta-text">Want similar results for your business? N8N automation can transform your operations too.</p>
+                    <a href="/#contact" class="use-case-button">Discuss Your Automation Needs</a>
                 </div>
             </div>
         </div>
@@ -572,6 +633,173 @@ body {
   line-height: 1.6;
 }
 
+/* N8N Use Case Section */
+.use-case {
+  padding: 5rem 0;
+  background: white;
+}
+
+.use-case-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.use-case-header {
+  background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+  color: white;
+  padding: 3rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.use-case-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.use-case-title {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.use-case-body {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.use-case-scenario,
+.use-case-solution,
+.use-case-results {
+  position: relative;
+}
+
+.scenario-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+}
+
+.scenario-label::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: var(--primaryLight);
+  border-radius: 2px;
+}
+
+.scenario-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--bodyTextColor);
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.solution-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.solution-list li {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--bodyTextColor);
+  opacity: 0.9;
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.solution-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(52, 131, 197, 0.05) 0%, rgba(52, 131, 197, 0.02) 100%);
+  border-radius: 1rem;
+}
+
+.result-item {
+  text-align: center;
+}
+
+.result-value {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.result-label {
+  font-size: 1rem;
+  color: var(--bodyTextColor);
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.use-case-cta {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2.5rem;
+  text-align: center;
+  border-top: 3px solid var(--primary);
+}
+
+.use-case-cta-text {
+  font-size: 1.25rem;
+  color: var(--bodyTextColor);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.use-case-button {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: white;
+  min-width: 12rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(1, 20, 38, 0.2);
+}
+
+.use-case-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(1, 20, 38, 0.3);
+}
+
 /* How We Help Section */
 .help-section {
   padding: 5rem 0;
@@ -847,6 +1075,22 @@ body {
 
   .help-number {
     margin: 0 auto;
+  }
+
+  .use-case-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .use-case-body {
+    padding: 2rem 1.5rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
   .process-timeline {

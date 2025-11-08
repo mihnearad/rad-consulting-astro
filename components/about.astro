@@ -11,7 +11,10 @@ import { Image } from "astro:assets";
         We are dedicated to helping your business succeed. Our team is here to provide you with the best consulting
         services, from IT solutions to data analysis and website design. We
         believe in a collaborative approach to achieve the best results for our
-        clients. We operate in Netherlands, Belgium and Romania. 
+        clients. We operate in Netherlands and Belgium.
+      </p>
+      <p class="cs-catchphrase">
+        We don't bill hours — we engineer outcomes.
       </p>
     </div>
     <div class="about-image">
@@ -48,6 +51,19 @@ import { Image } from "astro:assets";
     width: 100%;
     text-align: left;
     order: 1;
+  }
+
+  .cs-catchphrase {
+    margin-top: 2rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--primary);
+    font-style: italic;
+    line-height: 1.4;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(52, 131, 197, 0.08) 0%, rgba(52, 131, 197, 0.05) 100%);
+    border-left: 4px solid var(--primary);
+    border-radius: 0.5rem;
   }
 
   .about-image {

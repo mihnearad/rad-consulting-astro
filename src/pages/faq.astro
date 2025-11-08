@@ -1,405 +1,348 @@
 ---
-import "../global.css";
-import Navbar from "../../components/navbar.astro";
-import Footer from "../../components/footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Contact from "../../components/contact-us.astro";
+
+const title = "Frequently Asked Questions - RAD Digital Solutions";
+const description = "Get answers to common questions about our IT consulting, data analysis, and project management services. Learn more about our processes and expertise.";
+const keywords = "FAQ, questions, IT consulting FAQ, data analysis questions, project management FAQ, RAD Digital Solutions";
+const canonical = "https://rad-digitalsolutions.com/faq";
+const ogImage = "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp";
+const ogUrl = "https://rad-digitalsolutions.com/faq";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Google Consent Mode - Must load BEFORE GTM and GA4 -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Set default consent to 'denied' as a placeholder
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500
-      });
-    </script>
-    
-    <!-- Google tag (gtag.js) - GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW0BVWR14C"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HW0BVWR14C');
-    </script>
-    
-    <!-- Google Tag Manager -->
-    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
-    <!-- End Google Tag Manager -->
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary SEO Meta Tags -->
-    <title>Frequently Asked Questions - RAD Digital Solutions</title>
-    <meta name="title" content="Frequently Asked Questions - RAD Digital Solutions" />
-    <meta name="description" content="Get answers to common questions about our IT consulting, data analysis, and project management services. Learn more about our processes and expertise." />
-    <meta name="keywords" content="FAQ, questions, IT consulting FAQ, data analysis questions, project management FAQ, RAD Digital Solutions" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="RAD Digital Solutions" />
-    <link rel="canonical" href="https://rad-digitalsolutions.com/faq" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rad-digitalsolutions.com/faq" />
-    <meta property="og:title" content="Frequently Asked Questions - RAD Digital Solutions" />
-    <meta property="og:description" content="Get answers to common questions about our IT consulting, data analysis, and project management services. Learn more about our processes and expertise." />
-    <meta property="og:image" content="https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content="https://rad-digitalsolutions.com/faq" />
-    <meta name="twitter:title" content="Frequently Asked Questions - RAD Digital Solutions" />
-    <meta name="twitter:description" content="Get answers to common questions about our IT consulting, data analysis, and project management services." />
-    
-    <!-- FAQPage Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What services does RAD Digital Solutions offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We specialize in three core areas: IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Data Analysis & Pipeline Management (PowerBI dashboards, Python analytics, business intelligence), and Project Management Solutions (digital project delivery, agile methodology, risk management). We provide end-to-end digital transformation services tailored to your business needs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the process to obtain a quote for a digital solution?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Contact us to schedule an initial consultation (free of charge) where we'll discuss your needs, goals, and current challenges. Following this, we analyze your requirements and provide a detailed proposal outlining the solution's scope, timeline, and cost. We ensure full transparency and work within your budget to deliver the best value."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does a typical project take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. During our initial consultation, we provide a realistic timeline specific to your project requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What networking solutions do you provide?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We design and implement complete network infrastructure solutions including WiFi 6 deployment, Ubiquiti UniFi systems, VPN setup, network security, and performance optimization. Our expertise includes enterprise network modernization, ensuring seamless connectivity across office and remote locations with zero downtime during migration."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you help with cloud migration and optimization?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! We assist with cloud strategy, migration to platforms like AWS, Azure, and Google Cloud, and ongoing optimization. We ensure your cloud infrastructure is secure, scalable, and cost-effective while minimizing disruption to your operations."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What tools do you use for data analysis?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your existing systems and specific requirements to ensure seamless integration."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can data analysis help my business?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Data analysis transforms raw data into actionable insights. We help you identify profitable opportunities in real-time, monitor KPIs across departments, predict trends, optimize operations, and make data-driven decisions. Our clients have seen 40% faster insight delivery and significant improvements in resource allocation and revenue identification."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What project management methodologies do you use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We employ agile methodologies adapted to your business context, including Scrum and Kanban frameworks. Our approach emphasizes clear communication, iterative delivery, risk management, and stakeholder collaboration to ensure projects stay on track, on budget, and aligned with business objectives."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you handle complex migrations like website platforms?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. We've successfully managed enterprise WordPress migrations, ERP system integrations, and complex data migrations spanning years of historical data. We handle backend server setup, cloud deployment, data validation, and seamless go-live execution with zero data loss."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer ongoing support after project completion?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs, ensuring your solutions continue to deliver optimal performance and evolve with your business."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I know your solution will work for my business?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We thoroughly assess your needs during the initial consultation and only proceed if we're confident our solution will effectively address your challenges. Our approach is tailored to your specific business context, industry, and goals. We provide proof of concepts where appropriate and maintain transparent communication throughout the project lifecycle."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "I'm not sure if my budget allows for professional IT consulting.",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We prioritize cost-efficient solutions and work within various budget ranges. During our consultation, we'll discuss your budget constraints and find the most valuable approach. We offer phased implementations, allowing you to start with high-impact initiatives and scale as ROI is demonstrated."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What makes RAD Digital Solutions different from larger consulting firms?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages. We understand your unique challenges and deliver efficient, custom-fit solutions with faster decision-making and implementation than larger firms."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you integrate with our existing systems?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions are designed to work seamlessly with your current technology stack, minimizing disruption while maximizing value."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you work with businesses of all sizes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology. Our solutions scale to fit your organization's size and complexity."
-          }
+<BaseLayout {title} {description} {keywords} {canonical} {ogImage} {ogUrl}>
+  <!-- FAQPage Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does RAD Digital Solutions offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We specialize in three core areas: IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Business Intelligence Solutions (PowerBI dashboards, data visualization, analytics, business intelligence consulting), and Project Management Solutions (digital project delivery, agile methodology, risk management). We provide end-to-end digital transformation services tailored to your business needs."
         }
-      ]
-    }
-    </script>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="/logo_raddigitalsolutions.webp" type="image/webp" />
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+      },
+      {
+        "@type": "Question",
+        "name": "What is the process to obtain a quote for a digital solution?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Contact us to schedule an initial consultation (free of charge) where we'll discuss your needs, goals, and current challenges. Following this, we analyze your requirements and provide a detailed proposal outlining the solution's scope, timeline, and cost. We ensure full transparency and work within your budget to deliver the best value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a typical project take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. During our initial consultation, we provide a realistic timeline specific to your project requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What networking solutions do you provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We design and implement complete network infrastructure solutions including WiFi 6 deployment, Ubiquiti UniFi systems, VPN setup, network security, and performance optimization. Our expertise includes enterprise network modernization, ensuring seamless connectivity across office and remote locations with zero downtime during migration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help with cloud migration and optimization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! We assist with cloud strategy, migration to platforms like AWS, Azure, and Google Cloud, and ongoing optimization. We ensure your cloud infrastructure is secure, scalable, and cost-effective while minimizing disruption to your operations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What tools do you use for data analysis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your existing systems and specific requirements to ensure seamless integration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can data analysis help my business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Data analysis transforms raw data into actionable insights. We help you identify profitable opportunities in real-time, monitor KPIs across departments, predict trends, optimize operations, and make data-driven decisions. Our clients have seen 40% faster insight delivery and significant improvements in resource allocation and revenue identification."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What project management methodologies do you use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We employ agile methodologies adapted to your business context, including Scrum and Kanban frameworks. Our approach emphasizes clear communication, iterative delivery, risk management, and stakeholder collaboration to ensure projects stay on track, on budget, and aligned with business objectives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle complex migrations like website platforms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We've successfully managed enterprise WordPress migrations, ERP system integrations, and complex data migrations spanning years of historical data. We handle backend server setup, cloud deployment, data validation, and seamless go-live execution with zero data loss."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer ongoing support after project completion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs, ensuring your solutions continue to deliver optimal performance and evolve with your business."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know your solution will work for my business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We thoroughly assess your needs during the initial consultation and only proceed if we're confident our solution will effectively address your challenges. Our approach is tailored to your specific business context, industry, and goals. We provide proof of concepts where appropriate and maintain transparent communication throughout the project lifecycle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I'm not sure if my budget allows for professional IT consulting.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We prioritize cost-efficient solutions and work within various budget ranges. During our consultation, we'll discuss your budget constraints and find the most valuable approach. We offer phased implementations, allowing you to start with high-impact initiatives and scale as ROI is demonstrated."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes RAD Digital Solutions different from larger consulting firms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages. We understand your unique challenges and deliver efficient, custom-fit solutions with faster decision-making and implementation than larger firms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you integrate with our existing systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions are designed to work seamlessly with your current technology stack, minimizing disruption while maximizing value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work with businesses of all sizes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology. Our solutions scale to fit your organization's size and complexity."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- ============================================ --><!--                    FAQ                       --><!-- ============================================ -->
+  <section id="faq-1720">
+    <div class="cs-container">
+      <div class="cs-content">
+        <span class="cs-topper">FAQ</span>
+        <h2 class="cs-title">Frequently Asked Questions</h2>
+        <p class="cs-text">Find answers to common questions about our digital services, IT consulting, data analysis, and project management solutions.</p>
+      </div>
+      <div class="cs-flex-group">
+        <div class="cs-wrapper">
+          <ul class="cs-faq-group" data-category="one">
+            
+            <!-- General Questions -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What services does RAD Digital Solutions offer?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We specialize in three core areas: IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Business Intelligence Solutions (PowerBI dashboards, data visualization, analytics, business intelligence consulting), and Project Management Solutions (digital project delivery, agile methodology, risk management). We provide end-to-end digital transformation services tailored to your business needs.
+              </p>
+            </li>
 
-<!-- ============================================ --><!--                    FAQ                       --><!-- ============================================ -->
-<Navbar />
-<section id="faq-1720">
-  <div class="cs-container">
-    <div class="cs-content">
-      <span class="cs-topper">FAQ</span>
-      <h2 class="cs-title">Frequently Asked Questions</h2>
-      <p class="cs-text">Find answers to common questions about our digital services, IT consulting, data analysis, and project management solutions.</p>
-    </div>
-    <div class="cs-flex-group">
-      <div class="cs-wrapper">
-        <ul class="cs-faq-group" data-category="one">
-          
-          <!-- General Questions -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                What services does RAD Digital Solutions offer?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We specialize in three core areas: IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Data Analysis & Pipeline Management (PowerBI dashboards, Python analytics, business intelligence), and Project Management Solutions (digital project delivery, agile methodology, risk management). We provide end-to-end digital transformation services tailored to your business needs.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What is the process to obtain a quote for a digital solution?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Contact us to schedule an initial consultation (free of charge) where we'll discuss your needs, goals, and current challenges. Following this, we analyze your requirements and provide a detailed proposal outlining the solution's scope, timeline, and cost. We ensure full transparency and work within your budget to deliver the best value.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                What is the process to obtain a quote for a digital solution?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Contact us to schedule an initial consultation (free of charge) where we'll discuss your needs, goals, and current challenges. Following this, we analyze your requirements and provide a detailed proposal outlining the solution's scope, timeline, and cost. We ensure full transparency and work within your budget to deliver the best value.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  How long does a typical project take?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. During our initial consultation, we provide a realistic timeline specific to your project requirements.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                How long does a typical project take?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. During our initial consultation, we provide a realistic timeline specific to your project requirements.
-            </p>
-          </li>
+            <!-- IT Consulting & Networking -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What networking solutions do you provide?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We design and implement complete network infrastructure solutions including WiFi 6 deployment, Ubiquiti UniFi systems, VPN setup, network security, and performance optimization. Our expertise includes enterprise network modernization, ensuring seamless connectivity across office and remote locations with zero downtime during migration.
+              </p>
+            </li>
 
-          <!-- IT Consulting & Networking -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                What networking solutions do you provide?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We design and implement complete network infrastructure solutions including WiFi 6 deployment, Ubiquiti UniFi systems, VPN setup, network security, and performance optimization. Our expertise includes enterprise network modernization, ensuring seamless connectivity across office and remote locations with zero downtime during migration.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  Can you help with cloud migration and optimization?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Yes! We assist with cloud strategy, migration to platforms like AWS, Azure, and Google Cloud, and ongoing optimization. We ensure your cloud infrastructure is secure, scalable, and cost-effective while minimizing disruption to your operations.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                Can you help with cloud migration and optimization?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Yes! We assist with cloud strategy, migration to platforms like AWS, Azure, and Google Cloud, and ongoing optimization. We ensure your cloud infrastructure is secure, scalable, and cost-effective while minimizing disruption to your operations.
-            </p>
-          </li>
+            <!-- Business Intelligence -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What tools do you use for data analysis?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your existing systems and specific requirements to ensure seamless integration.
+              </p>
+            </li>
 
-          <!-- Data Analysis -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                What tools do you use for data analysis?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your existing systems and specific requirements to ensure seamless integration.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  How can data analysis help my business?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Data analysis transforms raw data into actionable insights. We help you identify profitable opportunities in real-time, monitor KPIs across departments, predict trends, optimize operations, and make data-driven decisions. Our clients have seen 40% faster insight delivery and significant improvements in resource allocation and revenue identification.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                How can data analysis help my business?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Data analysis transforms raw data into actionable insights. We help you identify profitable opportunities in real-time, monitor KPIs across departments, predict trends, optimize operations, and make data-driven decisions. Our clients have seen 40% faster insight delivery and significant improvements in resource allocation and revenue identification.
-            </p>
-          </li>
+            <!-- Project Management -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What project management methodologies do you use?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We employ agile methodologies adapted to your business context, including Scrum and Kanban frameworks. Our approach emphasizes clear communication, iterative delivery, risk management, and stakeholder collaboration to ensure projects stay on track, on budget, and aligned with business objectives.
+              </p>
+            </li>
 
-          <!-- Project Management -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                What project management methodologies do you use?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We employ agile methodologies adapted to your business context, including Scrum and Kanban frameworks. Our approach emphasizes clear communication, iterative delivery, risk management, and stakeholder collaboration to ensure projects stay on track, on budget, and aligned with business objectives.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  Do you handle complex migrations like website platforms?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Absolutely. We've successfully managed enterprise WordPress migrations, ERP system integrations, and complex data migrations spanning years of historical data. We handle backend server setup, cloud deployment, data validation, and seamless go-live execution with zero data loss.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                Do you handle complex migrations like website platforms?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Absolutely. We've successfully managed enterprise WordPress migrations, ERP system integrations, and complex data migrations spanning years of historical data. We handle backend server setup, cloud deployment, data validation, and seamless go-live execution with zero data loss.
-            </p>
-          </li>
+            <!-- Support & Ongoing Services -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  Do you offer ongoing support after project completion?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs, ensuring your solutions continue to deliver optimal performance and evolve with your business.
+              </p>
+            </li>
 
-          <!-- Support & Ongoing Services -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                Do you offer ongoing support after project completion?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs, ensuring your solutions continue to deliver optimal performance and evolve with your business.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  How do I know your solution will work for my business?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We thoroughly assess your needs during the initial consultation and only proceed if we're confident our solution will effectively address your challenges. Our approach is tailored to your specific business context, industry, and goals. We provide proof of concepts where appropriate and maintain transparent communication throughout the project lifecycle.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                How do I know your solution will work for my business?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We thoroughly assess your needs during the initial consultation and only proceed if we're confident our solution will effectively address your challenges. Our approach is tailored to your specific business context, industry, and goals. We provide proof of concepts where appropriate and maintain transparent communication throughout the project lifecycle.
-            </p>
-          </li>
+            <!-- Pricing & Budget -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  I'm not sure if my budget allows for professional IT consulting.
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We prioritize cost-efficient solutions and work within various budget ranges. During our consultation, we'll discuss your budget constraints and find the most valuable approach. We offer phased implementations, allowing you to start with high-impact initiatives and scale as ROI is demonstrated.
+              </p>
+            </li>
 
-          <!-- Pricing & Budget -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                I'm not sure if my budget allows for professional IT consulting.
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We prioritize cost-efficient solutions and work within various budget ranges. During our consultation, we'll discuss your budget constraints and find the most valuable approach. We offer phased implementations, allowing you to start with high-impact initiatives and scale as ROI is demonstrated.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  What makes RAD Digital Solutions different from larger consulting firms?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages. We understand your unique challenges and deliver efficient, custom-fit solutions with faster decision-making and implementation than larger firms.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                What makes RAD Digital Solutions different from larger consulting firms?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages. We understand your unique challenges and deliver efficient, custom-fit solutions with faster decision-making and implementation than larger firms.
-            </p>
-          </li>
+            <!-- Technical Questions -->
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  Can you integrate with our existing systems?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Yes! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions are designed to work seamlessly with your current technology stack, minimizing disruption while maximizing value.
+              </p>
+            </li>
 
-          <!-- Technical Questions -->
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                Can you integrate with our existing systems?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Yes! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions are designed to work seamlessly with your current technology stack, minimizing disruption while maximizing value.
-            </p>
-          </li>
+            <li class="cs-faq-item">
+              <button class="cs-button">
+                <span class="cs-button-text">
+                  Do you work with businesses of all sizes?
+                </span>
+              </button>
+              <p class="cs-item-p">
+                Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology. Our solutions scale to fit your organization's size and complexity.
+              </p>
+            </li>
 
-          <li class="cs-faq-item">
-            <button class="cs-button">
-              <span class="cs-button-text">
-                Do you work with businesses of all sizes?
-              </span>
-            </button>
-            <p class="cs-item-p">
-              Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology. Our solutions scale to fit your organization's size and complexity.
-            </p>
-          </li>
-
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<Contact />
+  <Contact />
+</BaseLayout>
 
-<Footer/>
-</body>
-</html>
+<script>
+  const faqItems = Array.from(document.querySelectorAll(".cs-faq-item"));
+  for (const item of faqItems) {
+    const onClick = () => {
+      item.classList.toggle("active");
+    };
+    item.addEventListener("click", onClick);
+  }
+</script>
 
 <style>
   /*-- -------------------------- -->
