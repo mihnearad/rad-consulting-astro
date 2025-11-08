@@ -13,7 +13,7 @@
           muted
           loop
           playsinline
-          preload="auto"
+          preload="metadata"
           poster="/Background.webp"
           id="heroVideo"
         >
@@ -223,6 +223,13 @@
     font-size: 1.5em;
     margin-bottom: 1.5em;
     font-weight: 300;
+  }
+
+  @media (max-width: 768px) {
+    .hero-subtitle {
+      font-size: 1.1em;
+      font-weight: 400;
+    }
   }
 
   .hero-buttons {

@@ -139,12 +139,14 @@
     border-radius: 1rem;
     max-width: 540px;
     width: 100%;
-    max-height: 90vh;
+    max-height: calc(100vh - 2rem);
     overflow-y: auto;
     position: relative;
     transform: translateY(20px) scale(0.95);
     transition: transform 0.3s ease;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
   }
   
   .modal-overlay.active .modal-container {
@@ -153,13 +155,14 @@
   
   /* Close Button */
   .modal-close {
-    position: absolute;
+    position: sticky;
     top: 1rem;
-    right: 1rem;
+    left: calc(100% - 1rem);
+    margin-left: auto;
     background: transparent;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -168,6 +171,7 @@
     color: var(--bodyTextColor);
     transition: all 0.3s ease;
     z-index: 10;
+    flex-shrink: 0;
   }
   
   .modal-close:hover {
@@ -178,12 +182,13 @@
   
   /* Modal Content */
   .modal-content {
-    padding: 2.5rem 2rem 2rem;
+    padding: 1rem 2rem 2rem;
+    flex: 1;
   }
-  
+
   @media only screen and (max-width: 600px) {
     .modal-content {
-      padding: 2rem 1.5rem 1.5rem;
+      padding: 0.5rem 1.25rem 1.25rem;
     }
   }
   
@@ -216,7 +221,7 @@
   }
   
   .form-label {
-    font-size: 0.875rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
     font-weight: 700;
     color: var(--primary);
     text-transform: uppercase;

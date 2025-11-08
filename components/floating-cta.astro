@@ -4,7 +4,7 @@
 
 <button id="floating-cta" class="floating-cta" onclick="openContactModal()" aria-label="Get started with RAD Digital Solutions">
   <span class="floating-cta-text">Get Started</span>
-  <svg class="floating-cta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+  <svg class="floating-cta-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
     <path d="M5 12h14M12 5l7 7-7 7"/>
   </svg>
 </button>
@@ -56,18 +56,22 @@
     transform: translateX(4px);
   }
   
-  /* Pulse animation */
+  /* Pulse animation - optimized for mobile performance */
   @keyframes pulse {
     0%, 100% {
-      box-shadow: 0 10px 30px rgba(52, 131, 197, 0.4);
+      transform: translateY(0) scale(1);
     }
     50% {
-      box-shadow: 0 10px 40px rgba(52, 131, 197, 0.6), 0 0 0 10px rgba(52, 131, 197, 0.1);
+      transform: translateY(0) scale(1.05);
     }
   }
-  
+
   .floating-cta.visible {
-    animation: pulse 2s infinite;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  .floating-cta:hover {
+    animation: none;
   }
   
   /* Mobile adjustments */
