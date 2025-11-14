@@ -17,6 +17,8 @@ export default defineConfig({
         'https://rad-digitalsolutions.com/services/project-management',
         'https://rad-digitalsolutions.com/services/business-intelligence',
         'https://rad-digitalsolutions.com/services/process-automation',
+        'https://rad-digitalsolutions.com/free-it-infrastructure-checklist',
+        'https://rad-digitalsolutions.com/bi-value-calculator',
         'https://rad-digitalsolutions.com/use-cases/enterprise-network-modernization',
         'https://rad-digitalsolutions.com/use-cases/wordpress-migration-project',
         'https://rad-digitalsolutions.com/use-cases/sales-analytics-logistics',
@@ -33,6 +35,10 @@ export default defineConfig({
         } else if (item.url.includes('/services/')) {
           item.changefreq = 'weekly';
           item.priority = 0.9;
+        } else if (item.url.includes('/free-it-infrastructure-checklist') || item.url.includes('/bi-value-calculator')) {
+          // Lead magnets: High priority for conversion
+          item.changefreq = 'monthly';
+          item.priority = 0.85;
         } else if (item.url.includes('/use-cases/')) {
           item.changefreq = 'monthly';
           item.priority = 0.8;

@@ -1,15 +1,125 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Free IT Infrastructure Assessment Checklist - RAD Digital Solutions";
-const description = "Download our comprehensive 25-point IT infrastructure assessment checklist. Identify critical gaps, improve security, and optimize your technology stack.";
-const keywords = "IT infrastructure checklist, IT assessment, network audit, cybersecurity checklist, infrastructure optimization, IT consulting";
+const title = "Free IT Infrastructure Checklist [2025] | 25-Point Assessment";
+const description = "Get our free 25-point IT infrastructure assessment checklist. Evaluate security, network, backup, and cloud readiness. Print-friendly PDF. No signup required.";
+const keywords = "IT infrastructure checklist, IT assessment template, network infrastructure checklist, cybersecurity assessment checklist, IT audit checklist, infrastructure optimization";
 const canonical = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist";
 const ogImage = "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp";
 const ogUrl = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist";
 ---
 
 <BaseLayout {title} {description} {keywords} {canonical} {ogImage} {ogUrl}>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "IT Infrastructure Assessment Checklist",
+    "description": "A comprehensive 25-point checklist to identify gaps, improve security, and optimize your technology infrastructure",
+    "image": "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp",
+    "totalTime": "PT30M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "tool": [{
+      "@type": "HowToTool",
+      "name": "Printable IT infrastructure checklist"
+    }],
+    "step": [
+      {
+        "@type": "HowToSection",
+        "name": "Network Infrastructure Assessment",
+        "itemListElement": [
+          {
+            "@type": "HowToStep",
+            "text": "Verify network documentation is up-to-date with current diagrams and IP addressing"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Ensure WiFi coverage is adequate across all areas with no dead zones"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Confirm network segmentation is properly configured for security"
+          }
+        ]
+      },
+      {
+        "@type": "HowToSection",
+        "name": "Security & Compliance Assessment",
+        "itemListElement": [
+          {
+            "@type": "HowToStep",
+            "text": "Verify firewall is configured and regularly updated with latest security rules"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Confirm multi-factor authentication (MFA) is enforced for all critical systems"
+          }
+        ]
+      },
+      {
+        "@type": "HowToSection",
+        "name": "Backup & Disaster Recovery Assessment",
+        "itemListElement": [
+          {
+            "@type": "HowToStep",
+            "text": "Verify automated daily backups are configured using 3-2-1 strategy"
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Ensure backup restores are tested quarterly"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does the IT infrastructure assessment take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The checklist takes approximately 20-30 minutes to complete. You can work through it at your own pace and save your progress locally in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to provide my email to download the checklist?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, the IT infrastructure checklist is completely free with no signup required. Simply print or save as PDF directly from your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a good IT infrastructure score mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A score of 20-25 indicates excellent infrastructure health. 15-19 shows good foundation with room for improvement. Below 15 suggests you should consider professional assessment to address critical gaps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this checklist for compliance audits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this checklist covers key areas evaluated in IT audits including security, backup, governance, and monitoring. However, for formal compliance (ISO, SOC2, etc.) you should engage certified auditors."
+        }
+      }
+    ]
+  }
+  </script>
+
   <section id="checklist-page">
     <div class="checklist-container">
       <!-- Header -->
