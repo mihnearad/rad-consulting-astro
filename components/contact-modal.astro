@@ -28,7 +28,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          <span>500+ businesses trust us</span>
+          <span>Trusted by businesses worldwide</span>
         </div>
         <div class="trust-item">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -63,6 +63,8 @@
             placeholder="John Smith"
             required
             autocomplete="name"
+            autocapitalize="words"
+            inputmode="text"
           />
           <span class="form-error">Please enter your name</span>
         </div>
@@ -79,6 +81,7 @@
             placeholder="john@company.com"
             required
             autocomplete="email"
+            inputmode="email"
           />
           <span class="form-error">Please enter a valid email</span>
         </div>
@@ -94,6 +97,8 @@
             class="form-input"
             placeholder="Your Company"
             autocomplete="organization"
+            autocapitalize="words"
+            inputmode="text"
           />
         </div>
         
@@ -129,7 +134,7 @@
 
         <div class="social-proof">
           <p class="social-proof-text">
-            <strong>Join 500+ companies</strong> that transformed their business with our digital solutions
+            <strong>Join businesses worldwide</strong> that transformed with our digital solutions
           </p>
         </div>
       </form>
@@ -201,6 +206,7 @@
     transition: all 0.3s ease;
     z-index: 10;
     flex-shrink: 0;
+    touch-action: manipulation;
   }
   
   .modal-close:hover {
@@ -379,6 +385,7 @@
     justify-content: center;
     gap: 0.5rem;
     margin-top: 0.5rem;
+    touch-action: manipulation;
   }
   
   .form-submit:hover {
@@ -515,9 +522,19 @@
       }
     }
 
-    // Make openContactModal globally available
+    // Make openContactModal globally available (backward compatibility)
     window.openContactModal = openContactModal;
     window.closeContactModal = closeContactModal;
+
+    // Listen for custom event from navbar (modern approach)
+    document.addEventListener('openContactModal', function(e) {
+      openContactModal();
+
+      // Track source if provided
+      if (e.detail && e.detail.source) {
+        console.log('Modal opened from:', e.detail.source);
+      }
+    });
 
     // Close on button click
     if (modalClose) {

@@ -3,17 +3,20 @@ import { Image } from "astro:assets";
 import Logo from "/public/logo_raddigitalsolutions.webp";
 ---
 
+<!-- Skip Navigation Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- ============================================ --><!--                 Navigation                   --><!-- ============================================ -->
-<header id="cs-navigation">
+<header id="cs-navigation" data-shrink="false">
   <div class="cs-container">
     <!--Nav Logo-->
     <a href="/#home" class="cs-logo" aria-label="back to home">
       <Image src={Logo} alt="RAD Digital Solutions Logo" width={190} height={112} fetchpriority="high" />
     </a>
     <!--Navigation List-->
-    <nav class="cs-nav" role="navigation">
+    <nav class="cs-nav" role="navigation" aria-label="Main navigation">
       <!--Mobile Nav Toggle-->
-      <button class="cs-toggle" aria-label="mobile menu toggle">
+      <button class="cs-toggle" aria-label="mobile menu toggle" aria-expanded="false" aria-controls="cs-expanded">
         <div class="cs-box" aria-hidden="true">
           <span class="cs-line cs-line1" aria-hidden="true"></span>
           <span class="cs-line cs-line2" aria-hidden="true"></span>
@@ -29,12 +32,12 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
           <li class="cs-li">
             <a href="/#use-cases" class="cs-li-link">Use Cases</a>
           </li>
-          <li class="cs-li cs-dropdown" tabindex="0">
-            <span class="cs-li-link">
+          <li class="cs-li cs-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="cs-li-link cs-dropdown-trigger">
               Services
               <img
                 src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down.svg"
-                alt="dropdown icon"
+                alt=""
                 class="cs-drop-icon"
                 aria-hidden="true"
                 decoding="async"
@@ -42,27 +45,30 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
                 height="15"
               />
             </span>
-            <ul class="cs-drop-ul">
-              <li class="cs-drop-li">
-                <a href="/services/it-consulting" class="cs-li-link cs-drop-link">IT Consulting & Networking</a>
+            <ul class="cs-drop-ul" role="menu">
+              <li class="cs-drop-li" role="none">
+                <a href="/services/it-consulting" class="cs-li-link cs-drop-link" role="menuitem">IT Consulting & Networking</a>
               </li>
-              <li class="cs-drop-li">
-                <a href="/services/project-management" class="cs-li-link cs-drop-link">Project Management Solutions</a>
+              <li class="cs-drop-li" role="none">
+                <a href="/services/business-intelligence" class="cs-li-link cs-drop-link" role="menuitem">Business Intelligence</a>
               </li>
-              <li class="cs-drop-li">
-                <a href="/services/business-intelligence" class="cs-li-link cs-drop-link">Business Intelligence</a>
+              <li class="cs-drop-li" role="none">
+                <a href="/services/process-automation" class="cs-li-link cs-drop-link" role="menuitem">Process Automation</a>
+              </li>
+              <li class="cs-drop-li" role="none">
+                <a href="/services/project-management" class="cs-li-link cs-drop-link" role="menuitem">Project Management Solutions</a>
               </li>
             </ul>
           </li>
           <li class="cs-li">
             <a href="/#about" class="cs-li-link"> About </a>
           </li>
-          <li class="cs-li cs-dropdown" tabindex="0">
-            <span class="cs-li-link">
+          <li class="cs-li cs-dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="cs-li-link cs-dropdown-trigger">
               Resources
               <img
                 src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down.svg"
-                alt="dropdown icon"
+                alt=""
                 class="cs-drop-icon"
                 aria-hidden="true"
                 decoding="async"
@@ -70,25 +76,35 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
                 height="15"
               />
             </span>
-            <ul class="cs-drop-ul">
-              <li class="cs-drop-li">
-                <a href="/user-story-template" class="cs-li-link cs-drop-link">User Story Template</a>
+            <ul class="cs-drop-ul" role="menu">
+              <li class="cs-drop-li" role="none">
+                <a href="/user-story-template" class="cs-li-link cs-drop-link" role="menuitem">User Story Template</a>
               </li>
-              <li class="cs-drop-li">
-                <a href="/free-it-infrastructure-checklist" class="cs-li-link cs-drop-link">IT Infrastructure Checklist</a>
+              <li class="cs-drop-li" role="none">
+                <a href="/free-it-infrastructure-checklist" class="cs-li-link cs-drop-link" role="menuitem">IT Infrastructure Checklist</a>
               </li>
-              <li class="cs-drop-li">
-                <a href="/bi-value-calculator" class="cs-li-link cs-drop-link">BI Value Calculator</a>
+              <li class="cs-drop-li" role="none">
+                <a href="/bi-value-calculator" class="cs-li-link cs-drop-link" role="menuitem">BI Value Calculator</a>
               </li>
             </ul>
           </li>
           <li class="cs-li">
             <a href="/faq" class="cs-li-link">FAQ</a>
           </li>
+          <!-- Mobile CTA Buttons -->
+          <li class="cs-li cs-mobile-cta">
+            <button class="cs-li-link cs-mobile-contact-btn js-contact-modal-trigger" type="button">Contact Us</button>
+          </li>
+          <li class="cs-li cs-mobile-cta">
+            <a href="https://wa.me/31615078622" target="_blank" rel="noopener noreferrer" class="cs-li-link cs-mobile-whatsapp-btn">
+              <img src="/whatsapp-icon.svg" alt="" aria-hidden="true" style="width: 18px; height: 18px; margin-right: 8px; filter: brightness(0) saturate(100%);" />
+              WhatsApp
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
-    <a href="javascript:void(0)" onclick="openContactModal()" class="cs-button-solid cs-nav-button">Contact Us</a>
+    <button type="button" class="cs-button-solid cs-nav-button js-contact-modal-trigger">Contact Us</button>
     <a
     href="https://wa.me/31615078622"
     target="_blank"
@@ -96,12 +112,33 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
     class="cs-whatsapp-button cs-nav-button"
     aria-label="Chat with us on WhatsApp"
   >
-    <img src="/whatsapp-icon.svg" alt="WhatsApp" />
+    <img src="/whatsapp-icon.svg" alt="" aria-hidden="true" />
     WhatsApp
   </a>  </div>
 </header>
 
 <style>
+  /* Skip Navigation Link - Accessibility */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    z-index: 100000;
+    border-radius: 0 0 0.5rem 0;
+    transition: top 0.3s;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--primaryLight);
+    outline-offset: 2px;
+  }
+
   /*-- -------------------------- -->
 <---     Mobile Navigation      -->
 <--- -------------------------- -*/
@@ -120,6 +157,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       position: sticky;
       top: 0;
       z-index: 10000;
+      transition: padding 0.3s ease;
     }
     #cs-navigation:before {
       content: "";
@@ -159,6 +197,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
     }
     #cs-navigation .cs-logo {
       width: 25%;
+      min-width: 140px;
       max-width: 12rem;
       height: 100%;
       margin: 0 auto 0 0;
@@ -187,6 +226,12 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       display: flex;
       justify-content: center;
       align-items: center;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+    #cs-navigation .cs-toggle:focus-visible {
+      outline: 2px solid var(--primaryLight);
+      outline-offset: 2px;
     }
     #cs-navigation .cs-active .cs-line1 {
       top: 50%;
@@ -337,8 +382,47 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
     #cs-navigation .cs-li-link.cs-active:before {
       display: block;
     }
+    #cs-navigation .cs-li-link:focus-visible {
+      outline: 2px solid var(--primaryLight);
+      outline-offset: 2px;
+      border-radius: 0.25rem;
+    }
     #cs-navigation .cs-button-solid {
       display: none;
+    }
+    /* Mobile CTA buttons styling */
+    #cs-navigation .cs-mobile-cta {
+      width: 90%;
+      max-width: 400px;
+    }
+    #cs-navigation .cs-mobile-contact-btn,
+    #cs-navigation .cs-mobile-whatsapp-btn {
+      background-color: var(--primaryLight);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      padding: 1rem 1.5rem;
+      min-height: 48px;
+      width: 100%;
+      justify-content: center;
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+    }
+    #cs-navigation .cs-mobile-contact-btn:before,
+    #cs-navigation .cs-mobile-whatsapp-btn:before {
+      display: none;
+    }
+    #cs-navigation .cs-mobile-contact-btn:focus-visible,
+    #cs-navigation .cs-mobile-whatsapp-btn:focus-visible {
+      outline: 3px solid rgba(52, 131, 197, 0.5);
+      outline-offset: 2px;
+    }
+    #cs-navigation .cs-mobile-whatsapp-btn {
+      background-color: #25D366;
     }
   }
   /*-- -------------------------- -->
@@ -354,6 +438,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
     #cs-navigation .cs-dropdown {
       color: var(--bodyTextColorWhite);
       position: relative;
+      cursor: pointer;
     }
     #cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
       height: auto;
@@ -369,6 +454,10 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       position: relative;
       transition: opacity 0.3s;
     }
+    #cs-navigation .cs-dropdown .cs-li-link:focus-visible {
+      outline: 2px solid var(--primaryLight);
+      outline-offset: 2px;
+    }
     #cs-navigation .cs-drop-icon {
       width: 0.9375rem;
       height: auto;
@@ -376,6 +465,10 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       top: 50%;
       right: -1.25rem;
       transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+    #cs-navigation .cs-dropdown.cs-active .cs-drop-icon {
+      transform: translateY(-50%) rotate(180deg);
     }
     #cs-navigation .cs-drop-ul {
       width: 100%;
@@ -412,6 +505,10 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       justify-content: center;
       width: 100%;
     }
+    #cs-navigation .cs-li-link.cs-drop-link:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
   }
   /* Desktop - 1024px */
   @media only screen and (min-width: 64rem) {
@@ -437,6 +534,12 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       width: 0.9375rem;
       height: auto;
       display: inline-block;
+      margin-left: 0.25rem;
+      transition: transform 0.3s ease;
+    }
+    #cs-navigation .cs-dropdown:hover .cs-drop-icon,
+    #cs-navigation .cs-dropdown:focus-within .cs-drop-icon {
+      transform: rotate(180deg);
     }
     #cs-navigation .cs-drop-ul {
       min-width: 12.5rem;
@@ -516,7 +619,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
         background-color 0.3s;
     }
     #cs-navigation .cs-li-link.cs-drop-link:hover,
-    #cs-navigation .cs-li-link.cs-drop-link:focus {
+    #cs-navigation .cs-li-link.cs-drop-link:focus-visible {
       background-color: #f7f7f7;
       outline: none;
     }
@@ -539,7 +642,22 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       position: sticky;
       top: 0;
       z-index: 10000;
+      transition: padding 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
+
+    /* Sticky-shrink behavior */
+    #cs-navigation[data-shrink="true"] {
+      padding: 0.5rem 1rem;
+    }
+
+    #cs-navigation[data-shrink="true"] .cs-logo {
+      height: 3.5rem;
+    }
+
+    #cs-navigation[data-shrink="true"] .cs-li {
+      padding: 1.25rem 0;
+    }
+
     #cs-navigation .cs-container {
       width: 100%;
       max-width: 80rem;
@@ -563,6 +681,12 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       justify-content: center;
       align-items: center;
       z-index: 100;
+      transition: height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    #cs-navigation .cs-logo:focus-visible {
+      outline: 2px solid var(--primaryLight);
+      outline-offset: 4px;
+      border-radius: 0.25rem;
     }
     #cs-navigation .cs-logo img {
       width: 100%;
@@ -585,6 +709,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       padding: 2rem 0;
       /* prevent flexbox from squishing it */
       flex: none;
+      transition: padding 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
     #cs-navigation .cs-li-link {
       /* 14px - 16px */
@@ -595,25 +720,42 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       color: var(--bodyTextColor);
       display: block;
       position: relative;
+      transition: color 0.3s ease;
+    }
+    #cs-navigation .cs-li-link:hover {
+      color: var(--primaryLight);
     }
     #cs-navigation .cs-li-link:hover:before {
       width: 100%;
     }
+    #cs-navigation .cs-li-link.cs-active {
+      color: var(--primaryLight);
+      font-weight: 700;
+    }
     #cs-navigation .cs-li-link.cs-active:before {
       width: 100%;
+    }
+    #cs-navigation .cs-li-link:focus-visible {
+      outline: 2px solid var(--primaryLight);
+      outline-offset: 4px;
+      border-radius: 0.25rem;
     }
     #cs-navigation .cs-li-link:before {
       /* active state underline */
       content: "";
       width: 0%;
       height: 2px;
-      background: var(--primary);
+      background: var(--primaryLight);
       opacity: 1;
       display: block;
       position: absolute;
       bottom: 0rem;
       left: 0;
-      transition: width 0.3s;
+      transition: width 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    /* Hide mobile CTA buttons on desktop */
+    #cs-navigation .cs-mobile-cta {
+      display: none;
     }
     /* Shared styles for all navigation buttons */
     #cs-navigation .cs-button-solid,
@@ -630,6 +772,7 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       padding: 0 1.25rem;
       color: #fff;
       background-color: var(--primary);
+      border: none;
       border-radius: 0.25rem;
       display: inline-flex;
       align-items: center;
@@ -639,7 +782,10 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       z-index: 1;
       overflow: hidden;
       white-space: nowrap;
+      cursor: pointer;
+      font-family: inherit;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      touch-action: manipulation;
     }
 
     #cs-navigation .cs-button-solid:before,
@@ -667,6 +813,14 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(52, 131, 197, 0.3);
     }
+
+    #cs-navigation .cs-button-solid:focus-visible,
+    #cs-navigation .cs-whatsapp-button:focus-visible {
+      outline: 3px solid rgba(52, 131, 197, 0.5);
+      outline-offset: 2px;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(52, 131, 197, 0.3);
+    }
   }
 
   /* WhatsApp button icon styling */
@@ -684,107 +838,388 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
     }
   }
 
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    #cs-navigation,
+    #cs-navigation *,
+    #cs-navigation *::before,
+    #cs-navigation *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
 
-
+    .skip-link {
+      transition: none;
+    }
+  }
 </style>
 <script>
-  // add classes for mobile navigation toggling
-  var CSbody = document.querySelector("body");
-  const CSnavbarMenu = document.querySelector("#cs-navigation");
-  const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+  // ============================================
+  // Utility Functions
+  // ============================================
 
-  if (CShamburgerMenu && CSnavbarMenu && CSbody) {
-    CShamburgerMenu.addEventListener("click", function () {
-      CShamburgerMenu.classList.toggle("cs-active");
-      CSnavbarMenu.classList.toggle("cs-active");
-      if (CSbody) {
-        CSbody.classList.toggle("cs-open");
-      }
-      // run the function to check the aria-expanded value
-      ariaExpanded();
+  /**
+   * Closes the mobile menu and updates ARIA states
+   */
+  function closeMobileMenu() {
+    const hamburgerMenu = document.querySelector("#cs-navigation .cs-toggle") as HTMLButtonElement | null;
+    const navbar = document.querySelector("#cs-navigation") as HTMLElement | null;
+    const body = document.body;
 
-      // Add this block to close the menu after selecting an item
-      CSnavbarMenu.querySelectorAll(".cs-li-link").forEach(link => {
-        link.addEventListener("click", () => {
-          if (CShamburgerMenu) {
-            CShamburgerMenu.classList.remove("cs-active");
-          }
-          if (CSnavbarMenu) {
-            CSnavbarMenu.classList.remove("cs-active");
-          }
-          if (CSbody) {
-            CSbody.classList.remove("cs-open");
-          }
-          ariaExpanded();
-        });
-      });
-    });
+    if (hamburgerMenu) {
+      hamburgerMenu.classList.remove("cs-active");
+      hamburgerMenu.setAttribute("aria-expanded", "false");
+    }
+    if (navbar) {
+      navbar.classList.remove("cs-active");
+    }
+    body.classList.remove("cs-open");
+    updateAriaExpanded();
   }
 
-  // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not
-  function ariaExpanded() {
-    const csUL = document.querySelector("#cs-expanded");
+  /**
+   * Updates the aria-expanded attribute on the navigation list
+   */
+  function updateAriaExpanded() {
+    const csUL = document.querySelector("#cs-expanded") as HTMLElement | null;
     if (csUL) {
       const csExpanded = csUL.getAttribute("aria-expanded");
-
-      if (csExpanded === "false") {
-        csUL.setAttribute("aria-expanded", "true");
-      } else {
-        csUL.setAttribute("aria-expanded", "false");
-      }
+      csUL.setAttribute("aria-expanded", csExpanded === "false" ? "true" : "false");
     }
   }
 
-  // mobile nav toggle code
-  const dropDowns = Array.from(
-    document.querySelectorAll("#cs-navigation .cs-dropdown")
-  );
-  for (const item of dropDowns) {
-    const onClick = () => {
-      item.classList.toggle("cs-active");
-    };
-    item.addEventListener("click", onClick);
+  /**
+   * Sends GTM tracking event
+   */
+  function trackEvent(eventName: string, eventParams: Record<string, any> = {}) {
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: eventName,
+        ...eventParams
+      });
+    }
   }
 
-  // Smooth scrolling for internal links and close mobile menu
+  // ============================================
+  // Mobile Menu Toggle
+  // ============================================
+
+  const hamburgerMenu = document.querySelector("#cs-navigation .cs-toggle") as HTMLButtonElement | null;
+  const navbar = document.querySelector("#cs-navigation") as HTMLElement | null;
+  const body = document.body;
+
+  if (hamburgerMenu && navbar) {
+    hamburgerMenu.addEventListener("click", function () {
+      const isActive = hamburgerMenu.classList.toggle("cs-active");
+      navbar.classList.toggle("cs-active");
+      body.classList.toggle("cs-open");
+
+      // Update ARIA states
+      hamburgerMenu.setAttribute("aria-expanded", isActive ? "true" : "false");
+      updateAriaExpanded();
+
+      // Track menu toggle
+      trackEvent(isActive ? 'mobile_menu_open' : 'mobile_menu_close');
+
+      // Focus management: move focus to first menu item when opening
+      if (isActive) {
+        setTimeout(() => {
+          const firstLink = navbar.querySelector('.cs-li-link') as HTMLElement | null;
+          firstLink?.focus();
+        }, 200);
+      }
+    });
+  }
+
+  // ============================================
+  // Mobile Menu Swipe-to-Close Gesture
+  // ============================================
+
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  const mobileMenu = document.querySelector("#cs-navigation .cs-ul-wrapper") as HTMLElement | null;
+
+  if (mobileMenu) {
+    mobileMenu.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    mobileMenu.addEventListener('touchend', (e: TouchEvent) => {
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipeGesture();
+    }, { passive: true });
+  }
+
+  function handleSwipeGesture() {
+    const swipeDistance = touchStartY - touchEndY;
+
+    // If swiped down more than 100px, close menu
+    if (swipeDistance < -100) {
+      closeMobileMenu();
+      trackEvent('mobile_menu_swipe_close');
+    }
+  }
+
+  // ============================================
+  // Dropdown Menu Toggle (Mobile)
+  // ============================================
+
+  const dropdowns = Array.from(
+    document.querySelectorAll("#cs-navigation .cs-dropdown")
+  ) as HTMLElement[];
+
+  for (const dropdown of dropdowns) {
+    dropdown.addEventListener("click", function (e) {
+      // Only toggle on mobile (this script only runs in mobile context anyway)
+      const target = e.target as HTMLElement;
+
+      // Don't toggle if clicking on a link inside dropdown
+      if (target.classList.contains('cs-drop-link')) {
+        return;
+      }
+
+      const isActive = dropdown.classList.toggle("cs-active");
+      dropdown.setAttribute("aria-expanded", isActive ? "true" : "false");
+
+      // Track dropdown interaction
+      const dropdownName = dropdown.querySelector('.cs-dropdown-trigger')?.textContent?.trim() || 'Unknown';
+      trackEvent('dropdown_toggle', {
+        dropdown_name: dropdownName,
+        action: isActive ? 'open' : 'close',
+        device: 'mobile'
+      });
+    });
+
+    // Keyboard support: Enter and Space to toggle
+    dropdown.addEventListener("keydown", function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        dropdown.click();
+      }
+    });
+  }
+
+  // ============================================
+  // Escape Key to Close Mobile Menu
+  // ============================================
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && body.classList.contains('cs-open')) {
+      closeMobileMenu();
+      hamburgerMenu?.focus(); // Return focus to hamburger
+      trackEvent('mobile_menu_escape_close');
+    }
+  });
+
+  // ============================================
+  // Focus Trapping in Mobile Menu
+  // ============================================
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (!body.classList.contains('cs-open') || e.key !== 'Tab') {
+      return;
+    }
+
+    const focusableElements = navbar?.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+
+    if (!focusableElements || focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0] as HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    // If shift+tab on first element, go to last
+    if (e.shiftKey && document.activeElement === firstElement) {
+      e.preventDefault();
+      lastElement.focus();
+    }
+    // If tab on last element, go to first
+    else if (!e.shiftKey && document.activeElement === lastElement) {
+      e.preventDefault();
+      firstElement.focus();
+    }
+  });
+
+  // ============================================
+  // Smooth Scrolling for Internal Links
+  // ============================================
+
   document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.cs-li-link[href^="/#"]');
-    const mobileNavToggle = document.querySelector('.cs-toggle');
-    const body = document.body;
-    
+    const navLinks = document.querySelectorAll('.cs-li-link[href^="/#"]') as NodeListOf<HTMLAnchorElement>;
+
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        const target = e.target as HTMLAnchorElement;
-        const targetId = target.getAttribute('href')?.substring(2); // Remove '/#'
-        
+        const targetId = link.getAttribute('href')?.substring(2); // Remove '/#'
+
         if (targetId) {
           const targetElement = document.getElementById(targetId);
-          
+
           if (targetElement) {
             // Element exists on current page - use smooth scrolling
             e.preventDefault();
-            
+
             // Close mobile menu if open
             if (body.classList.contains('cs-open')) {
-              body.classList.remove('cs-open');
-              ariaExpanded();
+              closeMobileMenu();
             }
-            
+
             // Smooth scroll to target
             targetElement.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
             });
+
+            // Track navigation
+            trackEvent('nav_link_click', {
+              link_text: link.textContent?.trim(),
+              target_section: targetId
+            });
           } else {
             // Element doesn't exist - allow normal navigation to home page
-            // Don't prevent default, let the browser navigate normally
             if (body.classList.contains('cs-open')) {
-              body.classList.remove('cs-open');
-              ariaExpanded();
+              closeMobileMenu();
             }
           }
         }
       });
     });
   });
+
+  // ============================================
+  // Active Page Highlighting
+  // ============================================
+
+  function highlightActivePage() {
+    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash;
+
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.cs-li-link') as NodeListOf<HTMLAnchorElement>;
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+
+      if (!href) return;
+
+      // Check for exact path match
+      if (href === currentPath || href === currentPath + currentHash) {
+        link.classList.add('cs-active');
+      }
+      // Check for hash-only links on homepage
+      else if (href.startsWith('/#') && currentPath === '/' && href === '/' + currentHash) {
+        link.classList.add('cs-active');
+      }
+      // Check for service page matches
+      else if (currentPath.includes('/services/') && href === currentPath) {
+        link.classList.add('cs-active');
+        // Also highlight "Services" dropdown trigger
+        const servicesDropdown = document.querySelector('.cs-dropdown .cs-dropdown-trigger');
+        servicesDropdown?.parentElement?.querySelector('.cs-dropdown-trigger')?.classList.add('cs-active');
+      }
+      // Check for resources page matches
+      else if ((currentPath.includes('/user-story-template') ||
+                currentPath.includes('/free-it-infrastructure-checklist') ||
+                currentPath.includes('/bi-value-calculator')) &&
+               href === currentPath) {
+        link.classList.add('cs-active');
+        // Also highlight "Resources" dropdown trigger
+        const resourcesLinks = link.closest('.cs-dropdown');
+        if (resourcesLinks) {
+          const trigger = resourcesLinks.querySelector('.cs-dropdown-trigger');
+          trigger?.classList.add('cs-active');
+        }
+      }
+    });
+  }
+
+  // Run on page load and hash change
+  highlightActivePage();
+  window.addEventListener('hashchange', highlightActivePage);
+
+  // ============================================
+  // Sticky-Shrink Behavior on Scroll
+  // ============================================
+
+  let lastScrollY = window.scrollY;
+  const navigation = document.querySelector('#cs-navigation') as HTMLElement | null;
+
+  function handleStickyNav() {
+    const currentScrollY = window.scrollY;
+
+    if (navigation) {
+      // Shrink when scrolled down more than 100px
+      if (currentScrollY > 100) {
+        navigation.setAttribute('data-shrink', 'true');
+      } else {
+        navigation.setAttribute('data-shrink', 'false');
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  // Throttle scroll events for performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleStickyNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // ============================================
+  // Contact Modal Integration (Custom Events)
+  // ============================================
+
+  const contactModalTriggers = document.querySelectorAll('.js-contact-modal-trigger') as NodeListOf<HTMLElement>;
+
+  contactModalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Dispatch custom event for modal to listen to
+      const event = new CustomEvent('openContactModal', {
+        bubbles: true,
+        detail: { source: 'navbar' }
+      });
+      document.dispatchEvent(event);
+
+      // Track CTA click
+      trackEvent('cta_click', {
+        cta_location: 'navbar',
+        cta_text: trigger.textContent?.trim() || 'Contact Us'
+      });
+    });
+  });
+
+  // ============================================
+  // WhatsApp Button Tracking
+  // ============================================
+
+  const whatsappButtons = document.querySelectorAll('.cs-whatsapp-button, .cs-mobile-whatsapp-btn') as NodeListOf<HTMLAnchorElement>;
+
+  whatsappButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      trackEvent('whatsapp_click', {
+        button_location: 'navbar',
+        device: button.classList.contains('cs-mobile-whatsapp-btn') ? 'mobile' : 'desktop'
+      });
+    });
+  });
+
+  // ============================================
+  // TypeScript Declarations
+  // ============================================
+
+  declare global {
+    interface Window {
+      dataLayer: any[];
+    }
+  }
 </script>

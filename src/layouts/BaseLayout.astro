@@ -190,7 +190,9 @@ const { title, description, keywords, canonical, ogImage, ogUrl } = Astro.props;
     
     <!-- Main content slot with Navbar and Footer -->
     <Navbar />
-    <slot />
+    <main id="main-content">
+      <slot />
+    </main>
     <Footer />
     
     <!-- Contact Modal (available on all pages) -->
