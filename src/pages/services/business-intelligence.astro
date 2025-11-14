@@ -183,6 +183,20 @@ import "../../global.css";
         </div>
     </section>
 
+    <!-- Calculator CTA Banner -->
+    <section class="calculator-banner">
+        <div class="cs-container">
+            <div class="banner-content">
+                <div class="banner-icon">📊</div>
+                <div class="banner-text">
+                    <h3 class="banner-title">Calculate Your Business Intelligence ROI</h3>
+                    <p class="banner-description">Discover how much time and money you could save with proper BI implementation. Get your free data maturity assessment in under 5 minutes.</p>
+                </div>
+                <a href="/bi-value-calculator" class="banner-button">Calculate My ROI →</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services">
         <div class="cs-container">
@@ -558,6 +572,68 @@ body {
   line-height: 1.6;
 }
 
+/* Calculator CTA Banner */
+.calculator-banner {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(52, 131, 197, 0.1) 0%, rgba(42, 91, 140, 0.1) 100%);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--primaryLight);
+  flex-wrap: wrap;
+}
+
+.banner-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+}
+
+.banner-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.banner-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.banner-description {
+  font-size: 1.0625rem;
+  color: var(--bodyTextColor);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.banner-button {
+  display: inline-block;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.banner-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 131, 197, 0.3);
+}
+
 /* Services Section */
 .services {
   padding: 5rem 0;
@@ -931,6 +1007,16 @@ body {
 
   .tool-info h4 {
     margin-bottom: 0.5rem;
+  }
+
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .banner-button {
+    width: 100%;
   }
 }
 </style>

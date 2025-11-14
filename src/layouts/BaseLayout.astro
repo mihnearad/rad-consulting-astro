@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar.astro";
 import Footer from "../../components/footer.astro";
 import ContactModal from "../../components/contact-modal.astro";
 import FloatingCTA from "../../components/floating-cta.astro";
+import ExitIntentPopup from "../../components/exit-intent-popup.astro";
 import "../global.css";
 
 interface Props {
@@ -194,9 +195,12 @@ const { title, description, keywords, canonical, ogImage, ogUrl } = Astro.props;
     
     <!-- Contact Modal (available on all pages) -->
     <ContactModal />
-    
+
     <!-- Floating CTA Button -->
     <FloatingCTA />
+
+    <!-- Exit Intent Popup (lead magnet capture) -->
+    <ExitIntentPopup />
 
     <!-- Load Klaro Cookie Consent scripts after page content -->
     <script src="/klaro-config.js" defer></script>

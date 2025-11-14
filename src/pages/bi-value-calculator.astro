@@ -1,0 +1,2113 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "BI ROI Calculator | Calculate Business Intelligence Value - RAD Digital Solutions";
+const description = "Calculate your Business Intelligence ROI and data maturity score. Discover how much time and money you could save with proper BI implementation. Free assessment tool.";
+const keywords = "BI ROI calculator, business intelligence ROI, data maturity assessment, BI value calculator, business intelligence value, data analytics ROI";
+const canonical = "https://rad-digitalsolutions.com/bi-value-calculator";
+const ogImage = "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp";
+const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
+---
+
+<BaseLayout {title} {description} {keywords} {canonical} {ogImage} {ogUrl}>
+  <section id="bi-calculator-page">
+    <div class="calculator-container">
+
+      <!-- Hero Section -->
+      <div class="calculator-hero">
+        <h1 class="calculator-title">Discover Your Business Intelligence ROI</h1>
+        <p class="calculator-subtitle">
+          Calculate how much time and money you could save with proper BI implementation.
+          Get your free data maturity assessment in under 5 minutes.
+        </p>
+        <div class="calculator-benefits">
+          <div class="benefit-card">
+            <div class="benefit-icon">⏱️</div>
+            <h3>Time Savings</h3>
+            <p>See hours saved on manual reporting</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">💰</div>
+            <h3>Cost Impact</h3>
+            <p>Calculate annual cost savings</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📊</div>
+            <h3>Maturity Score</h3>
+            <p>Assess your data maturity level</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Indicator -->
+      <div class="progress-section" id="progressSection">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text" id="progressText">Step 1 of 2: Data Maturity Assessment</p>
+      </div>
+
+      <!-- Step 1: Data Maturity Assessment -->
+      <div class="calculator-step" id="step1" style="display: block;">
+        <div class="step-header">
+          <h2>Step 1: Data Maturity Assessment</h2>
+          <p>Answer 12 questions to assess your organization's data maturity across 4 key dimensions</p>
+        </div>
+
+        <form id="maturityForm">
+          <!-- Dimension 1: Data Infrastructure -->
+          <div class="dimension-section">
+            <h3 class="dimension-title">
+              <span class="dimension-icon">🗄️</span>
+              Data Infrastructure
+            </h3>
+
+            <!-- Question 1 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">1.</span>
+                How is your data currently stored?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q1" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Scattered across individual computers/spreadsheets
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q1" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Shared drives with some organization
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q1" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Centralized database(s) but siloed by department
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q1" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Integrated data warehouse or data lake
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q1" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Modern cloud-based data platform with automation
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">2.</span>
+                How do you access data from different systems?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q2" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Manual exports and copy-paste
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q2" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Scheduled manual exports
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q2" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Some automated connections but mostly manual
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q2" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Automated data pipelines for most sources
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q2" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Real-time automated data integration (ETL/ELT)
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">3.</span>
+                What is your data quality?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Frequent errors, duplicates, inconsistencies
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Known quality issues, manual cleanup required
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Acceptable quality with occasional issues
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> High quality with automated validation
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Excellent quality with governance and continuous monitoring
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dimension 2: Analytics Capability -->
+          <div class="dimension-section">
+            <h3 class="dimension-title">
+              <span class="dimension-icon">📈</span>
+              Analytics Capability
+            </h3>
+
+            <!-- Question 4 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">4.</span>
+                What tools do you use for reporting?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q4" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Excel spreadsheets only
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q4" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Excel with manual charts/pivot tables
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q4" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Basic BI tools (Excel Power BI, Google Sheets)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q4" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Professional BI platform (PowerBI, Tableau)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q4" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Advanced analytics with Python/R + BI platforms
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">5.</span>
+                How current is your business data?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q5" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Weeks or months old
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q5" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Weekly updates
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q5" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Daily updates
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q5" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Hourly or near real-time
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q5" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Real-time dashboards with live data
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">6.</span>
+                What type of analysis do you perform?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q6" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Basic calculations and totals
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q6" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Historical reporting and trends
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q6" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> KPI tracking and performance monitoring
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q6" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Predictive analytics and forecasting
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q6" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Advanced ML, prescriptive analytics, AI-driven insights
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dimension 3: Decision-Making Culture -->
+          <div class="dimension-section">
+            <h3 class="dimension-title">
+              <span class="dimension-icon">🎯</span>
+              Decision-Making Culture
+            </h3>
+
+            <!-- Question 7 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">7.</span>
+                How do decisions get made in your organization?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q7" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Gut feeling and intuition
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q7" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Mix of intuition and some data review
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q7" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Data-informed when available
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q7" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Data-driven with regular dashboard review
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q7" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Real-time data-driven with embedded analytics culture
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">8.</span>
+                How long does it take to answer business questions?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q8" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Days or weeks (need to gather data manually)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q8" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> 1-2 days (run reports, analyze)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q8" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Hours (access existing reports)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q8" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Minutes (dashboard self-service)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q8" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Instant (real-time dashboards, alerts)
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">9.</span>
+                Who can access business intelligence in your organization?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q9" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Only IT or specific analysts
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q9" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Management team with IT support
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q9" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Department heads with some self-service
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q9" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Most employees with role-based access
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q9" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Company-wide self-service BI culture
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dimension 4: Strategy & Governance -->
+          <div class="dimension-section">
+            <h3 class="dimension-title">
+              <span class="dimension-icon">🎓</span>
+              Strategy & Governance
+            </h3>
+
+            <!-- Question 10 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">10.</span>
+                Do you have a data strategy?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q10" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> No strategy, reactive approach
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q10" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Informal practices, department-specific
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q10" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Documented strategy but inconsistent execution
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q10" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Clear strategy with regular review
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q10" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Comprehensive data strategy aligned with business goals
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 11 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">11.</span>
+                How is data governed in your organization?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q11" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> No governance, ad-hoc access
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q11" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Basic security controls
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q11" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Defined roles and permissions
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q11" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Data stewardship with quality standards
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q11" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Comprehensive governance with automated compliance
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Question 12 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">12.</span>
+                How do you measure the value of your data/analytics?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q12" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Don't measure, cost center view
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q12" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Track usage occasionally
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q12" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Monitor basic KPIs (users, reports)
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q12" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Measure business impact and ROI
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q12" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Continuous value tracking tied to business outcomes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-next" id="nextToStep2">Continue to ROI Calculator →</button>
+        </form>
+      </div>
+
+      <!-- Step 2: ROI Calculator Inputs -->
+      <div class="calculator-step" id="step2" style="display: none;">
+        <div class="step-header">
+          <h2>Step 2: ROI Calculator</h2>
+          <p>Help us calculate your potential return on investment</p>
+        </div>
+
+        <form id="roiForm">
+          <!-- Employees Input -->
+          <div class="input-card">
+            <label class="input-label">
+              How many employees use or need business intelligence/reports?
+              <span class="input-value" id="employeesValue">25</span>
+            </label>
+            <input type="range" name="employees" id="employees" min="5" max="500" value="25" step="5" />
+            <div class="input-range-labels">
+              <span>5</span>
+              <span>500+</span>
+            </div>
+          </div>
+
+          <!-- Hours Input -->
+          <div class="input-card">
+            <label class="input-label">
+              How many hours per week are spent on manual reporting/data gathering?
+              <span class="input-value" id="hoursValue">10</span> hours/week
+            </label>
+            <input type="range" name="hours" id="hours" min="0" max="40" value="10" step="1" />
+            <div class="input-range-labels">
+              <span>0</span>
+              <span>40</span>
+            </div>
+          </div>
+
+          <!-- Data Sources -->
+          <div class="input-card">
+            <label class="input-label">How many data sources do you have?</label>
+            <select name="dataSources" id="dataSources" class="select-input">
+              <option value="1">1 source</option>
+              <option value="3" selected>2-5 sources</option>
+              <option value="8">6-10 sources</option>
+              <option value="15">11+ sources</option>
+            </select>
+          </div>
+
+          <!-- Hourly Cost -->
+          <div class="input-card">
+            <label class="input-label">Average hourly cost per employee (including benefits)</label>
+            <select name="hourlyCost" id="hourlyCost" class="select-input">
+              <option value="25">$25/hour</option>
+              <option value="50" selected>$50/hour</option>
+              <option value="75">$75/hour</option>
+              <option value="100">$100/hour</option>
+              <option value="150">$150+/hour</option>
+            </select>
+          </div>
+
+          <!-- Annual Revenue -->
+          <div class="input-card">
+            <label class="input-label">Annual revenue</label>
+            <select name="revenue" id="revenue" class="select-input">
+              <option value="250000">Less than $500K</option>
+              <option value="750000">$500K - $1M</option>
+              <option value="3000000" selected>$1M - $5M</option>
+              <option value="7500000">$5M - $10M</option>
+              <option value="20000000">$10M - $50M</option>
+              <option value="50000000">$50M+</option>
+            </select>
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="btn-back" id="backToStep1">← Back</button>
+            <button type="button" class="btn-calculate" id="calculateResults">Calculate My ROI</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Section (Hidden Initially) -->
+      <div class="calculator-step" id="resultsSection" style="display: none;">
+        <div class="results-hero">
+          <h2>Your Business Intelligence Assessment Results</h2>
+          <p>Based on your responses, here's your personalized BI assessment and ROI projection</p>
+        </div>
+
+        <!-- Maturity Score Card -->
+        <div class="maturity-score-card">
+          <div class="score-main">
+            <div class="score-circle">
+              <div class="score-number" id="totalScore">0</div>
+              <div class="score-total">/ 60</div>
+            </div>
+            <div class="score-info">
+              <h3>Your Data Maturity Level</h3>
+              <div class="maturity-badge" id="maturityBadge">Initial</div>
+              <p class="maturity-description" id="maturityDescription">Description goes here</p>
+            </div>
+          </div>
+
+          <div class="dimension-scores">
+            <h4>Score Breakdown by Dimension</h4>
+            <div class="dimension-score-grid">
+              <div class="dimension-score-item">
+                <span class="dimension-score-label">🗄️ Data Infrastructure</span>
+                <div class="score-bar">
+                  <div class="score-bar-fill" id="infraScore" style="width: 0%"></div>
+                </div>
+                <span class="score-bar-text" id="infraScoreText">0/15</span>
+              </div>
+              <div class="dimension-score-item">
+                <span class="dimension-score-label">📈 Analytics Capability</span>
+                <div class="score-bar">
+                  <div class="score-bar-fill" id="analyticsScore" style="width: 0%"></div>
+                </div>
+                <span class="score-bar-text" id="analyticsScoreText">0/15</span>
+              </div>
+              <div class="dimension-score-item">
+                <span class="dimension-score-label">🎯 Decision-Making</span>
+                <div class="score-bar">
+                  <div class="score-bar-fill" id="decisionScore" style="width: 0%"></div>
+                </div>
+                <span class="score-bar-text" id="decisionScoreText">0/15</span>
+              </div>
+              <div class="dimension-score-item">
+                <span class="dimension-score-label">🎓 Strategy & Governance</span>
+                <div class="score-bar">
+                  <div class="score-bar-fill" id="strategyScore" style="width: 0%"></div>
+                </div>
+                <span class="score-bar-text" id="strategyScoreText">0/15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROI Results Card -->
+        <div class="roi-results-card">
+          <h3>Your Potential ROI with Proper BI Implementation</h3>
+
+          <div class="roi-metrics-grid">
+            <div class="roi-metric">
+              <div class="roi-metric-icon">⏱️</div>
+              <div class="roi-metric-content">
+                <div class="roi-metric-label">Annual Time Savings</div>
+                <div class="roi-metric-value" id="timeSavings">0</div>
+                <div class="roi-metric-subtext">hours per year</div>
+              </div>
+            </div>
+
+            <div class="roi-metric">
+              <div class="roi-metric-icon">💰</div>
+              <div class="roi-metric-content">
+                <div class="roi-metric-label">Annual Cost Savings</div>
+                <div class="roi-metric-value" id="costSavings">$0</div>
+                <div class="roi-metric-subtext">in labor costs</div>
+              </div>
+            </div>
+
+            <div class="roi-metric">
+              <div class="roi-metric-icon">🚀</div>
+              <div class="roi-metric-content">
+                <div class="roi-metric-label">Decision Speed Improvement</div>
+                <div class="roi-metric-value">40%</div>
+                <div class="roi-metric-subtext">faster insights delivery</div>
+              </div>
+            </div>
+
+            <div class="roi-metric">
+              <div class="roi-metric-icon">📊</div>
+              <div class="roi-metric-content">
+                <div class="roi-metric-label">Potential Revenue Impact</div>
+                <div class="roi-metric-value" id="revenueImpact">$0</div>
+                <div class="roi-metric-subtext">from better decisions</div>
+              </div>
+            </div>
+
+            <div class="roi-metric roi-metric-highlight">
+              <div class="roi-metric-icon">🎯</div>
+              <div class="roi-metric-content">
+                <div class="roi-metric-label">3-Year Total Value</div>
+                <div class="roi-metric-value" id="threeYearROI">$0</div>
+                <div class="roi-metric-subtext">savings + revenue gains</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Gate -->
+        <div class="email-gate-card">
+          <div class="email-gate-icon">👥</div>
+          <h3>Get Your Personalized BI Strategy Review</h3>
+          <p>Enter your details and our BI experts will review your assessment and reach out within 24 hours with personalized recommendations and next steps.</p>
+          <ul class="email-gate-benefits">
+            <li>✓ Expert review of your assessment by BI specialists</li>
+            <li>✓ Personalized strategy recommendations for your maturity level</li>
+            <li>✓ Custom ROI analysis and implementation roadmap</li>
+            <li>✓ Free 30-minute consultation offer</li>
+          </ul>
+
+          <form id="emailGateForm" class="email-gate-form">
+            <!-- Web3Forms Configuration -->
+            <input type="hidden" name="access_key" value="e5a38996-8ac1-4f53-9a15-dc1dacd2c7ba" />
+            <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your Name *" required class="form-input" />
+              <input type="email" name="email" placeholder="Email Address *" required class="form-input" />
+            </div>
+            <div class="form-row">
+              <input type="text" name="company" placeholder="Company Name" class="form-input" />
+              <select name="industry" class="form-input">
+                <option value="">Select Industry (Optional)</option>
+                <option value="technology">Technology</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="retail">Retail/E-commerce</option>
+                <option value="logistics">Logistics/Supply Chain</option>
+                <option value="finance">Finance/Banking</option>
+                <option value="professional-services">Professional Services</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit-email">Request Personalized Review</button>
+            <p class="privacy-text">We'll review your results and contact you within 24 hours. No spam.</p>
+          </form>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendations-card">
+          <h3>Recommended Next Steps Based on Your Maturity Level</h3>
+          <div id="recommendationsContent"></div>
+          <div class="cta-buttons">
+            <a href="/#contact" class="btn-primary">Schedule Free Consultation</a>
+            <a href="/services/business-intelligence" class="btn-secondary">Learn About Our BI Services</a>
+          </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="social-proof-section">
+          <p class="social-proof-text">
+            <strong>Join 500+ businesses</strong> that transformed their data into strategic insights
+          </p>
+          <a href="/use-cases/sales-analytics-logistics" class="case-study-link">
+            See Real Results: How we helped a logistics company save 15+ hours/week →
+          </a>
+        </div>
+
+        <button type="button" class="btn-restart" id="restartCalculator">Start New Assessment</button>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  #bi-calculator-page {
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e8f3fe 100%);
+    min-height: 100vh;
+  }
+
+  .calculator-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Hero Section */
+  .calculator-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .calculator-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  .calculator-subtitle {
+    font-size: 1.125rem;
+    color: var(--bodyTextColor);
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .calculator-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem;
+    background: var(--accentLight);
+    border-radius: 0.75rem;
+    transition: transform 0.3s;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .benefit-card p {
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+
+  /* Progress Section */
+  .progress-section {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  .progress-text {
+    text-align: center;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  /* Step Sections */
+  .calculator-step {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+  }
+
+  .step-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--accentLight);
+  }
+
+  .step-header h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .step-header p {
+    font-size: 1.0625rem;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+
+  /* Dimension Sections */
+  .dimension-section {
+    margin-bottom: 3rem;
+  }
+
+  .dimension-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primaryLight);
+  }
+
+  .dimension-icon {
+    font-size: 1.75rem;
+  }
+
+  /* Question Cards */
+  .question-card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--neutral);
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .question-card:has(input:checked) {
+    border-color: var(--primaryLight);
+    background: var(--accentLight);
+  }
+
+  .question-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .question-number {
+    color: var(--primaryLight);
+    font-weight: 900;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.875rem;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .radio-option:hover {
+    border-color: var(--primaryLight);
+    background: var(--accentLight);
+  }
+
+  .radio-option input[type="radio"] {
+    margin-top: 0.25rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .radio-option:has(input:checked) {
+    border-color: var(--primaryLight);
+    background: var(--accentLight);
+    box-shadow: 0 2px 8px rgba(52, 131, 197, 0.15);
+  }
+
+  .radio-content {
+    flex: 1;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--bodyTextColor);
+  }
+
+  .radio-content strong {
+    color: var(--primaryLight);
+    font-weight: 700;
+  }
+
+  /* ROI Input Cards */
+  .input-card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--neutral);
+    border-radius: 0.75rem;
+  }
+
+  .input-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .input-value {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--primaryLight);
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    outline: none;
+    -webkit-appearance: none;
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .input-range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--neutralDark);
+  }
+
+  .select-input {
+    width: 100%;
+    padding: 0.875rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    background: white;
+    color: var(--bodyTextColor);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .select-input:focus {
+    outline: none;
+    border-color: var(--primaryLight);
+  }
+
+  /* Buttons */
+  .btn-next, .btn-calculate, .btn-back, .btn-restart, .btn-primary, .btn-secondary, .btn-submit-email {
+    padding: 1rem 2rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .btn-next, .btn-calculate, .btn-primary, .btn-submit-email {
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    color: white;
+    width: 100%;
+  }
+
+  .btn-next:hover, .btn-calculate:hover, .btn-primary:hover, .btn-submit-email:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 131, 197, 0.3);
+  }
+
+  .btn-back, .btn-restart {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primaryLight);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .button-group .btn-back {
+    flex: 0 0 auto;
+  }
+
+  .button-group .btn-calculate {
+    flex: 1;
+  }
+
+  /* Results Section */
+  .results-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .results-hero h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .results-hero p {
+    font-size: 1.0625rem;
+    color: var(--bodyTextColor);
+    margin: 0;
+  }
+
+  /* Maturity Score Card */
+  .maturity-score-card {
+    background: linear-gradient(135deg, rgba(52, 131, 197, 0.05) 0%, rgba(42, 91, 140, 0.05) 100%);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .score-main {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .score-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 6px 20px rgba(52, 131, 197, 0.3);
+  }
+
+  .score-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .score-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    opacity: 0.9;
+    margin-left: 0.25rem;
+  }
+
+  .score-info {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .score-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .maturity-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .maturity-description {
+    font-size: 1rem;
+    color: var(--bodyTextColor);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .dimension-scores h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .dimension-score-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .dimension-score-item {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .dimension-score-label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .score-bar {
+    height: 24px;
+    background: #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    transition: width 1s ease;
+  }
+
+  .score-bar-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primaryLight);
+    min-width: 50px;
+  }
+
+  /* ROI Results Card */
+  .roi-results-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .roi-results-card h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+
+  .roi-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .roi-metric {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--neutral);
+    border-radius: 0.75rem;
+    transition: transform 0.3s;
+  }
+
+  .roi-metric:hover {
+    transform: translateY(-5px);
+  }
+
+  .roi-metric-highlight {
+    background: linear-gradient(135deg, rgba(52, 131, 197, 0.1) 0%, rgba(42, 91, 140, 0.1) 100%);
+    border: 2px solid var(--primaryLight);
+    grid-column: 1 / -1;
+  }
+
+  .roi-metric-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+
+  .roi-metric-content {
+    flex: 1;
+  }
+
+  .roi-metric-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--neutralDark);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .roi-metric-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .roi-metric-subtext {
+    font-size: 0.875rem;
+    color: var(--bodyTextColor);
+  }
+
+  /* Email Gate Card */
+  .email-gate-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .email-gate-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .email-gate-card h3 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: white;
+  }
+
+  .email-gate-card > p {
+    font-size: 1.0625rem;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .email-gate-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .email-gate-benefits li {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    opacity: 0.95;
+  }
+
+  .email-gate-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary);
+    font-family: inherit;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: white;
+    background: white;
+  }
+
+  .privacy-text {
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    opacity: 0.85;
+  }
+
+  /* Recommendations Card */
+  .recommendations-card {
+    background: var(--accentLight);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .recommendations-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+  }
+
+  .recommendation-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primaryLight);
+  }
+
+  .recommendation-item h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .recommendation-item p {
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Social Proof */
+  .social-proof-section {
+    text-align: center;
+    padding: 2rem;
+    background: var(--neutral);
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .social-proof-text {
+    font-size: 1.0625rem;
+    color: var(--bodyTextColor);
+    margin: 0 0 1rem 0;
+  }
+
+  .social-proof-text strong {
+    color: var(--primary);
+  }
+
+  .case-study-link {
+    color: var(--primaryLight);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .case-study-link:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+  }
+
+  .btn-restart {
+    width: 100%;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .calculator-step {
+      padding: 2rem 1.5rem;
+    }
+
+    .dimension-score-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .score-main {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .button-group {
+      flex-direction: column;
+    }
+
+    .button-group .btn-back {
+      order: 2;
+    }
+
+    .button-group .btn-calculate {
+      order: 1;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-buttons a {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Calculator Logic
+  let maturityScores = {
+    infrastructure: 0,
+    analytics: 0,
+    decision: 0,
+    strategy: 0,
+    total: 0
+  };
+
+  let roiInputs = {
+    employees: 25,
+    hours: 10,
+    dataSources: 3,
+    hourlyCost: 50,
+    revenue: 3000000
+  };
+
+  // Step Navigation
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const resultsSection = document.getElementById('resultsSection');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+
+  const nextToStep2Btn = document.getElementById('nextToStep2');
+  const backToStep1Btn = document.getElementById('backToStep1');
+  const calculateResultsBtn = document.getElementById('calculateResults');
+  const restartBtn = document.getElementById('restartCalculator');
+
+  // Validate Step 1
+  function validateStep1() {
+    const form = document.getElementById('maturityForm');
+    const requiredQuestions = 12;
+    let answeredQuestions = 0;
+
+    for (let i = 1; i <= requiredQuestions; i++) {
+      const checked = form.querySelector(`input[name="q${i}"]:checked`);
+      if (checked) answeredQuestions++;
+    }
+
+    if (answeredQuestions < requiredQuestions) {
+      alert(`Please answer all ${requiredQuestions} questions before continuing. You've answered ${answeredQuestions} so far.`);
+      return false;
+    }
+    return true;
+  }
+
+  // Navigate to Step 2
+  nextToStep2Btn?.addEventListener('click', () => {
+    if (validateStep1()) {
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+      progressFill.style.width = '100%';
+      progressText.textContent = 'Step 2 of 2: ROI Calculator';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  // Navigate back to Step 1
+  backToStep1Btn?.addEventListener('click', () => {
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+    progressFill.style.width = '50%';
+    progressText.textContent = 'Step 1 of 2: Data Maturity Assessment';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Update slider values
+  const employeesSlider = document.getElementById('employees');
+  const employeesValue = document.getElementById('employeesValue');
+  const hoursSlider = document.getElementById('hours');
+  const hoursValue = document.getElementById('hoursValue');
+
+  employeesSlider?.addEventListener('input', (e) => {
+    employeesValue.textContent = e.target.value;
+    roiInputs.employees = parseInt(e.target.value);
+  });
+
+  hoursSlider?.addEventListener('input', (e) => {
+    hoursValue.textContent = e.target.value;
+    roiInputs.hours = parseInt(e.target.value);
+  });
+
+  document.getElementById('dataSources')?.addEventListener('change', (e) => {
+    roiInputs.dataSources = parseInt(e.target.value);
+  });
+
+  document.getElementById('hourlyCost')?.addEventListener('change', (e) => {
+    roiInputs.hourlyCost = parseInt(e.target.value);
+  });
+
+  document.getElementById('revenue')?.addEventListener('change', (e) => {
+    roiInputs.revenue = parseInt(e.target.value);
+  });
+
+  // Calculate Results
+  calculateResultsBtn?.addEventListener('click', () => {
+    calculateMaturityScore();
+    calculateROI();
+    displayResults();
+
+    step2.style.display = 'none';
+    resultsSection.style.display = 'block';
+    document.getElementById('progressSection').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Track with GTM
+    if (typeof window.dataLayer !== 'undefined') {
+      window.dataLayer.push({
+        'event': 'bi_calculator_completed',
+        'maturity_score': maturityScores.total,
+        'maturity_level': getMaturityLevel(maturityScores.total).level
+      });
+    }
+  });
+
+  // Calculate Maturity Score
+  function calculateMaturityScore() {
+    const form = document.getElementById('maturityForm');
+
+    // Infrastructure (Q1-3)
+    maturityScores.infrastructure =
+      parseInt(form.querySelector('input[name="q1"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q2"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q3"]:checked')?.value || 0);
+
+    // Analytics (Q4-6)
+    maturityScores.analytics =
+      parseInt(form.querySelector('input[name="q4"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q5"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q6"]:checked')?.value || 0);
+
+    // Decision-Making (Q7-9)
+    maturityScores.decision =
+      parseInt(form.querySelector('input[name="q7"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q8"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q9"]:checked')?.value || 0);
+
+    // Strategy (Q10-12)
+    maturityScores.strategy =
+      parseInt(form.querySelector('input[name="q10"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q11"]:checked')?.value || 0) +
+      parseInt(form.querySelector('input[name="q12"]:checked')?.value || 0);
+
+    maturityScores.total =
+      maturityScores.infrastructure +
+      maturityScores.analytics +
+      maturityScores.decision +
+      maturityScores.strategy;
+  }
+
+  // Calculate ROI
+  let roiResults = {
+    timeSavings: 0,
+    costSavings: 0,
+    revenueImpact: 0,
+    threeYearROI: 0
+  };
+
+  function calculateROI() {
+    // Time savings: 75% of manual hours saved
+    roiResults.timeSavings = Math.round(roiInputs.hours * 52 * 0.75);
+
+    // Cost savings: time saved × hourly rate
+    roiResults.costSavings = Math.round(roiResults.timeSavings * roiInputs.hourlyCost);
+
+    // Revenue impact: 2-5% of revenue based on data sources complexity
+    const revenueImpactPercent = roiInputs.dataSources > 10 ? 0.05 :
+                                  roiInputs.dataSources > 5 ? 0.03 : 0.02;
+    roiResults.revenueImpact = Math.round(roiInputs.revenue * revenueImpactPercent);
+
+    // 3-year ROI
+    roiResults.threeYearROI = (roiResults.costSavings + roiResults.revenueImpact) * 3;
+  }
+
+  // Get Maturity Level
+  function getMaturityLevel(score) {
+    if (score <= 20) {
+      return {
+        level: 'Initial/Ad-hoc',
+        badge: 'Level 1: Initial',
+        description: 'Your organization is in the early stages of data maturity. Heavy reliance on manual processes and spreadsheets. Significant opportunity for improvement.',
+        recommendations: [
+          {
+            title: 'PowerBI Dashboard Development',
+            description: 'Start with foundational dashboards to visualize your key business metrics in real-time.'
+          },
+          {
+            title: 'Data Pipeline Architecture',
+            description: 'Build automated data pipelines to consolidate data from multiple sources and eliminate manual exports.'
+          },
+          {
+            title: 'Data Quality Assessment',
+            description: 'Conduct a comprehensive data quality audit to identify and fix issues at the source.'
+          }
+        ]
+      };
+    } else if (score <= 32) {
+      return {
+        level: 'Developing',
+        badge: 'Level 2: Developing',
+        description: 'You have some tools in place but data remains siloed and processes are inconsistent. Focus on consolidation and automation.',
+        recommendations: [
+          {
+            title: 'Data Integration & ETL',
+            description: 'Implement automated data pipelines to connect all your systems and create a single source of truth.'
+          },
+          {
+            title: 'BI Consulting & Strategy',
+            description: 'Develop a comprehensive BI strategy aligned with your business objectives.'
+          },
+          {
+            title: 'Data Governance Framework',
+            description: 'Establish data quality standards, ownership, and governance policies.'
+          }
+        ]
+      };
+    } else if (score <= 44) {
+      return {
+        level: 'Defined',
+        badge: 'Level 3: Defined',
+        description: 'You have established processes and centralized data with basic BI capabilities. Ready to move from reporting to advanced analytics.',
+        recommendations: [
+          {
+            title: 'Advanced Analytics with Python',
+            description: 'Implement predictive analytics, forecasting, and machine learning models to gain deeper insights.'
+          },
+          {
+            title: 'Custom Dashboard Development',
+            description: 'Build sophisticated, role-specific dashboards that provide actionable insights for each team.'
+          },
+          {
+            title: 'Real-time Data Streaming',
+            description: 'Upgrade from batch processing to real-time data pipelines for instant insights.'
+          }
+        ]
+      };
+    } else if (score <= 56) {
+      return {
+        level: 'Managed',
+        badge: 'Level 4: Managed',
+        description: 'Strong data-driven culture with self-service BI and predictive analytics. Focus on optimization and advanced AI/ML capabilities.',
+        recommendations: [
+          {
+            title: 'Machine Learning & AI Solutions',
+            description: 'Implement advanced ML models for prescriptive analytics and automated decision-making.'
+          },
+          {
+            title: 'Real-time Analytics Optimization',
+            description: 'Optimize your real-time data infrastructure for sub-second query performance at scale.'
+          },
+          {
+            title: 'Data Science Enablement',
+            description: 'Build a data science platform that enables your team to experiment with advanced analytics.'
+          }
+        ]
+      };
+    } else {
+      return {
+        level: 'Optimized',
+        badge: 'Level 5: Optimized',
+        description: 'Best-in-class analytics with embedded AI/ML and mature data culture. Focus on innovation and maintaining competitive advantage.',
+        recommendations: [
+          {
+            title: 'Innovation Consulting',
+            description: 'Explore cutting-edge technologies like generative AI, graph analytics, and edge computing.'
+          },
+          {
+            title: 'Advanced AI/ML Solutions',
+            description: 'Implement state-of-the-art AI models including deep learning, NLP, and computer vision.'
+          },
+          {
+            title: 'Strategic Partnership',
+            description: 'Ongoing strategic consulting to maintain your leadership position and drive continuous innovation.'
+          }
+        ]
+      };
+    }
+  }
+
+  // Display Results
+  function displayResults() {
+    const maturityInfo = getMaturityLevel(maturityScores.total);
+
+    // Display maturity score
+    document.getElementById('totalScore').textContent = maturityScores.total;
+    document.getElementById('maturityBadge').textContent = maturityInfo.badge;
+    document.getElementById('maturityDescription').textContent = maturityInfo.description;
+
+    // Display dimension scores
+    displayDimensionScore('infra', maturityScores.infrastructure);
+    displayDimensionScore('analytics', maturityScores.analytics);
+    displayDimensionScore('decision', maturityScores.decision);
+    displayDimensionScore('strategy', maturityScores.strategy);
+
+    // Display ROI metrics
+    document.getElementById('timeSavings').textContent = roiResults.timeSavings.toLocaleString();
+    document.getElementById('costSavings').textContent = '$' + roiResults.costSavings.toLocaleString();
+    document.getElementById('revenueImpact').textContent = '$' + roiResults.revenueImpact.toLocaleString();
+    document.getElementById('threeYearROI').textContent = '$' + roiResults.threeYearROI.toLocaleString();
+
+    // Display recommendations
+    const recommendationsContent = document.getElementById('recommendationsContent');
+    recommendationsContent.innerHTML = maturityInfo.recommendations.map(rec => `
+      <div class="recommendation-item">
+        <h4>${rec.title}</h4>
+        <p>${rec.description}</p>
+      </div>
+    `).join('');
+  }
+
+  function displayDimensionScore(dimension, score) {
+    const percentage = (score / 15) * 100;
+    document.getElementById(`${dimension}Score`).style.width = percentage + '%';
+    document.getElementById(`${dimension}ScoreText`).textContent = `${score}/15`;
+  }
+
+  // Helper functions for labels
+  function getDataSourcesLabel(value) {
+    const labels = { 1: '1 source', 3: '2-5 sources', 8: '6-10 sources', 15: '11+ sources' };
+    return labels[value] || value;
+  }
+
+  function getRevenueLabel(value) {
+    if (value <= 500000) return 'Less than $500K';
+    if (value <= 1000000) return '$500K - $1M';
+    if (value <= 5000000) return '$1M - $5M';
+    if (value <= 10000000) return '$5M - $10M';
+    if (value <= 50000000) return '$10M - $50M';
+    return '$50M+';
+  }
+
+  // Helper function to build detailed message
+  function buildDetailedMessage(formInputs) {
+    const maturityInfo = getMaturityLevel(maturityScores.total);
+    const form = document.getElementById('maturityForm');
+
+    let message = `=== CONTACT INFORMATION ===\n`;
+    message += `Name: ${formInputs.name}\n`;
+    message += `Email: ${formInputs.email}\n`;
+    message += `Company: ${formInputs.company}\n`;
+    message += `Industry: ${formInputs.industry}\n\n`;
+
+    message += `=== DATA MATURITY ASSESSMENT ===\n`;
+    message += `Overall Score: ${maturityScores.total}/60\n`;
+    message += `Maturity Level: ${maturityInfo.badge}\n\n`;
+
+    message += `Dimension Breakdown:\n`;
+    message += `🗄️ Data Infrastructure: ${maturityScores.infrastructure}/15\n`;
+    message += `📈 Analytics Capability: ${maturityScores.analytics}/15\n`;
+    message += `🎯 Decision-Making Culture: ${maturityScores.decision}/15\n`;
+    message += `🎓 Strategy & Governance: ${maturityScores.strategy}/15\n\n`;
+
+    message += `=== ASSESSMENT DETAILS ===\n`;
+    // Add all 12 Q&A pairs
+    const questions = [
+      'How is your data currently stored?',
+      'How do you access data from different systems?',
+      'What is your data quality?',
+      'What tools do you use for reporting?',
+      'How current is your business data?',
+      'What type of analysis do you perform?',
+      'How do decisions get made in your organization?',
+      'How long does it take to answer business questions?',
+      'Who can access business intelligence in your organization?',
+      'Do you have a data strategy?',
+      'How is data governed in your organization?',
+      'How do you measure the value of your data/analytics?'
+    ];
+
+    for (let i = 1; i <= 12; i++) {
+      const checked = form.querySelector(`input[name="q${i}"]:checked`);
+      if (checked) {
+        const answerText = checked.closest('.radio-option').querySelector('.radio-content strong').textContent;
+        message += `Q${i}. ${questions[i-1]}\n`;
+        message += `→ ${answerText}\n\n`;
+      }
+    }
+
+    message += `=== ROI CALCULATOR INPUTS ===\n`;
+    message += `• Employees using BI: ${roiInputs.employees}\n`;
+    message += `• Hours/week on manual reporting: ${roiInputs.hours}\n`;
+    message += `• Number of data sources: ${getDataSourcesLabel(roiInputs.dataSources)}\n`;
+    message += `• Average hourly cost: $${roiInputs.hourlyCost}/hour\n`;
+    message += `• Annual revenue: ${getRevenueLabel(roiInputs.revenue)}\n\n`;
+
+    message += `=== ROI PROJECTIONS ===\n`;
+    message += `⏱️ Annual Time Savings: ${roiResults.timeSavings.toLocaleString()} hours\n`;
+    message += `💰 Annual Cost Savings: $${roiResults.costSavings.toLocaleString()}\n`;
+    message += `📊 Potential Revenue Impact: $${roiResults.revenueImpact.toLocaleString()}\n`;
+    message += `🎯 3-Year Total Value: $${roiResults.threeYearROI.toLocaleString()}\n\n`;
+
+    message += `=== RECOMMENDED NEXT STEPS ===\n`;
+    message += `Based on your "${maturityInfo.level}" maturity level:\n\n`;
+    maturityInfo.recommendations.forEach((rec, idx) => {
+      message += `${idx + 1}. ${rec.title}\n`;
+      message += `   ${rec.description}\n\n`;
+    });
+
+    message += `=== FOLLOW-UP ACTION REQUIRED ===\n`;
+    message += `⚠️ IMPORTANT: This lead expects contact within 24 HOURS.\n`;
+    message += `They requested a personalized BI strategy review from your team.\n\n`;
+    message += `Recommended next steps:\n`;
+    message += `1. Review their maturity level and ROI projections above\n`;
+    message += `2. Prepare 2-3 specific recommendations based on their answers\n`;
+    message += `3. Email them within 24 hours with personalized insights\n`;
+    message += `4. Offer free 30-minute consultation to discuss implementation\n\n`;
+    message += `Contact: ${formInputs.email}\n`;
+    message += `Best time to reach: Business hours\n`;
+
+    return message;
+  }
+
+  // Email Gate Form Submission
+  const emailGateForm = document.getElementById('emailGateForm');
+  emailGateForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = emailGateForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      // Get form data
+      const formData = new FormData(emailGateForm);
+      const formInputs = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        company: formData.get('company') || 'Not provided',
+        industry: formData.get('industry') || 'Not provided'
+      };
+
+      // Build detailed message with all results
+      const detailedMessage = buildDetailedMessage(formInputs);
+      const maturityInfo = getMaturityLevel(maturityScores.total);
+
+      // Prepare Web3Forms submission
+      const submissionData = {
+        access_key: "e5a38996-8ac1-4f53-9a15-dc1dacd2c7ba",
+        subject: `🔥 NEW BI LEAD - ${formInputs.company} - ${maturityInfo.level} - RESPOND IN 24H`,
+        from_name: formInputs.name,
+        email: formInputs.email,
+        company: formInputs.company,
+        industry: formInputs.industry,
+        message: detailedMessage,
+        // Extra fields for filtering
+        maturity_score: maturityScores.total,
+        maturity_level: maturityInfo.level,
+        roi_3year: roiResults.threeYearROI,
+        form_type: "BI Calculator Assessment"
+      };
+
+      // Submit to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // Track conversion with GTM
+        if (typeof window.dataLayer !== 'undefined') {
+          window.dataLayer.push({
+            'event': 'bi_calculator_lead_submitted',
+            'maturity_score': maturityScores.total,
+            'roi_value': roiResults.threeYearROI,
+            'maturity_level': maturityInfo.level
+          });
+        }
+
+        // Show success message
+        alert('Thank you! Our BI experts have received your assessment and will review your results. Expect a personalized consultation offer within 24 hours from office@rad-digitalsolutions.com');
+
+        // Reset form
+        emailGateForm.reset();
+
+      } else {
+        throw new Error(result.message || 'Form submission failed');
+      }
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Something went wrong. Please try again or contact us directly at office@rad-digitalsolutions.com');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+
+  // Restart Calculator
+  restartBtn?.addEventListener('click', () => {
+    document.getElementById('maturityForm').reset();
+    document.getElementById('roiForm').reset();
+    resultsSection.style.display = 'none';
+    step1.style.display = 'block';
+    document.getElementById('progressSection').style.display = 'block';
+    progressFill.style.width = '0%';
+    progressText.textContent = 'Step 1 of 2: Data Maturity Assessment';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Initialize progress
+  progressFill.style.width = '50%';
+</script>
+</BaseLayout>

@@ -15,7 +15,29 @@
     <div class="modal-content">
       <h2 id="modal-title" class="modal-title">Let's Transform Your Business Together</h2>
       <p class="modal-subtitle">Share your details and we'll show you how our solutions can drive your success.</p>
-      
+
+      <!-- Trust Badges -->
+      <div class="trust-badges">
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>We respond within 4 hours</span>
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>500+ businesses trust us</span>
+        </div>
+        <div class="trust-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>No obligation consultation</span>
+        </div>
+      </div>
+
       <form
         class="modal-form"
         id="lead-form"
@@ -101,8 +123,15 @@
         <div id="modal-result" class="form-result"></div>
         
         <p class="form-privacy">
+          <strong>🔒 100% Secure & Confidential</strong><br>
           By submitting, you agree to our <a href="/privacy-policy">Privacy Policy</a>. We'll contact you within 24 hours.
         </p>
+
+        <div class="social-proof">
+          <p class="social-proof-text">
+            <strong>Join 500+ companies</strong> that transformed their business with our digital solutions
+          </p>
+        </div>
       </form>
     </div>
   </div>
@@ -203,8 +232,63 @@
   .modal-subtitle {
     font-size: 1rem;
     color: var(--bodyTextColor);
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.5rem 0;
     line-height: 1.5;
+  }
+
+  /* Trust Badges */
+  .trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    background: var(--accentLight);
+    border-radius: 0.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .trust-item svg {
+    color: #10b981;
+    flex-shrink: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .trust-badges {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+
+  /* Social Proof */
+  .social-proof {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(52, 131, 197, 0.05) 0%, rgba(42, 91, 140, 0.05) 100%);
+    border-left: 4px solid var(--primaryLight);
+    border-radius: 0.25rem;
+  }
+
+  .social-proof-text {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor);
+    line-height: 1.5;
+  }
+
+  .social-proof-text strong {
+    color: var(--primary);
+    font-weight: 700;
   }
   
   /* Form Styles */

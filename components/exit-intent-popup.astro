@@ -1,0 +1,511 @@
+---
+// Exit Intent Popup Component
+// Triggers when user is about to leave the page
+// Offers free lead magnet to capture abandoning visitors
+---
+
+<div id="exitIntentPopup" class="exit-popup-overlay" aria-hidden="true">
+  <div class="exit-popup-container">
+    <button class="exit-popup-close" aria-label="Close popup">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="exit-popup-content">
+      <div class="exit-popup-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+
+      <h2 class="exit-popup-title">Wait! Grab Your Free IT Checklist</h2>
+      <p class="exit-popup-subtitle">Get instant access to our <strong>25-Point IT Infrastructure Assessment Checklist</strong></p>
+
+      <ul class="exit-popup-benefits">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Comprehensive 25-point assessment
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Identify critical infrastructure gaps
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          Print-friendly, ready to use immediately
+        </li>
+      </ul>
+
+      <div class="exit-popup-cta">
+        <a href="/free-it-infrastructure-checklist" class="exit-popup-button">
+          Get Free Checklist Now
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <p class="exit-popup-privacy">
+          100% Free. No email required. Instant access.
+        </p>
+      </div>
+
+      <p class="exit-popup-social-proof">
+        <strong>Join 500+ businesses</strong> who improved their IT infrastructure
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+.exit-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.exit-popup-overlay.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.exit-popup-container {
+  background: white;
+  border-radius: 16px;
+  max-width: 540px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease;
+}
+
+.exit-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.exit-popup-close:hover {
+  background: #f1f5f9;
+  color: #011426;
+  transform: rotate(90deg);
+}
+
+.exit-popup-content {
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.exit-popup-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, #3483C5 0%, #2A5B8C 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.exit-popup-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900;
+  color: var(--primary);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.exit-popup-subtitle {
+  font-size: 1.1rem;
+  color: var(--bodyTextColor);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.exit-popup-subtitle strong {
+  color: var(--primaryLight);
+  font-weight: 700;
+}
+
+.exit-popup-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exit-popup-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--bodyTextColor);
+  line-height: 1.5;
+}
+
+.exit-popup-benefits li svg {
+  flex-shrink: 0;
+  color: #10b981;
+  margin-top: 2px;
+}
+
+.exit-popup-cta {
+  margin: 32px 0 24px;
+}
+
+.exit-popup-form {
+  margin: 32px 0 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.exit-popup-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.exit-popup-input:focus {
+  outline: none;
+  border-color: var(--primaryLight);
+  box-shadow: 0 0 0 3px rgba(52, 131, 197, 0.1);
+}
+
+.exit-popup-button {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.exit-popup-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(52, 131, 197, 0.3);
+}
+
+.exit-popup-privacy {
+  font-size: 0.85rem;
+  color: var(--neutralDark);
+  margin: 0;
+  padding: 12px 0 0;
+  text-align: center;
+}
+
+.exit-popup-social-proof {
+  margin: 24px 0 0;
+  padding: 16px;
+  background: var(--accentLight);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--bodyTextColor);
+}
+
+.exit-popup-social-proof strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .exit-popup-content {
+    padding: 32px 24px;
+  }
+
+  .exit-popup-title {
+    font-size: 1.5rem;
+  }
+
+  .exit-popup-subtitle {
+    font-size: 1rem;
+  }
+}
+</style>
+
+<script>
+  // Exit Intent Detection with localStorage to show only once per day
+  const STORAGE_KEY = 'exitPopupShown';
+  const EXPIRY_HOURS = 24; // Show again after 24 hours
+
+  const exitPopup = document.getElementById('exitIntentPopup');
+  const closeButton = exitPopup?.querySelector('.exit-popup-close');
+  let hasShownPopup = false;
+
+  // Check if popup was already shown recently
+  function wasRecentlyShown() {
+    const lastShown = localStorage.getItem(STORAGE_KEY);
+    if (!lastShown) return false;
+
+    const hoursSinceShown = (Date.now() - parseInt(lastShown)) / (1000 * 60 * 60);
+    return hoursSinceShown < EXPIRY_HOURS;
+  }
+
+  // Show popup function
+  function showExitPopup() {
+    // Don't show if already shown in last 24 hours
+    if (wasRecentlyShown() || !exitPopup || hasShownPopup) return;
+
+    exitPopup.classList.add('active');
+    exitPopup.setAttribute('aria-hidden', 'false');
+    hasShownPopup = true;
+
+    // Mark as shown with timestamp
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+
+    // Track with GTM if available
+    if (typeof window.dataLayer !== 'undefined') {
+      window.dataLayer.push({
+        'event': 'exit_intent_popup_shown',
+        'popup_type': 'lead_magnet'
+      });
+    }
+  }
+
+  // Close popup function
+  function closeExitPopup() {
+    if (exitPopup) {
+      exitPopup.classList.remove('active');
+      exitPopup.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  // Track page engagement
+  let timeOnPage = 0;
+  let maxScrollPercentage = 0;
+
+  // Time-based trigger: Show after 30 seconds on page
+  const timeInterval = setInterval(() => {
+    if (!hasShownPopup && !wasRecentlyShown()) {
+      timeOnPage++;
+      // Show after 30 seconds
+      if (timeOnPage >= 30) {
+        showExitPopup();
+        hasShownPopup = true;
+        clearInterval(timeInterval);
+      }
+    } else {
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+
+  // Scroll-based trigger: Show after scrolling 50% of the page
+  window.addEventListener('scroll', () => {
+    if (hasShownPopup || wasRecentlyShown()) return;
+
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercentage = (scrollTop / docHeight) * 100;
+
+    maxScrollPercentage = Math.max(maxScrollPercentage, scrollPercentage);
+
+    // Show after scrolling 50% down the page
+    if (maxScrollPercentage >= 50) {
+      showExitPopup();
+      hasShownPopup = true;
+      clearInterval(timeInterval);
+    }
+  }, { passive: true });
+
+  // Exit intent trigger - mouse leaves viewport from any edge
+  document.addEventListener('mouseout', (e) => {
+    if (hasShownPopup || wasRecentlyShown()) return;
+
+    // Check if mouse is leaving viewport (any edge)
+    const target = e.relatedTarget || e.toElement;
+    if (!target || target.nodeName === 'HTML') {
+      showExitPopup();
+      hasShownPopup = true;
+      clearInterval(timeInterval);
+    }
+  });
+
+  // Mobile: trigger on scroll up (require 3 scroll ups after being on page for 10s)
+  let lastScrollTop = 0;
+  let scrollUpCount = 0;
+  let mobileReadyTime = 0;
+
+  const mobileTimer = setInterval(() => {
+    mobileReadyTime++;
+  }, 1000);
+
+  window.addEventListener('scroll', () => {
+    if (hasShownPopup || wasRecentlyShown()) return;
+
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Only trigger on mobile after 10 seconds on page
+    if (mobileReadyTime >= 10 && scrollTop < lastScrollTop && scrollTop > 300) {
+      scrollUpCount++;
+      if (scrollUpCount >= 3) {
+        showExitPopup();
+        hasShownPopup = true;
+        clearInterval(timeInterval);
+        clearInterval(mobileTimer);
+      }
+    } else {
+      scrollUpCount = 0;
+    }
+
+    lastScrollTop = scrollTop;
+  }, { passive: true });
+
+  // Close button
+  if (closeButton) {
+    closeButton.addEventListener('click', closeExitPopup);
+  }
+
+  // Close on overlay click
+  if (exitPopup) {
+    exitPopup.addEventListener('click', (e) => {
+      if (e.target === exitPopup) {
+        closeExitPopup();
+      }
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && exitPopup?.classList.contains('active')) {
+      closeExitPopup();
+    }
+  });
+
+  // Form submission
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitButton?.textContent || '';
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          // Track conversion
+          if (typeof window.dataLayer !== 'undefined') {
+            window.dataLayer.push({
+              'event': 'exit_intent_conversion',
+              'lead_type': 'lead_magnet_download'
+            });
+          }
+
+          // Show success message
+          const content = exitPopup?.querySelector('.exit-popup-content');
+          if (content) {
+            content.innerHTML = `
+              <div class="exit-popup-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h2 class="exit-popup-title">Success! Check Your Email</h2>
+              <p class="exit-popup-subtitle">
+                We've sent your <strong>Free IT Infrastructure Assessment Checklist</strong> to your inbox.
+              </p>
+              <p style="margin: 24px 0; color: var(--bodyTextColor);">
+                Can't find it? Check your spam folder or contact us at office@rad-digitalsolutions.com
+              </p>
+              <button onclick="document.getElementById('exitIntentPopup')?.classList.remove('active')"
+                      class="exit-popup-button">
+                Close
+              </button>
+            `;
+          }
+
+          // Auto-close after 5 seconds
+          setTimeout(closeExitPopup, 5000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert('Something went wrong. Please try again or contact us directly.');
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+      }
+    });
+  }
+</script>

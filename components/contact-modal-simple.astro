@@ -1,0 +1,559 @@
+---
+// Simplified Contact Modal Component - 2 Fields Only (A/B Test Variant)
+// Reduces friction with minimal required fields for higher conversion
+---
+
+<!-- Simplified Contact Modal -->
+<div id="contact-modal-simple" class="modal-overlay" aria-hidden="true">
+  <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title-simple">
+    <button class="modal-close" aria-label="Close modal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="modal-content">
+      <div class="modal-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </div>
+
+      <h2 id="modal-title-simple" class="modal-title">Get Your Free Consultation</h2>
+      <p class="modal-subtitle">
+        <strong>Just 2 quick details</strong> and we'll reach out within 4 hours with a custom solution for your business.
+      </p>
+
+      <!-- Trust Indicators -->
+      <div class="trust-quick">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          No obligation
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          4-hour response
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          500+ happy clients
+        </div>
+      </div>
+
+      <form
+        class="modal-form"
+        id="lead-form-simple"
+        name="Lead Form Simple"
+        method="post"
+        action="https://api.web3forms.com/submit"
+        novalidate
+      >
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="e5a38996-8ac1-4f53-9a15-dc1dacd2c7ba" />
+        <input type="hidden" name="subject" value="New Lead from RAD Digital Solutions Website (Simple Form)" />
+        <input type="hidden" name="from_name" value="RAD Simple Contact Form" />
+        <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+
+        <div class="form-group">
+          <label for="lead-name-simple" class="form-label">
+            Your Name <span class="required">*</span>
+          </label>
+          <input
+            type="text"
+            id="lead-name-simple"
+            name="name"
+            class="form-input"
+            placeholder="John Smith"
+            required
+            autocomplete="name"
+          />
+          <span class="form-error">Please enter your name</span>
+        </div>
+
+        <div class="form-group">
+          <label for="lead-email-simple" class="form-label">
+            Work Email <span class="required">*</span>
+          </label>
+          <input
+            type="email"
+            id="lead-email-simple"
+            name="email"
+            class="form-input"
+            placeholder="john@company.com"
+            required
+            autocomplete="email"
+          />
+          <span class="form-error">Please enter a valid email</span>
+        </div>
+
+        <button type="submit" class="form-submit">
+          Get My Free Consultation
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <div id="modal-result-simple" class="form-result"></div>
+
+        <p class="form-privacy">
+          🔒 We respect your privacy. No spam, ever.
+        </p>
+      </form>
+
+      <p class="social-proof-footer">
+        ⭐⭐⭐⭐⭐ <strong>4.9/5</strong> rating from 500+ businesses
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 20, 38, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Modal Container */
+  .modal-container {
+    background: #fff;
+    border-radius: 1rem;
+    max-width: 480px;
+    width: 100%;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-overlay.active .modal-container {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Close Button */
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .modal-close:hover {
+    background: #f3f4f6;
+    color: var(--primary);
+    transform: rotate(90deg);
+  }
+
+  /* Modal Content */
+  .modal-content {
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+      padding: 2.5rem 1.5rem 1.5rem;
+    }
+  }
+
+  /* Modal Icon */
+  .modal-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .modal-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0 0 0.75rem 0;
+    line-height: 1.2;
+  }
+
+  .modal-subtitle {
+    font-size: 1.05rem;
+    color: var(--bodyTextColor);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+  }
+
+  .modal-subtitle strong {
+    color: var(--primaryLight);
+  }
+
+  /* Trust Quick Indicators */
+  .trust-quick {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--accentLight);
+    border-radius: 0.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .trust-item svg {
+    color: #10b981;
+    flex-shrink: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .trust-quick {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+
+  /* Form Styles */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .required {
+    color: #ef4444;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--primaryLight);
+    box-shadow: 0 0 0 3px rgba(52, 131, 197, 0.1);
+  }
+
+  .form-input.error {
+    border-color: #ef4444;
+  }
+
+  .form-error {
+    display: none;
+    font-size: 0.8125rem;
+    color: #ef4444;
+    margin-top: 0.375rem;
+  }
+
+  .form-group.error .form-error {
+    display: block;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: inherit;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(52, 131, 197, 0.3);
+  }
+
+  .form-submit:active {
+    transform: translateY(0);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-result {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    text-align: center;
+    display: none;
+  }
+
+  .form-result.success {
+    display: block;
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+  }
+
+  .form-result.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+  }
+
+  .form-privacy {
+    font-size: 0.8125rem;
+    color: var(--neutralDark);
+    margin: 0;
+    text-align: center;
+  }
+
+  .form-privacy strong {
+    color: var(--primary);
+  }
+
+  .social-proof-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.9375rem;
+    color: var(--bodyTextColor);
+  }
+
+  .social-proof-footer strong {
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+  const modalSimple = document.getElementById('contact-modal-simple');
+  const closeButtonSimple = modalSimple?.querySelector('.modal-close');
+  const formSimple = document.getElementById('lead-form-simple') as HTMLFormElement;
+
+  // Function to open modal
+  function openModalSimple() {
+    if (modalSimple) {
+      modalSimple.classList.add('active');
+      modalSimple.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Track modal open event with GTM
+      if (typeof window.dataLayer !== 'undefined') {
+        window.dataLayer.push({
+          'event': 'lead_modal_open_simple',
+          'modal_type': 'simple_2field'
+        });
+      }
+    }
+  }
+
+  // Function to close modal
+  function closeModalSimple() {
+    if (modalSimple) {
+      modalSimple.classList.remove('active');
+      modalSimple.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Close button click
+  if (closeButtonSimple) {
+    closeButtonSimple.addEventListener('click', closeModalSimple);
+  }
+
+  // Close on overlay click
+  if (modalSimple) {
+    modalSimple.addEventListener('click', (e) => {
+      if (e.target === modalSimple) {
+        closeModalSimple();
+      }
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalSimple?.classList.contains('active')) {
+      closeModalSimple();
+    }
+  });
+
+  // Expose function globally for trigger buttons
+  (window as any).openContactModalSimple = openModalSimple;
+
+  // Form validation and submission
+  if (formSimple) {
+    formSimple.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Clear previous errors
+      document.querySelectorAll('.form-group.error').forEach(group => {
+        group.classList.remove('error');
+      });
+
+      // Validate fields
+      let isValid = true;
+      const nameInput = formSimple.querySelector('#lead-name-simple') as HTMLInputElement;
+      const emailInput = formSimple.querySelector('#lead-email-simple') as HTMLInputElement;
+
+      if (!nameInput.value.trim()) {
+        nameInput.closest('.form-group')?.classList.add('error');
+        isValid = false;
+      }
+
+      if (!emailInput.value.trim() || !emailInput.validity.valid) {
+        emailInput.closest('.form-group')?.classList.add('error');
+        isValid = false;
+      }
+
+      if (!isValid) return;
+
+      // Submit form
+      const submitButton = formSimple.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitButton?.textContent || '';
+      const resultDiv = document.getElementById('modal-result-simple');
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
+            <line x1="12" y1="2" x2="12" y2="6"></line>
+            <line x1="12" y1="18" x2="12" y2="22"></line>
+            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+            <line x1="2" y1="12" x2="6" y2="12"></line>
+            <line x1="18" y1="12" x2="22" y2="12"></line>
+            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+          </svg>
+          Sending...
+        `;
+      }
+
+      try {
+        const formData = new FormData(formSimple);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          // Track successful lead generation
+          if (typeof window.dataLayer !== 'undefined') {
+            window.dataLayer.push({
+              'event': 'generate_lead',
+              'form_type': 'simple_2field',
+              'lead_type': 'contact_request'
+            });
+          }
+
+          // Show success message
+          if (resultDiv) {
+            resultDiv.textContent = '✓ Success! We\'ll contact you within 4 hours.';
+            resultDiv.className = 'form-result success';
+          }
+
+          // Reset form
+          formSimple.reset();
+
+          // Close modal after 3 seconds
+          setTimeout(closeModalSimple, 3000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        if (resultDiv) {
+          resultDiv.textContent = '✗ Something went wrong. Please try again or email us directly.';
+          resultDiv.className = 'form-result error';
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalText;
+        }
+      }
+    });
+  }
+</script>
+
+<style is:global>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
