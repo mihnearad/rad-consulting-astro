@@ -43,7 +43,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          500+ happy clients
+          Trusted worldwide
         </div>
       </div>
 
@@ -73,6 +73,8 @@
             placeholder="John Smith"
             required
             autocomplete="name"
+            autocapitalize="words"
+            inputmode="text"
           />
           <span class="form-error">Please enter your name</span>
         </div>
@@ -89,6 +91,7 @@
             placeholder="john@company.com"
             required
             autocomplete="email"
+            inputmode="email"
           />
           <span class="form-error">Please enter a valid email</span>
         </div>
@@ -109,7 +112,7 @@
       </form>
 
       <p class="social-proof-footer">
-        ⭐⭐⭐⭐⭐ <strong>4.9/5</strong> rating from 500+ businesses
+        ⭐⭐⭐⭐⭐ <strong>4.9/5</strong> rating from businesses worldwide
       </p>
     </div>
   </div>
@@ -167,8 +170,8 @@
     right: 1rem;
     background: transparent;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -177,6 +180,7 @@
     color: #64748b;
     transition: all 0.3s ease;
     z-index: 10;
+    touch-action: manipulation;
   }
 
   .modal-close:hover {
@@ -334,6 +338,7 @@
     justify-content: center;
     gap: 0.5rem;
     font-family: inherit;
+    touch-action: manipulation;
   }
 
   .form-submit:hover {

@@ -17,7 +17,7 @@
           poster="/Background.webp"
           id="heroVideo"
         >
-          <source src="/DigitalVideo.mp4" type="video/mp4">
+          <source src="/DigitalVideo.mp4" type="video/mp4" media="(min-width: 768px)">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -258,6 +258,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    touch-action: manipulation;
   }
 
   /* Primary button - solid gradient background */
@@ -302,7 +303,7 @@
       padding: 0.7rem 1.25rem;
       font-size: 0.9rem;
       min-width: 140px;
-      height: 2.75rem;
+      height: 3rem;
     }
 
     .hero-buttons {

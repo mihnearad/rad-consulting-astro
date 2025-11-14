@@ -18,6 +18,9 @@
   --bodyFontSize: 1.1rem;
   /* 60px - 100px top and bottom */
   --sectionPadding: clamp(2.5rem, 5.22vw, 4.17rem) 1rem;
+
+  /* Mobile Touch Optimization */
+  --minTouchTarget: 44px; /* Minimum touch target size (iOS/Android standard) */
 }
 
 body {
@@ -31,6 +34,26 @@ body {
 *:after {
   /* Prevents padding from affecting height and width */
   box-sizing: border-box;
+}
+
+/* Mobile Touch Optimizations */
+button,
+a,
+input[type="submit"],
+input[type="button"],
+.cs-button-solid,
+.cs-link {
+  /* Prevents double-tap zoom delay on mobile devices */
+  touch-action: manipulation;
+}
+
+/* Ensure minimum touch target sizes for accessibility */
+button,
+a.cs-button-solid,
+input[type="submit"],
+input[type="button"] {
+  min-width: var(--minTouchTarget);
+  min-height: var(--minTouchTarget);
 }
 
 html {

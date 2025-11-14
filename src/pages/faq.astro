@@ -3,330 +3,91 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Contact from "../../components/contact-us.astro";
 
 const title = "Frequently Asked Questions - RAD Digital Solutions";
-const description = "Get answers to common questions about our IT consulting, data analysis, and project management services. Learn more about our processes and expertise.";
-const keywords = "FAQ, questions, IT consulting FAQ, data analysis questions, project management FAQ, RAD Digital Solutions";
+const description = "Get answers to common questions about our IT consulting, business intelligence, and project management services.";
+const keywords = "FAQ, questions, IT consulting FAQ, business intelligence questions, project management FAQ, RAD Digital Solutions";
 const canonical = "https://rad-digitalsolutions.com/faq";
 const ogImage = "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp";
 const ogUrl = "https://rad-digitalsolutions.com/faq";
+
+const faqs = [
+  {
+    question: "What services does RAD Digital Solutions offer?",
+    answer: "We specialize in IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Business Intelligence Solutions (PowerBI dashboards, data visualization, analytics), and Project Management Solutions (digital project delivery, agile methodology, risk management)."
+  },
+  {
+    question: "How long does a typical project take?",
+    answer: "Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. We provide a realistic timeline during our initial consultation."
+  },
+  {
+    question: "What tools do you use for business intelligence?",
+    answer: "We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your specific requirements."
+  },
+  {
+    question: "Do you offer ongoing support after project completion?",
+    answer: "Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs."
+  },
+  {
+    question: "Can you integrate with our existing systems?",
+    answer: "Absolutely! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions work seamlessly with your current technology stack."
+  },
+  {
+    question: "What makes you different from larger consulting firms?",
+    answer: "We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages."
+  },
+  {
+    question: "How much do your services cost?",
+    answer: "We work within various budget ranges and prioritize cost-efficient solutions. During our free consultation, we'll discuss your budget and find the most valuable approach. We offer phased implementations to demonstrate ROI before scaling."
+  },
+  {
+    question: "Do you work with businesses of all sizes?",
+    answer: "Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology."
+  }
+];
 ---
 
 <BaseLayout {title} {description} {keywords} {canonical} {ogImage} {ogUrl}>
   <!-- FAQPage Structured Data -->
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What services does RAD Digital Solutions offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We specialize in three core areas: IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Business Intelligence Solutions (PowerBI dashboards, data visualization, analytics, business intelligence consulting), and Project Management Solutions (digital project delivery, agile methodology, risk management). We provide end-to-end digital transformation services tailored to your business needs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the process to obtain a quote for a digital solution?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Contact us to schedule an initial consultation (free of charge) where we'll discuss your needs, goals, and current challenges. Following this, we analyze your requirements and provide a detailed proposal outlining the solution's scope, timeline, and cost. We ensure full transparency and work within your budget to deliver the best value."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a typical project take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. During our initial consultation, we provide a realistic timeline specific to your project requirements."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What networking solutions do you provide?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We design and implement complete network infrastructure solutions including WiFi 6 deployment, Ubiquiti UniFi systems, VPN setup, network security, and performance optimization. Our expertise includes enterprise network modernization, ensuring seamless connectivity across office and remote locations with zero downtime during migration."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you help with cloud migration and optimization?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We assist with cloud strategy, migration to platforms like AWS, Azure, and Google Cloud, and ongoing optimization. We ensure your cloud infrastructure is secure, scalable, and cost-effective while minimizing disruption to your operations."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What tools do you use for data analysis?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your existing systems and specific requirements to ensure seamless integration."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can data analysis help my business?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Data analysis transforms raw data into actionable insights. We help you identify profitable opportunities in real-time, monitor KPIs across departments, predict trends, optimize operations, and make data-driven decisions. Our clients have seen 40% faster insight delivery and significant improvements in resource allocation and revenue identification."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What project management methodologies do you use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We employ agile methodologies adapted to your business context, including Scrum and Kanban frameworks. Our approach emphasizes clear communication, iterative delivery, risk management, and stakeholder collaboration to ensure projects stay on track, on budget, and aligned with business objectives."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you handle complex migrations like website platforms?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absolutely. We've successfully managed enterprise WordPress migrations, ERP system integrations, and complex data migrations spanning years of historical data. We handle backend server setup, cloud deployment, data validation, and seamless go-live execution with zero data loss."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer ongoing support after project completion?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs, ensuring your solutions continue to deliver optimal performance and evolve with your business."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I know your solution will work for my business?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We thoroughly assess your needs during the initial consultation and only proceed if we're confident our solution will effectively address your challenges. Our approach is tailored to your specific business context, industry, and goals. We provide proof of concepts where appropriate and maintain transparent communication throughout the project lifecycle."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "I'm not sure if my budget allows for professional IT consulting.",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We prioritize cost-efficient solutions and work within various budget ranges. During our consultation, we'll discuss your budget constraints and find the most valuable approach. We offer phased implementations, allowing you to start with high-impact initiatives and scale as ROI is demonstrated."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes RAD Digital Solutions different from larger consulting firms?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages. We understand your unique challenges and deliver efficient, custom-fit solutions with faster decision-making and implementation than larger firms."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can you integrate with our existing systems?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions are designed to work seamlessly with your current technology stack, minimizing disruption while maximizing value."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you work with businesses of all sizes?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology. Our solutions scale to fit your organization's size and complexity."
-        }
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
       }
-    ]
-  }
-  </script>
-  
-  <!-- ============================================ --><!--                    FAQ                       --><!-- ============================================ -->
-  <section id="faq-1720">
-    <div class="cs-container">
-      <div class="cs-content">
-        <span class="cs-topper">FAQ</span>
-        <h2 class="cs-title">Frequently Asked Questions</h2>
-        <p class="cs-text">Find answers to common questions about our digital services, IT consulting, data analysis, and project management solutions.</p>
+    }))
+  })} />
+
+  <section id="faq-section">
+    <div class="faq-container">
+      <div class="faq-header">
+        <span class="faq-topper">FAQ</span>
+        <h1 class="faq-title">Frequently Asked Questions</h1>
+        <p class="faq-subtitle">Find answers to common questions about our services</p>
       </div>
-      <div class="cs-flex-group">
-        <div class="cs-wrapper">
-          <ul class="cs-faq-group" data-category="one">
-            
-            <!-- General Questions -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  What services does RAD Digital Solutions offer?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We specialize in three core areas: IT Consulting & Networking Solutions (infrastructure optimization, network setup, cybersecurity), Business Intelligence Solutions (PowerBI dashboards, data visualization, analytics, business intelligence consulting), and Project Management Solutions (digital project delivery, agile methodology, risk management). We provide end-to-end digital transformation services tailored to your business needs.
-              </p>
-            </li>
 
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  What is the process to obtain a quote for a digital solution?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Contact us to schedule an initial consultation (free of charge) where we'll discuss your needs, goals, and current challenges. Following this, we analyze your requirements and provide a detailed proposal outlining the solution's scope, timeline, and cost. We ensure full transparency and work within your budget to deliver the best value.
-              </p>
-            </li>
+      <div class="faq-accordion">
+        {faqs.map((faq, index) => (
+          <div class="faq-item" data-index={index}>
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">{faq.question}</span>
+              <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  How long does a typical project take?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Project timelines vary based on scope and complexity. A network infrastructure upgrade might take 2-4 weeks, a PowerBI dashboard implementation 3-6 weeks, and a comprehensive digital transformation project 3-6 months. During our initial consultation, we provide a realistic timeline specific to your project requirements.
-              </p>
-            </li>
-
-            <!-- IT Consulting & Networking -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  What networking solutions do you provide?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We design and implement complete network infrastructure solutions including WiFi 6 deployment, Ubiquiti UniFi systems, VPN setup, network security, and performance optimization. Our expertise includes enterprise network modernization, ensuring seamless connectivity across office and remote locations with zero downtime during migration.
-              </p>
-            </li>
-
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  Can you help with cloud migration and optimization?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Yes! We assist with cloud strategy, migration to platforms like AWS, Azure, and Google Cloud, and ongoing optimization. We ensure your cloud infrastructure is secure, scalable, and cost-effective while minimizing disruption to your operations.
-              </p>
-            </li>
-
-            <!-- Business Intelligence -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  What tools do you use for data analysis?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We primarily work with PowerBI for interactive dashboards and visualization, Python for advanced analytics and machine learning, SQL for database management, and AWS for data pipeline infrastructure. We choose the best tools based on your existing systems and specific requirements to ensure seamless integration.
-              </p>
-            </li>
-
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  How can data analysis help my business?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Data analysis transforms raw data into actionable insights. We help you identify profitable opportunities in real-time, monitor KPIs across departments, predict trends, optimize operations, and make data-driven decisions. Our clients have seen 40% faster insight delivery and significant improvements in resource allocation and revenue identification.
-              </p>
-            </li>
-
-            <!-- Project Management -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  What project management methodologies do you use?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We employ agile methodologies adapted to your business context, including Scrum and Kanban frameworks. Our approach emphasizes clear communication, iterative delivery, risk management, and stakeholder collaboration to ensure projects stay on track, on budget, and aligned with business objectives.
-              </p>
-            </li>
-
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  Do you handle complex migrations like website platforms?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Absolutely. We've successfully managed enterprise WordPress migrations, ERP system integrations, and complex data migrations spanning years of historical data. We handle backend server setup, cloud deployment, data validation, and seamless go-live execution with zero data loss.
-              </p>
-            </li>
-
-            <!-- Support & Ongoing Services -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  Do you offer ongoing support after project completion?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Yes, we provide comprehensive post-implementation support including ongoing maintenance, troubleshooting, system updates, and optimization. We offer flexible support packages tailored to your needs, ensuring your solutions continue to deliver optimal performance and evolve with your business.
-              </p>
-            </li>
-
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  How do I know your solution will work for my business?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We thoroughly assess your needs during the initial consultation and only proceed if we're confident our solution will effectively address your challenges. Our approach is tailored to your specific business context, industry, and goals. We provide proof of concepts where appropriate and maintain transparent communication throughout the project lifecycle.
-              </p>
-            </li>
-
-            <!-- Pricing & Budget -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  I'm not sure if my budget allows for professional IT consulting.
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We prioritize cost-efficient solutions and work within various budget ranges. During our consultation, we'll discuss your budget constraints and find the most valuable approach. We offer phased implementations, allowing you to start with high-impact initiatives and scale as ROI is demonstrated.
-              </p>
-            </li>
-
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  What makes RAD Digital Solutions different from larger consulting firms?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                We offer personalized service with direct access to experienced consultants, not junior staff. Our approach emphasizes close collaboration, flexibility, and tailored solutions rather than one-size-fits-all packages. We understand your unique challenges and deliver efficient, custom-fit solutions with faster decision-making and implementation than larger firms.
-              </p>
-            </li>
-
-            <!-- Technical Questions -->
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  Can you integrate with our existing systems?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Yes! We specialize in integrations with existing systems including ERP (SAP, Oracle), CRM platforms, cloud services, databases, and legacy systems. Our solutions are designed to work seamlessly with your current technology stack, minimizing disruption while maximizing value.
-              </p>
-            </li>
-
-            <li class="cs-faq-item">
-              <button class="cs-button">
-                <span class="cs-button-text">
-                  Do you work with businesses of all sizes?
-                </span>
-              </button>
-              <p class="cs-item-p">
-                Yes, we work with small businesses, mid-sized companies, and enterprise organizations across various industries including logistics, manufacturing, professional services, and technology. Our solutions scale to fit your organization's size and complexity.
-              </p>
-            </li>
-
-          </ul>
-        </div>
+      <div class="faq-cta">
+        <h3>Still have questions?</h3>
+        <p>Get in touch with our team for personalized answers</p>
+        <a href="#contact" class="faq-cta-button">Contact Us</a>
       </div>
     </div>
   </section>
@@ -334,352 +95,230 @@ const ogUrl = "https://rad-digitalsolutions.com/faq";
   <Contact />
 </BaseLayout>
 
-<script>
-  const faqItems = Array.from(document.querySelectorAll(".cs-faq-item"));
-  for (const item of faqItems) {
-    const onClick = () => {
-      item.classList.toggle("active");
-    };
-    item.addEventListener("click", onClick);
-  }
-</script>
-
 <style>
-  /*-- -------------------------- -->
-<---            FAQ             -->
-<--- -------------------------- -*/
+#faq-section {
+  padding: var(--sectionPadding);
+  padding-top: 5rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  min-height: 80vh;
+}
 
-  /* Mobile - 360px */
-  @media only screen and (min-width: 0rem) {
-    #faq-1720 {
-      padding: var(--sectionPadding);
-      padding-top: 5rem; /* 2rem extra padding below navbar for mobile */
-      position: relative;
-    }
-    #faq-1720 .cs-container {
-      width: 100%;
-      max-width: 80rem;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      /* 48px - 64px */
-      gap: clamp(3rem, 6vw, 4rem);
-      position: relative;
-      z-index: 1;
-    }
-    #faq-1720 .cs-content {
-      /* set text align to left if content needs to be left aligned */
-      text-align: left;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      /* centers content horizontally, set to flex-start to left align */
-      align-items: flex-start;
-    }
-    #faq-1720 .cs-title {
-      margin: 0 0 1rem 0;
-    }
-    
-    #faq-1720 .cs-flex-group {
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      /* 16px - 20px */
-      gap: clamp(1rem, 2.3vw, 1.25rem);
-      position: relative;
-    }
-    #faq-1720 .cs-wrapper {
-      width: 100%;
-      position: relative;
-    }
-    #faq-1720 .cs-button-group {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      /* 16px - 20px */
-      gap: clamp(1rem, 2.5vw, 1.25rem);
-      /* prevents flexbox from squishing it */
-      flex: none;
-    }
-    #faq-1720 .cs-flex {
-      width: 100%;
-      /* 24px - 32px */
-      padding: clamp(1.5rem, 3vw, 2rem);
-      background-color: #f7f7f7;
-      display: flex;
-      flex-direction: column;
-      order: 3;
-      gap: 1.25rem;
-    }
-    #faq-1720 .cs-option {
-      /* 16px - 20px */
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      line-height: 1.2em;
-      font-weight: 700;
-      padding: 0;
-      color: var(--bodyTextColor);
-      background-color: transparent;
-      border: none;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 0.5rem;
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s;
-    }
-    #faq-1720 .cs-option:hover {
-      color: var(--primary);
-      cursor: pointer;
-    }
-    #faq-1720 .cs-option.cs-active {
-      color: var(--primary);
-    }
-    #faq-1720 .cs-picture {
-      width: 100%;
-      /* 328px - 450px */
-      height: clamp(20.5rem, 30vw, 28.125rem);
-      /* 16px - 20px */
-      margin: 0 0 clamp(1rem, 2.4vw, 1.25rem);
-      order: 2;
-      position: relative;
-      z-index: 1;
-    }
-    #faq-1720 .cs-picture img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    #faq-1720 .cs-faq-group {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      order: 3;
-      gap: 0.5rem;
-      transition:
-        transform 0.7s,
-        opacity 0.3s,
-        visibility 0.5s,
-        top 0.3s,
-        left 0.3s;
-      /* makes the transfrom scaling orgin the top left corner, dictates the direction by which the scale transforms animate towards */
-      transform-origin: top;
-      transform-style: preserve-3d;
-      perspective: 900px;
-    }
-    #faq-1720 .cs-faq-group.cs-hidden {
-      /* by using visibility:hidden instead of display:none, we can see the animations from the opacity and transforms, display:none won't render animations. */
-      visibility: hidden;
-      /* prevents the mouse from interacting with it */
-      pointer-events: none;
-      /* hidden galleries have a 0 opacity, and we animate the opacity to 1 when they become active */
-      opacity: 0;
-      /* this top and left value help control the animation, by setting it to position absolute and left 0, the FAQ won't fly off screen to the left, it will stop its position to be at the left edge of the .cs-flex-group (left: 0). Same for the bottom:0 value, the FAQ won't go past that position when it animates */
-      top: 0;
-      left: 0;
-      position: absolute;
-      /* prevents the hidden galleries from overflowing the section, and makes a nice animations to transition to and from */
-      transform: scaleY(0);
-    }
-    #faq-1720 .cs-faq-group.cs-hidden .cs-faq-item {
-      transform: rotateX(270deg);
-      opacity: 0;
-    }
-    #faq-1720 .cs-faq-item {
-      list-style: none;
-      width: 100%;
-      /* clips all corners of the button that overlap the rounded border */
-      overflow: hidden;
-      opacity: 1;
-      top: 0;
-      transform: rotateX(0deg);
-      transition:
-        transform 0.6s,
-        opacity 0.3s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(2) {
-      transition-delay: 0.1s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(3) {
-      transition-delay: 0.2s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(4) {
-      transition-delay: 0.3s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(5) {
-      transition-delay: 0.4s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(6) {
-      transition-delay: 0.5s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(7) {
-      transition-delay: 0.6s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(8) {
-      transition-delay: 0.7s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(9) {
-      transition-delay: 0.8s;
-    }
-    #faq-1720 .cs-faq-item:nth-of-type(10) {
-      transition-delay: 0.9s;
-    }
-    #faq-1720 .cs-faq-item.active .cs-button {
-      color: var(--primary);
-    }
-    #faq-1720 .cs-faq-item.active .cs-button:before {
-      background-color: var(--primary);
-      transform: rotate(315deg);
-    }
-    #faq-1720 .cs-faq-item.active .cs-button:after {
-      background-color: var(--primary);
-      transform: rotate(-315deg);
-    }
-    #faq-1720 .cs-faq-item.active .cs-item-p {
-      height: auto;
-      /* 20px - 24px bottom */
-      /* 16px - 24px left & right */
-      padding: 0 clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 1.3vw, 1.5rem);
-      opacity: 1;
-    }
-    #faq-1720 .cs-button {
-      /* 16px - 20px */
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      line-height: 1.2em;
-      text-align: left;
-      font-weight: bold;
-      /* 16px - 24px top & bottom */
-      /* 16px - 20px left & right */
-      padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.25rem);
-      background-color: #f7f7f7;
-      border: none;
-      color: var(--headerColor);
-      display: block;
-      width: 100%;
-      position: relative;
-      transition:
-        background-color 0.3s,
-        color 0.3s;
-    }
-    #faq-1720 .cs-button:hover {
-      cursor: pointer;
-    }
-    #faq-1720 .cs-button:before {
-      /* left line */
-      content: "";
-      width: 0.5rem;
-      height: 0.125rem;
-      background-color: var(--headerColor);
-      opacity: 1;
-      border-radius: 50%;
-      position: absolute;
-      display: block;
-      top: 50%;
-      right: 1.5rem;
-      transform: rotate(45deg);
-      /* animate the transform from the left side of the x axis, and the center of the y */
-      transform-origin: left center;
-      transition: transform 0.5s;
-    }
-    #faq-1720 .cs-button:after {
-      /* right line */
-      content: "";
-      width: 0.5rem;
-      height: 0.125rem;
-      background-color: var(--headerColor);
-      opacity: 1;
-      border-radius: 50%;
-      position: absolute;
-      display: block;
-      top: 50%;
-      right: 1.3125rem;
-      transform: rotate(-45deg);
-      /* animate the transform from the right side of the x axis, and the center of the y */
-      transform-origin: right center;
-      transition: transform 0.5s;
-    }
-    #faq-1720 .cs-button-text {
-      width: 80%;
-      display: block;
-    }
-    #faq-1720 .cs-item-p {
-      /* 14px - 16px */
-      font-size: clamp(0.875rem, 1.5vw, 1rem);
-      line-height: 1.5em;
-      width: 100%;
-      height: 0;
-      margin: 0;
-      /* 16px - 24px */
-      padding: 0 clamp(1rem, 2vw, 1.5rem);
-      opacity: 0;
-      background-color: #f7f7f7;
-      color: var(--bodyTextColor);
-      /* clips the text so it doesn't show up */
-      overflow: hidden;
-      transition:
-        opacity 0.3s,
-        padding-bottom 0.3s;
-    }
+.faq-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.faq-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.faq-topper {
+  font-size: var(--topperFontSize);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--primaryLight);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.faq-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--primary);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.faq-subtitle {
+  font-size: 1.1rem;
+  color: var(--bodyTextColor);
+  margin: 0;
+}
+
+/* Accordion */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.faq-item.active {
+  box-shadow: 0 4px 16px rgba(52, 131, 197, 0.15);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+}
+
+.faq-question:hover {
+  color: var(--primaryLight);
+}
+
+.faq-question-text {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--primaryLight);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 2rem 1.5rem 2rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+}
+
+/* CTA Section */
+.faq-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--accentLight) 0%, #ffffff 100%);
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.faq-cta h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.faq-cta p {
+  font-size: 1rem;
+  color: var(--bodyTextColor);
+  margin: 0 0 1.5rem 0;
+}
+
+.faq-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: var(--primaryLight);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+}
+
+.faq-cta-button:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(52, 131, 197, 0.3);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  #faq-section {
+    padding-top: 4rem;
   }
-  /* Inbetween - 600px */
-  @media only screen and (min-width: 37.5rem) {
-    #faq-1720 .cs-button-group {
-      width: 80%;
-      max-width: 22.0625rem;
-      flex-direction: row;
-      align-items: stretch;
-      flex: none;
-    }
-    #faq-1720 .cs-content {
-      width: 100%;
-    }
-    #faq-1720 .cs-picture {
-      /* 300px - 493px */
-      min-height: clamp(18.75rem, 30vw, 30.8125rem);
-      margin: 0;
-      height: 100%;
-      flex: none;
-      order: 3;
-    }
+
+  .faq-question {
+    padding: 1.25rem 1rem 1.25rem 1.5rem;
+    font-size: 1rem;
   }
-  /* Desktop - 1024px */
-  @media only screen and (min-width: 48rem) {
-    #faq-1720 {
-      padding-top: 5rem; /* 2rem extra padding below navbar for desktop */
-    }
-    
-    #faq-1720 .cs-flex-group {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      /* 20px - 80px */
-      column-gap: clamp(1.25rem, 3vw, 5rem);
-    }
-    #faq-1720 .cs-button-group {
-      flex-direction: column;
-      flex: auto;
-    }
-    #faq-1720 .cs-picture {
-      max-height: 31.25rem;
-    }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.25rem 1.5rem;
   }
+
+  .faq-answer p {
+    font-size: 0.9375rem;
+  }
+
+  .faq-cta {
+    padding: 2rem 1.5rem;
+  }
+}
 </style>
 
 <script>
-  const faqItems = Array.from(document.querySelectorAll(".cs-faq-item"));
-  for (const item of faqItems) {
-    const onClick = () => {
-      item.classList.toggle("active");
-    };
-    item.addEventListener("click", onClick);
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector('.faq-question');
+
+      if (question) {
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Close all other items
+          faqItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              const otherButton = otherItem.querySelector('.faq-question');
+              if (otherButton) {
+                otherButton.setAttribute('aria-expanded', 'false');
+              }
+            }
+          });
+
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+            question.setAttribute('aria-expanded', 'false');
+          } else {
+            item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    });
+  });
 </script>

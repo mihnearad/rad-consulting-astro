@@ -8,24 +8,11 @@
     <!-- Section Header -->
     <div class="cs-content">
       <span class="cs-topper">Trusted by Businesses Worldwide</span>
-      <h2 class="cs-title">Join the Companies That Trust RAD Digital Solutions</h2>
+      <h2 class="cs-title">Professional Digital Solutions You Can Trust</h2>
     </div>
 
     <!-- Stats Grid -->
     <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-        </div>
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Satisfied Clients</div>
-      </div>
-
       <div class="stat-card">
         <div class="stat-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -45,7 +32,7 @@
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
         </div>
-        <div class="stat-number">10+</div>
+        <div class="stat-number">7+</div>
         <div class="stat-label">Years of Experience</div>
       </div>
 
@@ -56,59 +43,8 @@
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
         </div>
-        <div class="stat-number">1000+</div>
+        <div class="stat-number">60+</div>
         <div class="stat-label">Projects Delivered</div>
-      </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">
-          ★★★★★
-        </div>
-        <p class="testimonial-text">
-          "RAD Digital Solutions transformed our network infrastructure completely. Their expertise in Ubiquiti UniFi systems and professional approach made the transition seamless. Highly recommended!"
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">JS</div>
-          <div>
-            <div class="author-name">John Smith</div>
-            <div class="author-title">IT Director, Enterprise Corp</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">
-          ★★★★★
-        </div>
-        <p class="testimonial-text">
-          "The Business Intelligence dashboards they built for us have been game-changing. Real-time insights that actually help us make better decisions. The ROI was evident within the first month."
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">MJ</div>
-          <div>
-            <div class="author-name">Maria Johnson</div>
-            <div class="author-title">Operations Manager, Logistics Co</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">
-          ★★★★★
-        </div>
-        <p class="testimonial-text">
-          "Outstanding project management throughout our ERP chatbot integration. They delivered on time, on budget, and the solution exceeded our expectations. True professionals!"
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">DL</div>
-          <div>
-            <div class="author-name">David Lee</div>
-            <div class="author-title">CTO, Manufacturing Inc</div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -232,72 +168,6 @@
   font-weight: 600;
 }
 
-/* Testimonials Grid */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.testimonial-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--primaryLight);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.testimonial-stars {
-  color: #fbbf24;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--bodyTextColor);
-  margin: 0 0 1.5rem 0;
-  font-style: italic;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.author-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primaryLight) 0%, var(--secondary) 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.125rem;
-}
-
-.author-name {
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 0.25rem;
-}
-
-.author-title {
-  font-size: 0.875rem;
-  color: var(--neutralDark);
-}
-
 /* Trust Badges */
 .trust-badges {
   display: flex;
@@ -325,16 +195,12 @@
 /* Responsive */
 @media screen and (max-width: 768px) {
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
   }
 
   .stat-card {
     padding: 1.5rem 1rem;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
   }
 
   .trust-badges {
