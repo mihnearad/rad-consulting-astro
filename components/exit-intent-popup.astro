@@ -305,6 +305,7 @@
 
   const exitPopup = document.getElementById('exitIntentPopup');
   const closeButton = exitPopup?.querySelector('.exit-popup-close');
+  const form = document.getElementById('exitPopupForm') as HTMLFormElement | null;
   let hasShownPopup = false;
 
   // Check if popup was already shown recently
@@ -368,7 +369,7 @@
   window.addEventListener('scroll', () => {
     if (hasShownPopup || wasRecentlyShown()) return;
 
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPercentage = (scrollTop / docHeight) * 100;
 
@@ -383,11 +384,11 @@
   }, { passive: true });
 
   // Exit intent trigger - mouse leaves viewport from any edge
-  document.addEventListener('mouseout', (e) => {
+  document.addEventListener('mouseout', (e: MouseEvent) => {
     if (hasShownPopup || wasRecentlyShown()) return;
 
     // Check if mouse is leaving viewport (any edge)
-    const target = e.relatedTarget || e.toElement;
+    const target = e.relatedTarget as Node | null;
     if (!target || target.nodeName === 'HTML') {
       showExitPopup();
       hasShownPopup = true;
@@ -407,7 +408,7 @@
   window.addEventListener('scroll', () => {
     if (hasShownPopup || wasRecentlyShown()) return;
 
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
     // Only trigger on mobile after 10 seconds on page
     if (mobileReadyTime >= 10 && scrollTop < lastScrollTop && scrollTop > 300) {
@@ -448,7 +449,7 @@
 
   // Form submission
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e: SubmitEvent) => {
       e.preventDefault();
 
       const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;

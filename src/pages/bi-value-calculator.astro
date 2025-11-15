@@ -1713,8 +1713,10 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   const restartBtn = document.getElementById('restartCalculator');
 
   // Validate Step 1
-  function validateStep1() {
+  function validateStep1(): boolean {
     const form = document.getElementById('maturityForm');
+    if (!form) return false;
+
     const requiredQuestions = 12;
     let answeredQuestions = 0;
 
@@ -1732,7 +1734,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
 
   // Navigate to Step 2
   nextToStep2Btn?.addEventListener('click', () => {
-    if (validateStep1()) {
+    if (validateStep1() && step1 && step2 && progressFill && progressText) {
       step1.style.display = 'none';
       step2.style.display = 'block';
       progressFill.style.width = '100%';
@@ -1743,11 +1745,13 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
 
   // Navigate back to Step 1
   backToStep1Btn?.addEventListener('click', () => {
-    step2.style.display = 'none';
-    step1.style.display = 'block';
-    progressFill.style.width = '50%';
-    progressText.textContent = 'Step 1 of 2: Data Maturity Assessment';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (step2 && step1 && progressFill && progressText) {
+      step2.style.display = 'none';
+      step1.style.display = 'block';
+      progressFill.style.width = '50%';
+      progressText.textContent = 'Step 1 of 2: Data Maturity Assessment';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   });
 
   // Update slider values
@@ -1756,26 +1760,41 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   const hoursSlider = document.getElementById('hours');
   const hoursValue = document.getElementById('hoursValue');
 
-  employeesSlider?.addEventListener('input', (e) => {
-    employeesValue.textContent = e.target.value;
-    roiInputs.employees = parseInt(e.target.value);
+  employeesSlider?.addEventListener('input', (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    if (employeesValue && target) {
+      employeesValue.textContent = target.value;
+      roiInputs.employees = parseInt(target.value);
+    }
   });
 
-  hoursSlider?.addEventListener('input', (e) => {
-    hoursValue.textContent = e.target.value;
-    roiInputs.hours = parseInt(e.target.value);
+  hoursSlider?.addEventListener('input', (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    if (hoursValue && target) {
+      hoursValue.textContent = target.value;
+      roiInputs.hours = parseInt(target.value);
+    }
   });
 
-  document.getElementById('dataSources')?.addEventListener('change', (e) => {
-    roiInputs.dataSources = parseInt(e.target.value);
+  document.getElementById('dataSources')?.addEventListener('change', (e: Event) => {
+    const target = e.target as HTMLSelectElement;
+    if (target) {
+      roiInputs.dataSources = parseInt(target.value);
+    }
   });
 
-  document.getElementById('hourlyCost')?.addEventListener('change', (e) => {
-    roiInputs.hourlyCost = parseInt(e.target.value);
+  document.getElementById('hourlyCost')?.addEventListener('change', (e: Event) => {
+    const target = e.target as HTMLSelectElement;
+    if (target) {
+      roiInputs.hourlyCost = parseInt(target.value);
+    }
   });
 
-  document.getElementById('revenue')?.addEventListener('change', (e) => {
-    roiInputs.revenue = parseInt(e.target.value);
+  document.getElementById('revenue')?.addEventListener('change', (e: Event) => {
+    const target = e.target as HTMLSelectElement;
+    if (target) {
+      roiInputs.revenue = parseInt(target.value);
+    }
   });
 
   // Calculate Results
@@ -1784,9 +1803,14 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     calculateROI();
     displayResults();
 
-    step2.style.display = 'none';
-    resultsSection.style.display = 'block';
-    document.getElementById('progressSection').style.display = 'none';
+    if (step2 && resultsSection) {
+      step2.style.display = 'none';
+      resultsSection.style.display = 'block';
+    }
+    const progressSection = document.getElementById('progressSection');
+    if (progressSection) {
+      progressSection.style.display = 'none';
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Track with GTM
@@ -1802,30 +1826,31 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   // Calculate Maturity Score
   function calculateMaturityScore() {
     const form = document.getElementById('maturityForm');
+    if (!form) return;
 
     // Infrastructure (Q1-3)
     maturityScores.infrastructure =
-      parseInt(form.querySelector('input[name="q1"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q2"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q3"]:checked')?.value || 0);
+      parseInt((form.querySelector('input[name="q1"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q2"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q3"]:checked') as HTMLInputElement)?.value || '0');
 
     // Analytics (Q4-6)
     maturityScores.analytics =
-      parseInt(form.querySelector('input[name="q4"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q5"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q6"]:checked')?.value || 0);
+      parseInt((form.querySelector('input[name="q4"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q5"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q6"]:checked') as HTMLInputElement)?.value || '0');
 
     // Decision-Making (Q7-9)
     maturityScores.decision =
-      parseInt(form.querySelector('input[name="q7"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q8"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q9"]:checked')?.value || 0);
+      parseInt((form.querySelector('input[name="q7"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q8"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q9"]:checked') as HTMLInputElement)?.value || '0');
 
     // Strategy (Q10-12)
     maturityScores.strategy =
-      parseInt(form.querySelector('input[name="q10"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q11"]:checked')?.value || 0) +
-      parseInt(form.querySelector('input[name="q12"]:checked')?.value || 0);
+      parseInt((form.querySelector('input[name="q10"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q11"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q12"]:checked') as HTMLInputElement)?.value || '0');
 
     maturityScores.total =
       maturityScores.infrastructure +
@@ -1859,7 +1884,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   }
 
   // Get Maturity Level
-  function getMaturityLevel(score) {
+  function getMaturityLevel(score: number) {
     if (score <= 20) {
       return {
         level: 'Initial/Ad-hoc',
@@ -1968,9 +1993,13 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     const maturityInfo = getMaturityLevel(maturityScores.total);
 
     // Display maturity score
-    document.getElementById('totalScore').textContent = maturityScores.total;
-    document.getElementById('maturityBadge').textContent = maturityInfo.badge;
-    document.getElementById('maturityDescription').textContent = maturityInfo.description;
+    const totalScoreEl = document.getElementById('totalScore');
+    const maturityBadgeEl = document.getElementById('maturityBadge');
+    const maturityDescriptionEl = document.getElementById('maturityDescription');
+
+    if (totalScoreEl) totalScoreEl.textContent = String(maturityScores.total);
+    if (maturityBadgeEl) maturityBadgeEl.textContent = maturityInfo.badge;
+    if (maturityDescriptionEl) maturityDescriptionEl.textContent = maturityInfo.description;
 
     // Display dimension scores
     displayDimensionScore('infra', maturityScores.infrastructure);
@@ -1979,34 +2008,44 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     displayDimensionScore('strategy', maturityScores.strategy);
 
     // Display ROI metrics
-    document.getElementById('timeSavings').textContent = roiResults.timeSavings.toLocaleString();
-    document.getElementById('costSavings').textContent = '$' + roiResults.costSavings.toLocaleString();
-    document.getElementById('revenueImpact').textContent = '$' + roiResults.revenueImpact.toLocaleString();
-    document.getElementById('threeYearROI').textContent = '$' + roiResults.threeYearROI.toLocaleString();
+    const timeSavingsEl = document.getElementById('timeSavings');
+    const costSavingsEl = document.getElementById('costSavings');
+    const revenueImpactEl = document.getElementById('revenueImpact');
+    const threeYearROIEl = document.getElementById('threeYearROI');
+
+    if (timeSavingsEl) timeSavingsEl.textContent = roiResults.timeSavings.toLocaleString();
+    if (costSavingsEl) costSavingsEl.textContent = '$' + roiResults.costSavings.toLocaleString();
+    if (revenueImpactEl) revenueImpactEl.textContent = '$' + roiResults.revenueImpact.toLocaleString();
+    if (threeYearROIEl) threeYearROIEl.textContent = '$' + roiResults.threeYearROI.toLocaleString();
 
     // Display recommendations
     const recommendationsContent = document.getElementById('recommendationsContent');
-    recommendationsContent.innerHTML = maturityInfo.recommendations.map(rec => `
-      <div class="recommendation-item">
-        <h4>${rec.title}</h4>
-        <p>${rec.description}</p>
-      </div>
-    `).join('');
+    if (recommendationsContent) {
+      recommendationsContent.innerHTML = maturityInfo.recommendations.map(rec => `
+        <div class="recommendation-item">
+          <h4>${rec.title}</h4>
+          <p>${rec.description}</p>
+        </div>
+      `).join('');
+    }
   }
 
-  function displayDimensionScore(dimension, score) {
+  function displayDimensionScore(dimension: string, score: number) {
     const percentage = (score / 15) * 100;
-    document.getElementById(`${dimension}Score`).style.width = percentage + '%';
-    document.getElementById(`${dimension}ScoreText`).textContent = `${score}/15`;
+    const scoreEl = document.getElementById(`${dimension}Score`);
+    const scoreTextEl = document.getElementById(`${dimension}ScoreText`);
+
+    if (scoreEl) scoreEl.style.width = percentage + '%';
+    if (scoreTextEl) scoreTextEl.textContent = `${score}/15`;
   }
 
   // Helper functions for labels
-  function getDataSourcesLabel(value) {
-    const labels = { 1: '1 source', 3: '2-5 sources', 8: '6-10 sources', 15: '11+ sources' };
-    return labels[value] || value;
+  function getDataSourcesLabel(value: number): string {
+    const labels: { [key: number]: string } = { 1: '1 source', 3: '2-5 sources', 8: '6-10 sources', 15: '11+ sources' };
+    return labels[value] || String(value);
   }
 
-  function getRevenueLabel(value) {
+  function getRevenueLabel(value: number): string {
     if (value <= 500000) return 'Less than $500K';
     if (value <= 1000000) return '$500K - $1M';
     if (value <= 5000000) return '$1M - $5M';
@@ -2016,7 +2055,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   }
 
   // Helper function to build detailed message
-  function buildDetailedMessage(formInputs) {
+  function buildDetailedMessage(formInputs: any): string {
     const maturityInfo = getMaturityLevel(maturityScores.total);
     const form = document.getElementById('maturityForm');
 
@@ -2054,9 +2093,12 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     ];
 
     for (let i = 1; i <= 12; i++) {
+      if (!form) continue;
       const checked = form.querySelector(`input[name="q${i}"]:checked`);
       if (checked) {
-        const answerText = checked.closest('.radio-option').querySelector('.radio-content strong').textContent;
+        const radioOption = checked.closest('.radio-option');
+        const strongEl = radioOption?.querySelector('.radio-content strong');
+        const answerText = strongEl?.textContent || '';
         message += `Q${i}. ${questions[i-1]}\n`;
         message += `→ ${answerText}\n\n`;
       }
@@ -2097,14 +2139,16 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   }
 
   // Email Gate Form Submission
-  const emailGateForm = document.getElementById('emailGateForm');
-  emailGateForm?.addEventListener('submit', async (e) => {
+  const emailGateForm = document.getElementById('emailGateForm') as HTMLFormElement | null;
+  emailGateForm?.addEventListener('submit', async (e: SubmitEvent) => {
     e.preventDefault();
 
-    const submitBtn = emailGateForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
+    const submitBtn = emailGateForm.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const originalText = submitBtn?.textContent || '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
 
     try {
       // Get form data
@@ -2173,24 +2217,32 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
       console.error('Form submission error:', error);
       alert('Something went wrong. Please try again or contact us directly at office@rad-digitalsolutions.com');
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
     }
   });
 
   // Restart Calculator
   restartBtn?.addEventListener('click', () => {
-    document.getElementById('maturityForm').reset();
-    document.getElementById('roiForm').reset();
-    resultsSection.style.display = 'none';
-    step1.style.display = 'block';
-    document.getElementById('progressSection').style.display = 'block';
-    progressFill.style.width = '0%';
-    progressText.textContent = 'Step 1 of 2: Data Maturity Assessment';
+    const maturityForm = document.getElementById('maturityForm') as HTMLFormElement | null;
+    const roiForm = document.getElementById('roiForm') as HTMLFormElement | null;
+    const progressSection = document.getElementById('progressSection');
+
+    maturityForm?.reset();
+    roiForm?.reset();
+
+    if (resultsSection) resultsSection.style.display = 'none';
+    if (step1) step1.style.display = 'block';
+    if (progressSection) progressSection.style.display = 'block';
+    if (progressFill) progressFill.style.width = '0%';
+    if (progressText) progressText.textContent = 'Step 1 of 2: Data Maturity Assessment';
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   // Initialize progress
-  progressFill.style.width = '50%';
+  if (progressFill) progressFill.style.width = '50%';
 </script>
 </BaseLayout>

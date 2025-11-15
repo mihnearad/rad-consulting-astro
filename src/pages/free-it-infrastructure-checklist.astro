@@ -397,7 +397,7 @@ const ogUrl = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist
             <p>Multiple areas need improvement. Consider professional assessment.</p>
           </div>
           <div class="result-card critical">
-            <div class="result-score">< 10</div>
+            <div class="result-score">&lt; 10</div>
             <div class="result-label">Critical</div>
             <p>Significant risks present. Immediate expert consultation recommended.</p>
           </div>
@@ -877,7 +877,7 @@ const ogUrl = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist
   const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
 
   // Function to get status text based on score
-  function getStatusText(score) {
+  function getStatusText(score: number): string {
     if (score === 0) return 'Not started';
     if (score >= 20) return '⭐ Excellent!';
     if (score >= 15) return '✓ Good';
@@ -893,7 +893,7 @@ const ogUrl = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist
     if (scoreNumber) {
       scoreNumber.style.transform = 'scale(1.2)';
       setTimeout(() => {
-        scoreNumber.textContent = checkedCount;
+        scoreNumber.textContent = String(checkedCount);
         scoreNumber.style.transform = 'scale(1)';
       }, 100);
     }
@@ -904,7 +904,7 @@ const ogUrl = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist
     }
 
     // Save to localStorage
-    const checkedStates = Array.from(checkboxes).map(cb => cb.checked);
+    const checkedStates = Array.from(checkboxes).map(cb => (cb as HTMLInputElement).checked);
     localStorage.setItem('checklistProgress', JSON.stringify(checkedStates));
   }
 
@@ -916,7 +916,7 @@ const ogUrl = "https://rad-digitalsolutions.com/free-it-infrastructure-checklist
         const checkedStates = JSON.parse(saved);
         checkboxes.forEach((checkbox, index) => {
           if (checkedStates[index]) {
-            checkbox.checked = true;
+            (checkbox as HTMLInputElement).checked = true;
           }
         });
         updateScore();
