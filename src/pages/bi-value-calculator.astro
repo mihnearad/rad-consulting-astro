@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "BI ROI Calculator [FREE] | Calculate Your Data Value in 5 Minutes";
-const description = "Calculate your BI ROI in 5 minutes. Get your data maturity score + projected savings. Free interactive tool with personalized recommendations. Start now.";
+const title = "BI ROI Calculator [FREE] | Calculate Your Data Value in 3 Minutes";
+const description = "Calculate your BI ROI in just 3 minutes. Get your data maturity score + projected savings. Simple 8-question assessment with personalized recommendations. Start now.";
 const keywords = "BI ROI calculator, business intelligence ROI, data maturity assessment, BI value calculator, business intelligence calculator free, data analytics ROI, calculate BI value";
 const canonical = "https://rad-digitalsolutions.com/bi-value-calculator";
 const ogImage = "https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp";
@@ -30,10 +30,10 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
       "bestRating": "5",
       "worstRating": "1"
     },
-    "description": "Calculate your Business Intelligence ROI and data maturity score. Get personalized recommendations and projected savings in 5 minutes.",
+    "description": "Calculate your Business Intelligence ROI and data maturity score. Get personalized recommendations and projected savings in just 3 minutes.",
     "featureList": [
-      "Data maturity assessment across 4 dimensions",
-      "12-question comprehensive evaluation",
+      "Data maturity assessment across 4 key areas",
+      "8-question simplified evaluation for decision makers",
       "Personalized ROI calculations",
       "Time savings projections",
       "Cost savings analysis",
@@ -54,7 +54,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
         "name": "How long does the BI ROI calculator take to complete?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The calculator takes approximately 5-7 minutes to complete. You'll answer 12 questions about your data maturity, then provide 5 inputs about your business to calculate your ROI."
+          "text": "The calculator takes approximately 3-4 minutes to complete. You'll answer 8 simple questions about your data maturity, then provide 5 inputs about your business to calculate your ROI."
         }
       },
       {
@@ -101,7 +101,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
         <h1 class="calculator-title">Discover Your Business Intelligence ROI</h1>
         <p class="calculator-subtitle">
           Calculate how much time and money you could save with proper BI implementation.
-          Get your free data maturity assessment in under 5 minutes.
+          Get your free data maturity assessment in just 3 minutes.
         </p>
         <div class="calculator-benefits">
           <div class="benefit-card">
@@ -134,7 +134,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
       <div class="calculator-step" id="step1" style="display: block;">
         <div class="step-header">
           <h2>Step 1: Data Maturity Assessment</h2>
-          <p>Answer 12 questions to assess your organization's data maturity across 4 key dimensions</p>
+          <p>Answer 8 questions to assess your organization's data maturity across 4 key areas</p>
         </div>
 
         <form id="maturityForm">
@@ -149,37 +149,37 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
             <div class="question-card">
               <label class="question-label">
                 <span class="question-number">1.</span>
-                How is your data currently stored?
+                Where is your business data currently stored and how do you access it?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="q1" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> Scattered across individual computers/spreadsheets
+                    <strong>Level 1:</strong> Scattered across individual files and computers, accessed manually
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q1" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> Shared drives with some organization
+                    <strong>Level 2:</strong> Shared folders with scheduled manual exports
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q1" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Centralized database(s) but siloed by department
+                    <strong>Level 3:</strong> Centralized systems by department with some automation
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q1" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Integrated data warehouse or data lake
+                    <strong>Level 4:</strong> Connected systems with automated updates
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q1" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Modern cloud-based data platform with automation
+                    <strong>Level 5:</strong> Modern cloud platform with real-time automation
                   </span>
                 </label>
               </div>
@@ -189,77 +189,37 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
             <div class="question-card">
               <label class="question-label">
                 <span class="question-number">2.</span>
-                How do you access data from different systems?
+                How reliable and accurate is your business data?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="q2" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> Manual exports and copy-paste
+                    <strong>Level 1:</strong> Frequent errors and inconsistencies we have to fix manually
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q2" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> Scheduled manual exports
+                    <strong>Level 2:</strong> Known quality issues that require manual cleanup
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q2" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Some automated connections but mostly manual
+                    <strong>Level 3:</strong> Mostly reliable with occasional issues
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q2" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Automated data pipelines for most sources
+                    <strong>Level 4:</strong> High quality with automated error checking
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q2" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Real-time automated data integration (ETL/ELT)
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Question 3 -->
-            <div class="question-card">
-              <label class="question-label">
-                <span class="question-number">3.</span>
-                What is your data quality?
-              </label>
-              <div class="radio-group">
-                <label class="radio-option">
-                  <input type="radio" name="q3" value="1" required />
-                  <span class="radio-content">
-                    <strong>Level 1:</strong> Frequent errors, duplicates, inconsistencies
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q3" value="2" />
-                  <span class="radio-content">
-                    <strong>Level 2:</strong> Known quality issues, manual cleanup required
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q3" value="3" />
-                  <span class="radio-content">
-                    <strong>Level 3:</strong> Acceptable quality with occasional issues
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q3" value="4" />
-                  <span class="radio-content">
-                    <strong>Level 4:</strong> High quality with automated validation
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q3" value="5" />
-                  <span class="radio-content">
-                    <strong>Level 5:</strong> Excellent quality with governance and continuous monitoring
+                    <strong>Level 5:</strong> Excellent quality with continuous monitoring and clear ownership
                   </span>
                 </label>
               </div>
@@ -273,121 +233,81 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
               Analytics Capability
             </h3>
 
+            <!-- Question 3 -->
+            <div class="question-card">
+              <label class="question-label">
+                <span class="question-number">3.</span>
+                How do you create reports and analyze data today?
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="1" required />
+                  <span class="radio-content">
+                    <strong>Level 1:</strong> Manual work in Excel spreadsheets
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="2" />
+                  <span class="radio-content">
+                    <strong>Level 2:</strong> Excel with charts and pivot tables
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="3" />
+                  <span class="radio-content">
+                    <strong>Level 3:</strong> Basic reporting tools for tracking key metrics
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="4" />
+                  <span class="radio-content">
+                    <strong>Level 4:</strong> Professional dashboards with forecasting capabilities
+                  </span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="q3" value="5" />
+                  <span class="radio-content">
+                    <strong>Level 5:</strong> Advanced analytics with AI-powered insights and automation
+                  </span>
+                </label>
+              </div>
+            </div>
+
             <!-- Question 4 -->
             <div class="question-card">
               <label class="question-label">
                 <span class="question-number">4.</span>
-                What tools do you use for reporting?
+                How quickly can you get insights from your data when you need them?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
                   <input type="radio" name="q4" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> Excel spreadsheets only
+                    <strong>Level 1:</strong> Days or weeks to gather and analyze data
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q4" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> Excel with manual charts/pivot tables
+                    <strong>Level 2:</strong> 1-2 days to create reports
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q4" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Basic BI tools (Excel Power BI, Google Sheets)
+                    <strong>Level 3:</strong> Same day - can access existing reports
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q4" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Professional BI platform (PowerBI, Tableau)
+                    <strong>Level 4:</strong> Minutes - self-service dashboards are available
                   </span>
                 </label>
                 <label class="radio-option">
                   <input type="radio" name="q4" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Advanced analytics with Python/R + BI platforms
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Question 5 -->
-            <div class="question-card">
-              <label class="question-label">
-                <span class="question-number">5.</span>
-                How current is your business data?
-              </label>
-              <div class="radio-group">
-                <label class="radio-option">
-                  <input type="radio" name="q5" value="1" required />
-                  <span class="radio-content">
-                    <strong>Level 1:</strong> Weeks or months old
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q5" value="2" />
-                  <span class="radio-content">
-                    <strong>Level 2:</strong> Weekly updates
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q5" value="3" />
-                  <span class="radio-content">
-                    <strong>Level 3:</strong> Daily updates
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q5" value="4" />
-                  <span class="radio-content">
-                    <strong>Level 4:</strong> Hourly or near real-time
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q5" value="5" />
-                  <span class="radio-content">
-                    <strong>Level 5:</strong> Real-time dashboards with live data
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Question 6 -->
-            <div class="question-card">
-              <label class="question-label">
-                <span class="question-number">6.</span>
-                What type of analysis do you perform?
-              </label>
-              <div class="radio-group">
-                <label class="radio-option">
-                  <input type="radio" name="q6" value="1" required />
-                  <span class="radio-content">
-                    <strong>Level 1:</strong> Basic calculations and totals
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q6" value="2" />
-                  <span class="radio-content">
-                    <strong>Level 2:</strong> Historical reporting and trends
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q6" value="3" />
-                  <span class="radio-content">
-                    <strong>Level 3:</strong> KPI tracking and performance monitoring
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q6" value="4" />
-                  <span class="radio-content">
-                    <strong>Level 4:</strong> Predictive analytics and forecasting
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q6" value="5" />
-                  <span class="radio-content">
-                    <strong>Level 5:</strong> Advanced ML, prescriptive analytics, AI-driven insights
+                    <strong>Level 5:</strong> Instant - real-time dashboards with alerts
                   </span>
                 </label>
               </div>
@@ -401,121 +321,81 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
               Decision-Making Culture
             </h3>
 
-            <!-- Question 7 -->
+            <!-- Question 5 -->
             <div class="question-card">
               <label class="question-label">
-                <span class="question-number">7.</span>
-                How do decisions get made in your organization?
+                <span class="question-number">5.</span>
+                How does your team make important business decisions?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
-                  <input type="radio" name="q7" value="1" required />
+                  <input type="radio" name="q5" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> Gut feeling and intuition
+                    <strong>Level 1:</strong> Mainly based on experience and gut feeling
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q7" value="2" />
+                  <input type="radio" name="q5" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> Mix of intuition and some data review
+                    <strong>Level 2:</strong> Mix of intuition with occasional data review
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q7" value="3" />
+                  <input type="radio" name="q5" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Data-informed when available
+                    <strong>Level 3:</strong> Data-informed when data is available
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q7" value="4" />
+                  <input type="radio" name="q5" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Data-driven with regular dashboard review
+                    <strong>Level 4:</strong> Data-driven with regular review of key metrics
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q7" value="5" />
+                  <input type="radio" name="q5" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Real-time data-driven with embedded analytics culture
+                    <strong>Level 5:</strong> Real-time data-driven with insights embedded in daily workflows
                   </span>
                 </label>
               </div>
             </div>
 
-            <!-- Question 8 -->
+            <!-- Question 6 -->
             <div class="question-card">
               <label class="question-label">
-                <span class="question-number">8.</span>
-                How long does it take to answer business questions?
+                <span class="question-number">6.</span>
+                Who can access business insights when they need them?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
-                  <input type="radio" name="q8" value="1" required />
+                  <input type="radio" name="q6" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> Days or weeks (need to gather data manually)
+                    <strong>Level 1:</strong> Only IT or finance team, others must request data
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q8" value="2" />
+                  <input type="radio" name="q6" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> 1-2 days (run reports, analyze)
+                    <strong>Level 2:</strong> Senior management with IT support
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q8" value="3" />
+                  <input type="radio" name="q6" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Hours (access existing reports)
+                    <strong>Level 3:</strong> Department heads with limited self-service access
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q8" value="4" />
+                  <input type="radio" name="q6" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Minutes (dashboard self-service)
+                    <strong>Level 4:</strong> Most employees based on their role
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q8" value="5" />
+                  <input type="radio" name="q6" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Instant (real-time dashboards, alerts)
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Question 9 -->
-            <div class="question-card">
-              <label class="question-label">
-                <span class="question-number">9.</span>
-                Who can access business intelligence in your organization?
-              </label>
-              <div class="radio-group">
-                <label class="radio-option">
-                  <input type="radio" name="q9" value="1" required />
-                  <span class="radio-content">
-                    <strong>Level 1:</strong> Only IT or specific analysts
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q9" value="2" />
-                  <span class="radio-content">
-                    <strong>Level 2:</strong> Management team with IT support
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q9" value="3" />
-                  <span class="radio-content">
-                    <strong>Level 3:</strong> Department heads with some self-service
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q9" value="4" />
-                  <span class="radio-content">
-                    <strong>Level 4:</strong> Most employees with role-based access
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q9" value="5" />
-                  <span class="radio-content">
-                    <strong>Level 5:</strong> Company-wide self-service BI culture
+                    <strong>Level 5:</strong> Company-wide self-service access to relevant insights
                   </span>
                 </label>
               </div>
@@ -529,121 +409,81 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
               Strategy & Governance
             </h3>
 
-            <!-- Question 10 -->
+            <!-- Question 7 -->
             <div class="question-card">
               <label class="question-label">
-                <span class="question-number">10.</span>
-                Do you have a data strategy?
+                <span class="question-number">7.</span>
+                Do you have a clear plan for managing and protecting your business data?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
-                  <input type="radio" name="q10" value="1" required />
+                  <input type="radio" name="q7" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> No strategy, reactive approach
+                    <strong>Level 1:</strong> No plan - we handle issues as they come up
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q10" value="2" />
+                  <input type="radio" name="q7" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> Informal practices, department-specific
+                    <strong>Level 2:</strong> Informal practices that vary by department
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q10" value="3" />
+                  <input type="radio" name="q7" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Documented strategy but inconsistent execution
+                    <strong>Level 3:</strong> Documented plan with clear roles and permissions
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q10" value="4" />
+                  <input type="radio" name="q7" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Clear strategy with regular review
+                    <strong>Level 4:</strong> Clear plan with quality standards and regular reviews
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q10" value="5" />
+                  <input type="radio" name="q7" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Comprehensive data strategy aligned with business goals
+                    <strong>Level 5:</strong> Comprehensive strategy aligned with business goals and automated compliance
                   </span>
                 </label>
               </div>
             </div>
 
-            <!-- Question 11 -->
+            <!-- Question 8 -->
             <div class="question-card">
               <label class="question-label">
-                <span class="question-number">11.</span>
-                How is data governed in your organization?
+                <span class="question-number">8.</span>
+                How do you track the value of your business intelligence efforts?
               </label>
               <div class="radio-group">
                 <label class="radio-option">
-                  <input type="radio" name="q11" value="1" required />
+                  <input type="radio" name="q8" value="1" required />
                   <span class="radio-content">
-                    <strong>Level 1:</strong> No governance, ad-hoc access
+                    <strong>Level 1:</strong> We don't measure it - seen as a cost
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q11" value="2" />
+                  <input type="radio" name="q8" value="2" />
                   <span class="radio-content">
-                    <strong>Level 2:</strong> Basic security controls
+                    <strong>Level 2:</strong> Occasionally check if reports are being used
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q11" value="3" />
+                  <input type="radio" name="q8" value="3" />
                   <span class="radio-content">
-                    <strong>Level 3:</strong> Defined roles and permissions
+                    <strong>Level 3:</strong> Track basic metrics like number of users and reports
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q11" value="4" />
+                  <input type="radio" name="q8" value="4" />
                   <span class="radio-content">
-                    <strong>Level 4:</strong> Data stewardship with quality standards
+                    <strong>Level 4:</strong> Measure business impact and return on investment
                   </span>
                 </label>
                 <label class="radio-option">
-                  <input type="radio" name="q11" value="5" />
+                  <input type="radio" name="q8" value="5" />
                   <span class="radio-content">
-                    <strong>Level 5:</strong> Comprehensive governance with automated compliance
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Question 12 -->
-            <div class="question-card">
-              <label class="question-label">
-                <span class="question-number">12.</span>
-                How do you measure the value of your data/analytics?
-              </label>
-              <div class="radio-group">
-                <label class="radio-option">
-                  <input type="radio" name="q12" value="1" required />
-                  <span class="radio-content">
-                    <strong>Level 1:</strong> Don't measure, cost center view
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q12" value="2" />
-                  <span class="radio-content">
-                    <strong>Level 2:</strong> Track usage occasionally
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q12" value="3" />
-                  <span class="radio-content">
-                    <strong>Level 3:</strong> Monitor basic KPIs (users, reports)
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q12" value="4" />
-                  <span class="radio-content">
-                    <strong>Level 4:</strong> Measure business impact and ROI
-                  </span>
-                </label>
-                <label class="radio-option">
-                  <input type="radio" name="q12" value="5" />
-                  <span class="radio-content">
-                    <strong>Level 5:</strong> Continuous value tracking tied to business outcomes
+                    <strong>Level 5:</strong> Continuously track value and tie it to business outcomes
                   </span>
                 </label>
               </div>
@@ -743,7 +583,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
           <div class="score-main">
             <div class="score-circle">
               <div class="score-number" id="totalScore">0</div>
-              <div class="score-total">/ 60</div>
+              <div class="score-total">/ 40</div>
             </div>
             <div class="score-info">
               <h3>Your Data Maturity Level</h3>
@@ -1717,7 +1557,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     const form = document.getElementById('maturityForm');
     if (!form) return false;
 
-    const requiredQuestions = 12;
+    const requiredQuestions = 8;
     let answeredQuestions = 0;
 
     for (let i = 1; i <= requiredQuestions; i++) {
@@ -1828,29 +1668,25 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     const form = document.getElementById('maturityForm');
     if (!form) return;
 
-    // Infrastructure (Q1-3)
+    // Infrastructure (Q1-2) - max 10
     maturityScores.infrastructure =
       parseInt((form.querySelector('input[name="q1"]:checked') as HTMLInputElement)?.value || '0') +
-      parseInt((form.querySelector('input[name="q2"]:checked') as HTMLInputElement)?.value || '0') +
-      parseInt((form.querySelector('input[name="q3"]:checked') as HTMLInputElement)?.value || '0');
+      parseInt((form.querySelector('input[name="q2"]:checked') as HTMLInputElement)?.value || '0');
 
-    // Analytics (Q4-6)
+    // Analytics (Q3-4) - max 10
     maturityScores.analytics =
-      parseInt((form.querySelector('input[name="q4"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q3"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q4"]:checked') as HTMLInputElement)?.value || '0');
+
+    // Decision-Making (Q5-6) - max 10
+    maturityScores.decision =
       parseInt((form.querySelector('input[name="q5"]:checked') as HTMLInputElement)?.value || '0') +
       parseInt((form.querySelector('input[name="q6"]:checked') as HTMLInputElement)?.value || '0');
 
-    // Decision-Making (Q7-9)
-    maturityScores.decision =
-      parseInt((form.querySelector('input[name="q7"]:checked') as HTMLInputElement)?.value || '0') +
-      parseInt((form.querySelector('input[name="q8"]:checked') as HTMLInputElement)?.value || '0') +
-      parseInt((form.querySelector('input[name="q9"]:checked') as HTMLInputElement)?.value || '0');
-
-    // Strategy (Q10-12)
+    // Strategy (Q7-8) - max 10
     maturityScores.strategy =
-      parseInt((form.querySelector('input[name="q10"]:checked') as HTMLInputElement)?.value || '0') +
-      parseInt((form.querySelector('input[name="q11"]:checked') as HTMLInputElement)?.value || '0') +
-      parseInt((form.querySelector('input[name="q12"]:checked') as HTMLInputElement)?.value || '0');
+      parseInt((form.querySelector('input[name="q7"]:checked') as HTMLInputElement)?.value || '0') +
+      parseInt((form.querySelector('input[name="q8"]:checked') as HTMLInputElement)?.value || '0');
 
     maturityScores.total =
       maturityScores.infrastructure +
@@ -1885,7 +1721,7 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
 
   // Get Maturity Level
   function getMaturityLevel(score: number) {
-    if (score <= 20) {
+    if (score <= 13) {
       return {
         level: 'Initial/Ad-hoc',
         badge: 'Level 1: Initial',
@@ -1905,14 +1741,14 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
           }
         ]
       };
-    } else if (score <= 32) {
+    } else if (score <= 21) {
       return {
         level: 'Developing',
         badge: 'Level 2: Developing',
         description: 'You have some tools in place but data remains siloed and processes are inconsistent. Focus on consolidation and automation.',
         recommendations: [
           {
-            title: 'Data Integration & ETL',
+            title: 'Data Integration & Automation',
             description: 'Implement automated data pipelines to connect all your systems and create a single source of truth.'
           },
           {
@@ -1925,15 +1761,15 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
           }
         ]
       };
-    } else if (score <= 44) {
+    } else if (score <= 29) {
       return {
         level: 'Defined',
         badge: 'Level 3: Defined',
         description: 'You have established processes and centralized data with basic BI capabilities. Ready to move from reporting to advanced analytics.',
         recommendations: [
           {
-            title: 'Advanced Analytics with Python',
-            description: 'Implement predictive analytics, forecasting, and machine learning models to gain deeper insights.'
+            title: 'Advanced Analytics Implementation',
+            description: 'Implement forecasting and analytics models to gain deeper insights and predict trends.'
           },
           {
             title: 'Custom Dashboard Development',
@@ -1945,19 +1781,19 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
           }
         ]
       };
-    } else if (score <= 56) {
+    } else if (score <= 37) {
       return {
         level: 'Managed',
         badge: 'Level 4: Managed',
-        description: 'Strong data-driven culture with self-service BI and predictive analytics. Focus on optimization and advanced AI/ML capabilities.',
+        description: 'Strong data-driven culture with self-service BI and predictive analytics. Focus on optimization and advanced AI capabilities.',
         recommendations: [
           {
-            title: 'Machine Learning & AI Solutions',
-            description: 'Implement advanced ML models for prescriptive analytics and automated decision-making.'
+            title: 'AI & Machine Learning Solutions',
+            description: 'Implement advanced AI models for automated insights and decision-making.'
           },
           {
             title: 'Real-time Analytics Optimization',
-            description: 'Optimize your real-time data infrastructure for sub-second query performance at scale.'
+            description: 'Optimize your real-time data infrastructure for instant query performance at scale.'
           },
           {
             title: 'Data Science Enablement',
@@ -1969,15 +1805,15 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
       return {
         level: 'Optimized',
         badge: 'Level 5: Optimized',
-        description: 'Best-in-class analytics with embedded AI/ML and mature data culture. Focus on innovation and maintaining competitive advantage.',
+        description: 'Best-in-class analytics with embedded AI and mature data culture. Focus on innovation and maintaining competitive advantage.',
         recommendations: [
           {
             title: 'Innovation Consulting',
-            description: 'Explore cutting-edge technologies like generative AI, graph analytics, and edge computing.'
+            description: 'Explore cutting-edge technologies like generative AI and advanced automation.'
           },
           {
-            title: 'Advanced AI/ML Solutions',
-            description: 'Implement state-of-the-art AI models including deep learning, NLP, and computer vision.'
+            title: 'Advanced AI Solutions',
+            description: 'Implement state-of-the-art AI models for maximum business value.'
           },
           {
             title: 'Strategic Partnership',
@@ -2031,12 +1867,12 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
   }
 
   function displayDimensionScore(dimension: string, score: number) {
-    const percentage = (score / 15) * 100;
+    const percentage = (score / 10) * 100;
     const scoreEl = document.getElementById(`${dimension}Score`);
     const scoreTextEl = document.getElementById(`${dimension}ScoreText`);
 
     if (scoreEl) scoreEl.style.width = percentage + '%';
-    if (scoreTextEl) scoreTextEl.textContent = `${score}/15`;
+    if (scoreTextEl) scoreTextEl.textContent = `${score}/10`;
   }
 
   // Helper functions for labels
@@ -2066,33 +1902,29 @@ const ogUrl = "https://rad-digitalsolutions.com/bi-value-calculator";
     message += `Industry: ${formInputs.industry}\n\n`;
 
     message += `=== DATA MATURITY ASSESSMENT ===\n`;
-    message += `Overall Score: ${maturityScores.total}/60\n`;
+    message += `Overall Score: ${maturityScores.total}/40\n`;
     message += `Maturity Level: ${maturityInfo.badge}\n\n`;
 
     message += `Dimension Breakdown:\n`;
-    message += `🗄️ Data Infrastructure: ${maturityScores.infrastructure}/15\n`;
-    message += `📈 Analytics Capability: ${maturityScores.analytics}/15\n`;
-    message += `🎯 Decision-Making Culture: ${maturityScores.decision}/15\n`;
-    message += `🎓 Strategy & Governance: ${maturityScores.strategy}/15\n\n`;
+    message += `🗄️ Data Infrastructure: ${maturityScores.infrastructure}/10\n`;
+    message += `📈 Analytics Capability: ${maturityScores.analytics}/10\n`;
+    message += `🎯 Decision-Making Culture: ${maturityScores.decision}/10\n`;
+    message += `🎓 Strategy & Governance: ${maturityScores.strategy}/10\n\n`;
 
     message += `=== ASSESSMENT DETAILS ===\n`;
-    // Add all 12 Q&A pairs
+    // Add all 8 Q&A pairs
     const questions = [
-      'How is your data currently stored?',
-      'How do you access data from different systems?',
-      'What is your data quality?',
-      'What tools do you use for reporting?',
-      'How current is your business data?',
-      'What type of analysis do you perform?',
-      'How do decisions get made in your organization?',
-      'How long does it take to answer business questions?',
-      'Who can access business intelligence in your organization?',
-      'Do you have a data strategy?',
-      'How is data governed in your organization?',
-      'How do you measure the value of your data/analytics?'
+      'Where is your business data currently stored and how do you access it?',
+      'How reliable and accurate is your business data?',
+      'How do you create reports and analyze data today?',
+      'How quickly can you get insights from your data when you need them?',
+      'How does your team make important business decisions?',
+      'Who can access business insights when they need them?',
+      'Do you have a clear plan for managing and protecting your business data?',
+      'How do you track the value of your business intelligence efforts?'
     ];
 
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 8; i++) {
       if (!form) continue;
       const checked = form.querySelector(`input[name="q${i}"]:checked`);
       if (checked) {
