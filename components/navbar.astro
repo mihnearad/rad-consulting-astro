@@ -763,21 +763,25 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
     /* Shared styles for all navigation buttons */
     #cs-navigation .cs-button-solid,
     #cs-navigation .cs-whatsapp-button {
-      font-size: 0.875rem;
+      font-size: 0.875rem !important;
       font-weight: 700;
-      line-height: 2.5rem;
+      line-height: 1.5;
       text-align: center;
       text-decoration: none;
-      min-width: 8rem;
-      height: 2.5rem;
-      margin: 0;
+      min-width: 9.5rem !important;
+      max-width: 9.5rem !important;
+      width: 9.5rem !important;
+      min-height: 44px !important;
+      max-height: 44px !important;
+      height: 44px !important;
+      margin: 0 !important;
       box-sizing: border-box;
-      padding: 0 1.25rem;
+      padding: 0 0.75rem !important;
       color: #fff;
       background-color: var(--primary);
       border: none;
       border-radius: 0.25rem;
-      display: inline-flex;
+      display: inline-flex !important;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
@@ -789,6 +793,8 @@ import Logo from "/public/logo_raddigitalsolutions.webp";
       font-family: inherit;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       touch-action: manipulation;
+      flex-shrink: 0;
+      vertical-align: middle;
     }
 
     #cs-navigation .cs-button-solid:before,
