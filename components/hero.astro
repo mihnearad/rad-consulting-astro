@@ -11,16 +11,27 @@
         <video
           class="hero-video"
           muted
-          loop
           playsinline
-          preload="metadata"
-          poster="/Background.webp"
+          preload="auto"
           id="heroVideo"
+          style="opacity: 0;"
         >
           <source src="/DigitalVideo.mp4" type="video/mp4" media="(min-width: 768px)">
           Your browser does not support the video tag.
         </video>
       </div>
+
+      <!-- IMMEDIATE inline script to reset video BEFORE DOMContentLoaded -->
+      <script is:inline>
+        (function() {
+          // Reset video position IMMEDIATELY - runs as soon as script is parsed
+          const video = document.getElementById('heroVideo');
+          if (video) {
+            video.currentTime = 0;
+          }
+        })();
+      </script>
+
       <div class="hero-content">
         <h1 class="hero-title">
           Digital Solutions & IT Consulting for Your Business Success
@@ -34,91 +45,81 @@
     </section>
     
     <script>
-      // Wait for all page resources to load, then start video with smooth slow-down effect
-      window.addEventListener('load', function() {
+      // Main video control script with fade-in for ultra-smooth start
+      document.addEventListener('DOMContentLoaded', function() {
         const videoElement = document.getElementById('heroVideo');
         if (!videoElement) return;
-        
+
         const video = videoElement as HTMLVideoElement;
-        let isSlowingDown = false;
-        let normalPlaybackRate = 1.0;
-        const slowDownDuration = 2.5; // Start slowing down 2.5 seconds before end
-          
-          // Remove the loop attribute - we'll handle it manually
-          video.removeAttribute('loop');
-          
-          // Enhanced video loading with error handling
-          video.addEventListener('loadeddata', function() {
-            console.log('Video loaded successfully');
-          });
-          
-          video.addEventListener('error', function(e) {
-            console.error('Video failed to load:', e);
-            // Fallback: show poster image
-            video.style.display = 'none';
-          });
-          
-          // Attempt to play the video with retry logic
-          let playAttempts = 0;
-          const maxAttempts = 3;
-          
-          function tryPlay() {
-            if (!video) return;
-            
-            const playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-              playPromise
-                .then(() => {
-                  console.log('Video playing successfully after page load');
-                })
-                .catch((error: unknown) => {
-                  console.log('Video play prevented, attempt', playAttempts + 1, ':', error);
-                  playAttempts++;
-                  
-                  // Retry after a short delay if we haven't exceeded max attempts
-                  if (playAttempts < maxAttempts) {
-                    setTimeout(tryPlay, 500);
-                  } else {
-                    console.log('Video play failed after', maxAttempts, 'attempts - showing poster image');
-                  }
-                });
-            }
-          }
-          
-          // Start playing immediately since page is already loaded
-          if (video.readyState >= 3) {
-            // Video is already loaded enough to play
-            tryPlay();
-          } else {
-            // Wait for video to be ready
-            video.addEventListener('canplay', tryPlay, { once: true });
+
+        // CRITICAL: Reset to frame 0 immediately (redundant but ensures reset)
+        video.currentTime = 0;
+
+        // Remove loop - we'll handle ending manually
+        video.removeAttribute('loop');
+
+        // Error handling - fallback to poster if video fails
+        video.addEventListener('error', function(e) {
+          console.error('Video failed to load:', e);
+          video.style.display = 'none';
+        });
+
+        // When video has enough data loaded and is at frame 0, fade it in
+        function handleVideoReady() {
+          // Ensure we're at frame 0 before showing
+          if (video.currentTime > 0.1) {
+            video.currentTime = 0;
           }
 
-          // Smooth slow-down effect
-          video.addEventListener('timeupdate', function() {
-            const videoDuration = video.duration;
-            const currentTime = video.currentTime;
-            const timeRemaining = videoDuration - currentTime;
-            
-            // Start slowing down in the last few seconds
-            if (timeRemaining <= slowDownDuration && timeRemaining > 0.1 && !isSlowingDown) {
-              isSlowingDown = true;
-              // Calculate playback rate based on time remaining
-              // Gradually slow from 1.0 to 0.0
-              const slowdownProgress = 1 - (timeRemaining / slowDownDuration);
-              const newRate = normalPlaybackRate * (1 - slowdownProgress);
-              video.playbackRate = Math.max(0.1, newRate); // Don't go below 0.1
-            } else if (timeRemaining <= 0.1 && isSlowingDown) {
-              // Video has reached the end, pause it permanently
-              video.pause();
-              isSlowingDown = false;
-              // Stay paused until page reload - no automatic restart
-            } else if (!isSlowingDown && video.playbackRate !== normalPlaybackRate) {
-              // Reset playback rate if we're not in slow-down phase
-              video.playbackRate = normalPlaybackRate;
-            }
-          });
+          // Fade in video smoothly
+          video.style.transition = 'opacity 0.6s ease-in';
+          video.style.opacity = '1';
+
+          // Start playback
+          tryPlay();
+        }
+
+        // Retry logic for autoplay (handles browsers that block autoplay)
+        let playAttempts = 0;
+        const maxAttempts = 3;
+
+        function tryPlay() {
+          const playPromise = video.play();
+
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                console.log('Video playing successfully');
+              })
+              .catch((error: unknown) => {
+                playAttempts++;
+
+                if (playAttempts < maxAttempts) {
+                  console.log('Video play attempt', playAttempts, 'failed, retrying...');
+                  setTimeout(tryPlay, 500);
+                } else {
+                  console.log('Video play failed after', maxAttempts, 'attempts');
+                  // Show video anyway even if autoplay fails
+                  video.style.transition = 'opacity 0.6s ease-in';
+                  video.style.opacity = '1';
+                }
+              });
+          }
+        }
+
+        // Wait for video to be ready at frame 0 before showing
+        if (video.readyState >= 2) {
+          // HAVE_CURRENT_DATA or better - at least first frame loaded
+          handleVideoReady();
+        } else {
+          video.addEventListener('loadeddata', handleVideoReady, { once: true });
+        }
+
+        // Stop on last frame when video ends (keeps final frame visible)
+        video.addEventListener('ended', function() {
+          video.pause();
+          video.currentTime = video.duration;
+        });
       });
     </script>
   </body>
@@ -136,11 +137,7 @@
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    background-image: url('/Background.webp'); /* Immediate background while everything loads */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Parallax effect */
-    background-color: #011426; /* Fallback color matching your brand */
+    background-color: #011426; /* Dark background - video fades in over this */
   }
 
   .hero-bg {
@@ -149,23 +146,24 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-attachment: fixed; /* Parallax effect */
-    background-image: url('/Background.webp'); /* Fallback if video fails */
-    background-size: cover;
-    background-position: center;
-    background-color: #011426; /* Fallback color */
-    animation: zoomIn 0.5s;
+    background-color: #011426; /* Dark background - video fades in over this */
     z-index: 0;
   }
 
   .hero-video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: cover;
     z-index: 1;
+    /* Prevent layout shift and maintain aspect ratio */
+    aspect-ratio: 16 / 9;
+    display: block;
   }
 
   @keyframes zoomIn {
@@ -326,19 +324,24 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-attachment: relative; /* Parallax effect */
-      animation: zoomIn 2.5s;
+      background-color: #011426;
       z-index: 0;
     }
 
     .hero-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
       object-fit: cover;
       z-index: 1;
+      /* Prevent layout shift and maintain aspect ratio */
+      aspect-ratio: 16 / 9;
+      display: block;
     }
   }
 
