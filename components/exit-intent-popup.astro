@@ -4,7 +4,7 @@
 // Offers free lead magnet to capture abandoning visitors
 ---
 
-<div id="exitIntentPopup" class="exit-popup-overlay" aria-hidden="true">
+<div id="exitIntentPopup" class="exit-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle" style="display: none;">
   <div class="exit-popup-container">
     <button class="exit-popup-close" aria-label="Close popup">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -21,7 +21,7 @@
         </svg>
       </div>
 
-      <h2 class="exit-popup-title">Wait! Grab Your Free IT Checklist</h2>
+      <h2 id="exitPopupTitle" class="exit-popup-title">Wait! Grab Your Free IT Checklist</h2>
       <p class="exit-popup-subtitle">Get instant access to our <strong>25-Point IT Infrastructure Assessment Checklist</strong></p>
 
       <ul class="exit-popup-benefits">
@@ -67,7 +67,6 @@
 
 <style>
 .exit-popup-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -304,9 +303,10 @@
   const EXPIRY_HOURS = 24; // Show again after 24 hours
 
   const exitPopup = document.getElementById('exitIntentPopup');
-  const closeButton = exitPopup?.querySelector('.exit-popup-close');
+  const closeButton = exitPopup?.querySelector('.exit-popup-close') as HTMLButtonElement | null;
   const form = document.getElementById('exitPopupForm') as HTMLFormElement | null;
   let hasShownPopup = false;
+  let lastFocusedElement: HTMLElement | null = null;
 
   // Check if popup was already shown recently
   function wasRecentlyShown() {
@@ -322,9 +322,18 @@
     // Don't show if already shown in last 24 hours
     if (wasRecentlyShown() || !exitPopup || hasShownPopup) return;
 
+    // Save current focused element to return focus later
+    lastFocusedElement = document.activeElement as HTMLElement;
+
+    // Show popup
+    exitPopup.style.display = 'flex';
     exitPopup.classList.add('active');
-    exitPopup.setAttribute('aria-hidden', 'false');
     hasShownPopup = true;
+
+    // Focus on close button for accessibility
+    if (closeButton) {
+      closeButton.focus();
+    }
 
     // Mark as shown with timestamp
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
@@ -341,8 +350,13 @@
   // Close popup function
   function closeExitPopup() {
     if (exitPopup) {
+      exitPopup.style.display = 'none';
       exitPopup.classList.remove('active');
-      exitPopup.setAttribute('aria-hidden', 'true');
+
+      // Return focus to previously focused element
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
     }
   }
 
@@ -442,8 +456,27 @@
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && exitPopup?.classList.contains('active')) {
+    if (e.key === 'Escape' && exitPopup?.style.display === 'flex') {
       closeExitPopup();
+    }
+  });
+
+  // Focus trap: Keep focus within popup when open
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || exitPopup?.style.display !== 'flex') return;
+
+    const focusableElements = exitPopup.querySelectorAll(
+      'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0] as HTMLElement;
+    const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    if (e.shiftKey && document.activeElement === firstFocusable) {
+      e.preventDefault();
+      lastFocusable.focus();
+    } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+      e.preventDefault();
+      firstFocusable.focus();
     }
   });
 

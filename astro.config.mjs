@@ -63,9 +63,7 @@ export default defineConfig({
   vite: {
     build: {
       cssCodeSplit: true,
-      modulePreload: {
-        polyfill: false
-      },
+      modulePreload: true,
       rollupOptions: {
         output: {
           manualChunks: {

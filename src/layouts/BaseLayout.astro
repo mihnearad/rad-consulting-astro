@@ -92,14 +92,10 @@ const { title, description, keywords, canonical, ogImage, ogUrl } = Astro.props;
     
     <!-- Sitemap and Search Console -->
     <link rel="sitemap" href="/sitemap-index.xml" />
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" as="image" href="/Background.webp" type="image/webp" fetchpriority="high" />
-    <link rel="preload" as="video" href="/DigitalVideo.mp4" type="video/mp4" />
+
+    <!-- Optimize third-party connections -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Optimize third-party connections -->
     <link rel="preconnect" href="https://cdn.kiprotect.com" />
     <link rel="dns-prefetch" href="https://cdn.kiprotect.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
