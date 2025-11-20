@@ -1,0 +1,794 @@
+---
+import Navbar from "../../../components/navbar.astro";
+import Footer from "../../../components/footer.astro";
+import { Image } from "astro:assets";
+import "../../global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Consent Mode - Must load BEFORE GTM and GA4 -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Set default consent to 'denied' as a placeholder
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HW0BVWR14C"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HW0BVWR14C');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Business Development Services - Help Your Business Grow | RAD</title>
+    <meta name="title" content="Business Development Services - Help Your Business Grow | RAD" />
+    <meta name="description" content="Expert business development services focused on sustainable growth and strategic planning. We help businesses grow through proven methodologies and partnership." />
+    <meta name="keywords" content="business development, business growth, strategic planning, market expansion, growth strategy, business consulting, revenue growth, partnership development, market analysis, business strategy" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="RAD Digital Solutions" />
+    <link rel="canonical" href="https://rad-digitalsolutions.com/services/business-development" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://rad-digitalsolutions.com/services/business-development" />
+    <meta property="og:title" content="Business Development Services - Help Your Business Grow" />
+    <meta property="og:description" content="Expert business development services focused on sustainable growth and strategic planning. We help businesses grow through proven methodologies." />
+    <meta property="og:image" content="https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="RAD Digital Solutions" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://rad-digitalsolutions.com/services/business-development" />
+    <meta name="twitter:title" content="Business Development Services - Help Your Business Grow" />
+    <meta name="twitter:description" content="Expert business development services focused on sustainable growth and strategic planning. We help businesses grow through proven methodologies." />
+    <meta name="twitter:image" content="https://rad-digitalsolutions.com/logo_raddigitalsolutions.webp" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/logo_raddigitalsolutions.webp" type="image/webp" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Business Development Services",
+        "description": "Comprehensive business development services helping organizations achieve sustainable growth through strategic planning and market expansion",
+        "provider": {
+          "@type": "Organization",
+          "name": "RAD Digital Solutions",
+          "url": "https://rad-digitalsolutions.com"
+        },
+        "areaServed": "Worldwide",
+        "serviceType": "Business Development",
+        "url": "https://rad-digitalsolutions.com/services/business-development",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rad-digitalsolutions.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://rad-digitalsolutions.com/#services-343"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Business Development",
+          "item": "https://rad-digitalsolutions.com/services/business-development"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSZZ2K5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Klaro Cookie Consent -->
+    <div id="klaro"></div>
+
+    <Navbar />
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="cs-container">
+                <h1 class="hero-title">Business Development Services</h1>
+                <p class="hero-subtitle">We help businesses grow. Our strategic approach to business development focuses on sustainable growth, market expansion, and long-term success for your organization.</p>
+                <a href="/#contact" class="hero-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="cs-container">
+            <div class="section-header">
+                <h2 class="cs-title">Why Partner With Us?</h2>
+                <p class="cs-text">Strategic business development solutions tailored to your growth objectives.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <h3 class="benefit-title">Sustainable Growth</h3>
+                    <p class="benefit-description">Build a foundation for long-term success with strategies that scale with your business.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title">Strategic Focus</h3>
+                    <p class="benefit-description">Align your growth initiatives with your business objectives for maximum impact.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🤝</div>
+                    <h3 class="benefit-title">Partnership Approach</h3>
+                    <p class="benefit-description">Work with a team that understands your business and is invested in your success.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <h3 class="benefit-title">Proven Methods</h3>
+                    <p class="benefit-description">Leverage our experience and expertise to navigate growth challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="cs-container">
+            <div class="section-header">
+                <h2 class="cs-title">Our Approach to Growth</h2>
+                <p class="cs-text">Comprehensive business development services to drive your success.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3 class="service-title">Market Analysis</h3>
+                        <p class="service-description">Understand your market landscape and identify opportunities for expansion and growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3 class="service-title">Strategic Planning</h3>
+                        <p class="service-description">Develop actionable strategies that align with your business goals and market position.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3 class="service-title">Market Expansion</h3>
+                        <p class="service-description">Enter new markets and expand your reach with confidence and strategic support.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3 class="service-title">Partnership Development</h3>
+                        <p class="service-description">Build strategic partnerships that accelerate growth and create mutual value.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚀</div>
+                        <h3 class="service-title">Growth Acceleration</h3>
+                        <p class="service-description">Implement strategies and tactics that drive measurable business growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3 class="service-title">Revenue Optimization</h3>
+                        <p class="service-description">Maximize revenue potential through strategic initiatives and process improvements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="cs-container">
+            <div class="section-header">
+                <h2 class="cs-title">Our Process</h2>
+                <p class="cs-text">A proven methodology for driving sustainable business growth.</p>
+            </div>
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+                <div class="process-step" data-step="1">
+                    <div class="step-marker">
+                        <div class="step-number">1</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Discovery</h3>
+                        <p class="step-description">We start by understanding your business, objectives, and current position in the market to identify opportunities.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-step="2">
+                    <div class="step-marker">
+                        <div class="step-number">2</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Strategy Development</h3>
+                        <p class="step-description">Create a customized growth strategy that aligns with your goals and market realities.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-step="3">
+                    <div class="step-marker">
+                        <div class="step-number">3</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Implementation</h3>
+                        <p class="step-description">Execute growth initiatives with precision and focus to achieve measurable results.</p>
+                    </div>
+                </div>
+                <div class="process-step" data-step="4">
+                    <div class="step-marker">
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Optimization</h3>
+                        <p class="step-description">Continuously refine and improve strategies to ensure sustained growth and success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cs-container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Accelerate Your Growth?</h2>
+                <p class="cta-description">Let's discuss how our business development services can help your organization reach its full potential.</p>
+                <div class="cta-buttons">
+                    <a href="/#contact" class="cta-button">Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+
+    <!-- Load Klaro Cookie Consent scripts after page content -->
+    <script src="/klaro-config.js" defer></script>
+    <script src="https://cdn.kiprotect.com/klaro/v0.7/klaro.js" defer></script>
+</body>
+</html>
+
+<style>
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--bodyTextColor);
+  background: #fff;
+}
+
+/* Container */
+.cs-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center !important;
+  margin-bottom: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cs-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  font-weight: 900;
+  color: var(--headerColor);
+  line-height: 1.2;
+  text-align: center !important;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cs-text {
+  font-size: 1.25rem;
+  color: var(--bodyTextColor);
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.8;
+  text-align: center !important;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primaryLight) 100%);
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 20, 38, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-button {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  min-width: 9.375rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.hero-button:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: 0;
+  background: var(--primaryLight);
+  border-radius: 0.25rem;
+  z-index: -1;
+  transition: width 0.3s;
+}
+
+.hero-button:hover:before {
+  width: 100%;
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-item {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.benefit-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--headerColor);
+  font-weight: 700;
+}
+
+.benefit-description {
+  color: var(--bodyTextColor);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Services Section */
+.services {
+  padding: 5rem 0;
+}
+
+.services-grid {
+  width: 100%;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  color: var(--primary);
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--headerColor);
+  font-weight: 700;
+}
+
+.service-description {
+  color: var(--bodyTextColor);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Process Section */
+.process {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.process-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  width: 3px;
+  height: calc(100% - 12rem);
+  background: linear-gradient(to bottom, var(--primary), var(--primaryLight));
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.process-step {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.process-step:last-child {
+  margin-bottom: 0;
+}
+
+.process-step:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.process-step:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.process-step:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.process-step:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.step-marker {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.step-number {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--primary), var(--primaryLight));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 20px rgba(1, 20, 38, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 12;
+  border: 3px solid white;
+}
+
+.step-number:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(1, 20, 38, 0.3);
+}
+
+.step-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.step-content::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 2rem;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+.step-content:hover {
+  transform: translateX(10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.step-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--headerColor);
+  font-weight: 700;
+}
+
+.step-description {
+  color: var(--bodyTextColor);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTA Section */
+.cta {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primaryLight) 100%);
+  text-align: center;
+  color: white;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center !important;
+}
+
+.cta-description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.2em;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: var(--primary);
+  min-width: 12rem;
+  padding: 1rem 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  color: var(--primaryLight);
+}
+
+/* Responsive Design */
+
+/* Tablet - 768px */
+@media only screen and (max-width: 48rem) {
+  .cs-container {
+    padding: 0 1.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .process-timeline {
+    padding: 1rem 0;
+  }
+
+  .timeline-line {
+    left: 1.5rem;
+  }
+
+  .process-step {
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .step-number {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile - 480px */
+@media only screen and (max-width: 30rem) {
+  .timeline-line {
+    left: 1.5rem;
+  }
+
+  .process-step {
+    gap: 1.5rem;
+  }
+
+  .step-number {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    border: 2px solid white;
+  }
+}
+</style>

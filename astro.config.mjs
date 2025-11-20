@@ -17,6 +17,7 @@ export default defineConfig({
         'https://rad-digitalsolutions.com/services/project-management',
         'https://rad-digitalsolutions.com/services/business-intelligence',
         'https://rad-digitalsolutions.com/services/process-automation',
+        'https://rad-digitalsolutions.com/services/business-development',
         'https://rad-digitalsolutions.com/free-it-infrastructure-checklist',
         'https://rad-digitalsolutions.com/bi-value-calculator',
         'https://rad-digitalsolutions.com/use-cases/enterprise-network-modernization',

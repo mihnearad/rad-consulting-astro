@@ -58,8 +58,11 @@ npm run start    # Alias for dev
 
 - **BI Value Calculator** (`/src/pages/bi-value-calculator.astro`)
   - Interactive ROI calculator for Business Intelligence
-  - 2-step assessment: Data maturity + Time/cost savings
-  - Generates custom recommendations based on input
+  - Simplified 8-question assessment (3-4 minutes to complete)
+  - Business-friendly language (no technical jargon)
+  - 2-step process: Data maturity (8 questions) + ROI inputs (5 fields)
+  - Scoring: 40-point scale across 4 dimensions (10 points each)
+  - Generates custom recommendations based on maturity level
   - Lead capture after results display
 
 See `/docs/LEAD_GENERATION_IMPROVEMENTS_SUMMARY.md` for complete implementation details and `/docs/AB_TESTING_CONTACT_FORMS.md` for A/B testing guide.
@@ -126,7 +129,7 @@ See `/docs/LEAD_GENERATION_IMPROVEMENTS_SUMMARY.md` for complete implementation 
 - **`astro.config.mjs`**: React integration, sitemap generation, Vite optimizations (manual chunks for vendor/swiper, CSS code splitting), build configuration
 - **`src/layouts/BaseLayout.astro`**: Main layout wrapper with SEO meta tags, GA4/GTM tracking, consent management, and global components (navbar, footer, modals)
 - **`src/global.css`**: CSS custom properties for design system (colors, typography, spacing, responsive font sizes)
-- **`src/middleware.ts`**: Security headers (CSP, X-Frame-Options, etc.) configured for GTM, GA4, Klaro, and Web3Forms
+- **`src/middleware.ts`**: Security headers (CSP, X-Frame-Options, etc.) configured for GTM, GA4, Umami, Klaro, and Web3Forms
 - **`public/klaro-config.js`**: Cookie consent configuration for GDPR compliance
 - **`components/ServiceTemplate.astro`**: Reusable template for all service pages (benefits, features, process, CTA sections)
 - **`/docs/`**: Extensive documentation (design system, SEO guide, performance optimizations, service template guide, contact modal guide)
@@ -245,7 +248,8 @@ All pages use `BaseLayout.astro` which implements the correct tracking sequence 
 1. **Google Consent Mode V2** (inline script setting default to 'denied')
 2. **Google Analytics 4 (GA4)** (G-HW0BVWR14C) with gtag.js
 3. **Google Tag Manager** (GTM-PNSZZ2K5)
-4. **Klaro Cookie Consent** (loads deferred, updates consent via gtag)
+4. **Umami Analytics** (a2d9b272-ba7e-40f7-a9d2-925922b00197) - Privacy-friendly, GDPR-compliant tracking
+5. **Klaro Cookie Consent** (loads deferred, updates consent via gtag)
 
 ```astro
 <!-- Google Consent Mode - Must load BEFORE GTM and GA4 -->
@@ -272,9 +276,17 @@ All pages use `BaseLayout.astro` which implements the correct tracking sequence 
 
 <!-- Google Tag Manager -->
 <script is:inline>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-PNSZZ2K5');</script>
+
+<!-- Umami Analytics -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="a2d9b272-ba7e-40f7-a9d2-925922b00197"></script>
 ```
 
 **IMPORTANT**: Use `BaseLayout.astro` for all pages to ensure consistent tracking and SEO implementation. Do not duplicate analytics scripts in individual pages.
+
+**Analytics Stack**:
+- **Google Analytics 4 (GA4)**: Comprehensive analytics with consent management
+- **Google Tag Manager (GTM)**: Event tracking and tag management
+- **Umami**: Privacy-friendly, cookie-free alternative analytics (doesn't require cookie consent)
 
 ### SEO Requirements for All Pages
 All SEO tags are handled by `BaseLayout.astro` via props. When creating new pages, pass these required props:
@@ -366,11 +378,11 @@ Configured in `astro.config.mjs` serialize function:
 ## Security Headers
 
 Configured in `src/middleware.ts` and applied to all responses:
-- **Content-Security-Policy**: Allows GTM, GA4, Klaro CDN, Web3Forms, external images
-  - `script-src`: self, unsafe-inline, GTM, Klaro
+- **Content-Security-Policy**: Allows GTM, GA4, Umami, Klaro CDN, Web3Forms, external images
+  - `script-src`: self, unsafe-inline, GTM, Klaro, Umami (cloud.umami.is)
   - `style-src`: self, unsafe-inline, Google Fonts, Klaro
   - `img-src`: self, data:, https:, blob: (for Unsplash and other external images)
-  - `connect-src`: self, Google Analytics, GTM, Web3Forms API
+  - `connect-src`: self, Google Analytics, GTM, Umami (cloud.umami.is), Web3Forms API
   - `frame-src`: GTM only
 - **X-Frame-Options**: DENY (prevents clickjacking)
 - **X-Content-Type-Options**: nosniff (prevents MIME sniffing)
@@ -665,3 +677,39 @@ When making significant changes:
 - Google Business Profile optimization
 
 See `/docs/LEAD_GENERATION_IMPROVEMENTS_SUMMARY.md` for complete details and implementation guide.
+
+### January 2025: BI Calculator Simplification & Analytics Enhancement
+
+**Goal**: Make BI Value Calculator more accessible for decision makers and add privacy-friendly analytics
+
+**Changes made**:
+
+1. **BI Value Calculator Simplification** (`bi-value-calculator.astro`)
+   - Reduced assessment from 12 questions to 8 questions
+   - Completion time: 5-7 minutes → 3-4 minutes
+   - Removed all technical jargon for business audience:
+     - "Data warehouse/lake" → "Connected systems/platform"
+     - "ETL/ELT" → "Automated updates"
+     - "Predictive analytics" → "Forecasting"
+     - "ML/prescriptive analytics" → "AI-powered insights"
+   - Updated scoring system: 60-point → 40-point scale
+   - Adjusted maturity level thresholds proportionally
+   - Updated meta descriptions and structured data
+
+2. **Umami Analytics Integration** (`BaseLayout.astro`, `middleware.ts`)
+   - Added privacy-friendly Umami Analytics tracking
+   - Website ID: a2d9b272-ba7e-40f7-a9d2-925922b00197
+   - Cookie-free tracking (GDPR compliant, no consent required)
+   - Works alongside Google Analytics and GTM
+   - Updated CSP to allow cloud.umami.is
+
+**Files modified**:
+- `src/pages/bi-value-calculator.astro` - Simplified questions and scoring
+- `src/layouts/BaseLayout.astro` - Added Umami script
+- `src/middleware.ts` - Updated CSP for Umami
+- `CLAUDE.md` - Documentation updates
+
+**Impact**:
+- BI Calculator: More accessible to C-level and department head decision makers
+- Analytics: Dual tracking for comprehensive insights (GA4 + Umami)
+- Privacy: Umami provides cookie-free alternative for privacy-conscious visitors
